@@ -1,0 +1,31 @@
+
+html {
+	font-size: 32px;
+}
+
+@media (width <= 756px) {
+	html {
+		font-size: 16px;
+	}
+}
+  
+
+body {
+	transition-duration: 10s;
+	background-color: #4D9BF9;
+}
+
+h1 {
+	color: rgba(255,255,255, 0.9);
+	font-size: 3rem;
+	font-family: 'Space Grotesk';
+}
+p {
+	font-family: 'Space Grotesk';
+	color: rgba(255,255,255, 0.8);
+	font-size: 1rem;
+}
+
+.p-std {
+	padding: 1rem;
+}
