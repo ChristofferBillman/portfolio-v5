@@ -1,11 +1,10 @@
 .button {
 	width: fit-content;
 	display: flex;
+	align-items: center;
+	gap: 0.5rem;
 	transition-duration: 200ms;
-}
-
-.link {
-	margin: 24px 32px;
+	padding: 0.5rem;
 }
 
 .button:hover {
