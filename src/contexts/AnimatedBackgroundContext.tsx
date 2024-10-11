@@ -21,7 +21,8 @@ export function AnimatedBackgroundProvider({ children }: Props): ReactNode {
 		new Circle(w/2, '#FE0886', initialPos),
 		new Circle(w/2, '#6233EE', initialPos),
 		new Circle(w/2, '#6233EE', initialPos),
-	])
+	],
+	'#4D9BF9')
 
 	return (
 		<animatedBackgroundContext.Provider value={animatedBackgroundHandler}>

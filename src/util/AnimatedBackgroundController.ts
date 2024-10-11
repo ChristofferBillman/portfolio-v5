@@ -6,9 +6,11 @@ export default class AnimatedBackgroundController {
 	root: HTMLElement | null = null
 	circlesContainer: HTMLElement | null = null
 	body: HTMLBodyElement
+	defaultBodyColor: string
 	
-	constructor(circles: Circle[]) {
+	constructor(circles: Circle[], defaultBodyColor: string) {
 		this.circles = circles
+		this.defaultBodyColor = defaultBodyColor
 		this.body = document.getElementsByTagName('body')[0]
 	}
 
@@ -24,28 +26,30 @@ export default class AnimatedBackgroundController {
 		this.forAllCircles(circle => {
 			circle.changeSizePseudoRandomly()
 		})
-		this.setColors(['#22E552','#0B6B23','#55CC5E','#39B916','#99B916'])
-		setTimeout(() => this.restoreDefaultColors(), 5000)
+		//this.setColors(['#22E552','#0B6B23','#55CC5E','#39B916','#99B916'])
+		//setTimeout(() => this.restoreDefaultColors(), 5000)
 	}
 
 	setColors(colors: string[]) {
+		this.triggerDramatic()
 		this.forAllCircles((circle, index) => {
-			circle.setColor(colors[this.circles.length % index])
+			circle.setColor(colors[index % colors.length])
 		})
-		
+
 		this.body.style.transitionDuration = '2s'
-		const prevBgColor = this.body.style.background
 		this.body.style.background = colors[0]
+
 		setTimeout(() => {
 			this.body.style.transitionDuration = '10s'
-			this.body.style.background = prevBgColor
 		}, 2000)
 	}
 
 	restoreDefaultColors() {
+		this.triggerDramatic()
 		this.forAllCircles(circle => {
 			circle.restoreColor()
 		})
+		this.body.style.background = this.defaultBodyColor
 	}
 
 	movePseudoRandomly() {
