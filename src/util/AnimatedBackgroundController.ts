@@ -26,8 +26,6 @@ export default class AnimatedBackgroundController {
 		this.forAllCircles(circle => {
 			circle.changeSizePseudoRandomly()
 		})
-		//this.setColors(['#22E552','#0B6B23','#55CC5E','#39B916','#99B916'])
-		//setTimeout(() => this.restoreDefaultColors(), 5000)
 	}
 
 	setColors(colors: string[]) {
