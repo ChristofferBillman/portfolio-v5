@@ -8,7 +8,10 @@ html {
 		font-size: 18px;
 	}
 }
-  
+
+button {
+	border: none;
+}
 
 body {
 	transition-duration: 10s;
@@ -27,6 +30,12 @@ p {
 }
 
 a {
+	font-family: 'Space Grotesk';
+	color: rgba(255,255,255, 1);
+	font-size: 0.6rem;
+}
+
+label {
 	font-family: 'Space Grotesk';
 	color: rgba(255,255,255, 1);
 	font-size: 0.6rem;
