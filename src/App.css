@@ -5,7 +5,7 @@ html {
 
 @media (width <= 756px) {
 	html {
-		font-size: 16px;
+		font-size: 18px;
 	}
 }
   
@@ -24,6 +24,12 @@ p {
 	font-family: 'Space Grotesk';
 	color: rgba(255,255,255, 0.8);
 	font-size: 1rem;
+}
+
+a {
+	font-family: 'Space Grotesk';
+	color: rgba(255,255,255, 1);
+	font-size: 0.6rem;
 }
 
 .p-std {

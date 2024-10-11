@@ -1,0 +1,19 @@
+.button {
+	width: fit-content;
+	display: flex;
+	transition-duration: 200ms;
+}
+
+.link {
+	margin: 24px 32px;
+}
+
+.button:hover {
+	transform: scale(1.05);
+	transition-duration: 200ms;
+	box-shadow: rgba(0, 0, 0, 0.1) 0 0 20px;
+}
+.button:active {
+	transform: scale(0.9);
+	box-shadow: none;
+}
