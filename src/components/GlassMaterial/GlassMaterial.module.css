@@ -3,9 +3,15 @@
 	backdrop-filter: blur(20px);
 	border-radius: 2rem;
 }
+
+.clickable {
+	cursor: pointer;
+}
+
 /* The fact that this ACTUALLY works is INSANE! */
 .glass::before {
 	content: "";
+	z-index: -1;
 	position: absolute;
 	inset: 0;
 	border-radius: 2rem;
