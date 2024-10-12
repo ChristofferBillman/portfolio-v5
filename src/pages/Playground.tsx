@@ -12,8 +12,9 @@ export default function Playground() {
 	const [selectedItem, setSelection] = useState('List')
 
 	return (
+		<>
+		<Menu/>
 		<div style={{padding: '1rem'}}>
-			<Menu/>
 			<h1>Hey there!</h1>
 			<p>As of now this is really just my personal playground. Eventually, this page will be moved to christofferbillman.se and become my new portfolio!</p>
 			<GlassMaterial className='p-std'>
@@ -65,5 +66,6 @@ export default function Playground() {
 			/>
 			</div>
 		</div>
+		</>
 	)
 }
