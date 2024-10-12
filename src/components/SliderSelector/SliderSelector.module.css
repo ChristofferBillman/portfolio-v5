@@ -26,6 +26,7 @@
 	display: flex;
 	gap: 0.2rem;
 	flex-direction: row-reverse;
+	border-radius: 200px;
 }
 
 
