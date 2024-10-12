@@ -12,15 +12,14 @@ interface Props {
 // Setup and export provider
 export function AnimatedBackgroundProvider({ children }: Props): ReactNode {
 
-	const w = window.innerWidth
 	const initialPos = {x: 0, y: 0}
 
 	const animatedBackgroundHandler = new AnimatedBackgroundController([
-		new Circle(w/2, '#4D9BF9', initialPos),
-		new Circle(w/2, '#AD3EC2', initialPos),
-		new Circle(w/2, '#FE0886', initialPos),
-		new Circle(w/2, '#6233EE', initialPos),
-		new Circle(w/2, '#6233EE', initialPos),
+		new Circle(4, '#4D9BF9', initialPos),
+		new Circle(3, '#AD3EC2', initialPos),
+		new Circle(2, '#FE0886', initialPos),
+		new Circle(1, '#AD3EC2', initialPos),
+		new Circle(1, '#6233EE', initialPos),
 	],
 	'#4D9BF9')
 

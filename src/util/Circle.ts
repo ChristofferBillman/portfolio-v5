@@ -1,17 +1,20 @@
 import style from '../components/AnimatedBackground/AnimatedBackground.module.css'
+import { hexToRgb } from './HexToRgb'
 import Position from './Position'
 
 export default class Circle {
 	element: HTMLDivElement
 	defaultColor: string
+	scaleFactor: number
+	position: Position
 	
-	constructor(size: number, color: string, position: Position) {
+	constructor(initalScaleFactor: number, color: string, position: Position) {
 		this.element = document.createElement('div')
 		this.element.classList.add(style.circle)
-		this.setSize(size)
+		this.scaleFactor = initalScaleFactor
 		this.setColor(color)
+		this.position = position
 		this.defaultColor = color
-		this.setPosition(position)
 	}
 
 	attachToDom(root: HTMLElement) {
@@ -24,21 +27,21 @@ export default class Circle {
 	}
 
 	setPosition(pos: Position) {
-		this.element.style.left = `${pos.x}px`
-		this.element.style.top = `${pos.y}px`
+		this.position = pos
+		this.applyTransformations()
 	}
 
 	setColor(color: string) {
-		this.element.style.backgroundColor = color
+		this.element.style.background = `radial-gradient(circle at center, rgba(${hexToRgb(color)}, 0.8) 0, rgba(${hexToRgb(color)}, 0) 50%) no-repeat`
 	}
 
 	restoreColor() {
 		this.element.style.backgroundColor = this.defaultColor
 	}
 
-	setSize(size: number) {
-		this.element.style.height = size + 'px'
-		this.element.style.width = size + 'px'
+	setScale(factor: number) {
+		this.scaleFactor = factor
+		this.applyTransformations()
 	}
 
 	movePseudoRandomly() {
@@ -48,8 +51,8 @@ export default class Circle {
 		const viewportWidth = window.innerWidth
 		const viewportHeight = window.innerHeight
 
-		const maxX = viewportWidth - this.element.offsetWidth + viewportWidth/2
-		const maxY = viewportHeight - this.element.offsetHeight + viewportHeight/2
+		const maxX = viewportWidth - this.position.x + viewportWidth/2
+		const maxY = viewportHeight - this.position.y + viewportHeight/2
 
 		const randomX = Math.floor(Math.random() * maxX)
 		const randomY = Math.floor(Math.random() * maxY)
@@ -58,20 +61,23 @@ export default class Circle {
 	}
 
 	changeSizePseudoRandomly() {
-		const viewportWidth = window.innerWidth
-
-		const size = Math.floor(Math.random() > 0.5 ? this.element.offsetWidth + viewportWidth/3 : this.element.offsetWidth - viewportWidth/3)
-
-		this.setSize(size)
+		const scale = Math.random() > 0.5 ? 0.5 : 2
+		this.setScale(scale)
 	}
 
 	getReflectedPosition(element: HTMLDivElement) {
-		const x = window.innerWidth - (element.offsetLeft + element.offsetWidth / 2)
-		const y = window.innerHeight - (element.offsetTop + element.offsetHeight / 2)
+		const x = window.innerWidth - (this.position.x + (element.offsetWidth * this.scaleFactor) / 2)
+		const y = window.innerHeight - (this.position.y + (element.offsetHeight * this.scaleFactor) / 2)
+		console.log({x,y})
 		return {x, y}
 	}
 
 	reflectPosition() {
 		this.setPosition(this.getReflectedPosition(this.element))
+	}
+
+	private applyTransformations() {
+		this.element.style.transformOrigin = 'center'
+		this.element.style.transform = `translateX(${this.position.x}px) translateY(${this.position.y}px) scale(${this.scaleFactor})`
 	}
 }

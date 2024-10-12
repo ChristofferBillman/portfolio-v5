@@ -5,16 +5,19 @@
 	top: 0;
 	left: 0;
 	z-index: -2;
-	overflow: hidden;
+	overflow: visible;
+	filter: url(#goo) blur(30px);
 }
 
 .circle {
-	width: 200px;
-	height: 200px;
+	width: 50vw;
+	height: 50vw;
 	border-radius: 1000px;
-	background-color: #FF00FF;
+	background: #FF00FF;
 	position: absolute;
 	transition-duration: 10s;
+	overflow: hidden;
+	mix-blend-mode: hard-light;
 }
 
 .grain:before {
