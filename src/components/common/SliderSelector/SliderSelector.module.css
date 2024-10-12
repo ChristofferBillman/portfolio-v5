@@ -3,8 +3,7 @@
 	align-items: center;
 	padding: 3px 0.3rem 3px 0.3rem;
 	box-sizing: border-box;
-	mix-blend-mode: hard-light;
-	transform: translate3d(0,0,0);
+	/*mix-blend-mode: hard-light;*/
 }
 
 .sliderSelectorItem input[type=radio] {
@@ -35,7 +34,7 @@
 	position: absolute;
 	z-index: -1;
 	border-radius: 100px;
-	background-color: gray;
+	background: rgba(0, 0, 0, 0.151);
 	transition-duration: 500ms;
 	transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 	transform: translateX(0px);
