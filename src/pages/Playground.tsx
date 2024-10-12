@@ -4,6 +4,7 @@ import GlassMaterial from "../components/common/GlassMaterial"
 import Icon from "../components/common/Icon"
 import SliderSelector from "../components/common/SliderSelector"
 import useAnimatedBackground from "../contexts/AnimatedBackgroundContext"
+import Menu from "../components/Menu"
 
 export default function Playground() {
 
@@ -12,6 +13,7 @@ export default function Playground() {
 
 	return (
 		<div style={{padding: '1rem'}}>
+			<Menu/>
 			<h1>Hey there!</h1>
 			<p>As of now this is really just my personal playground. Eventually, this page will be moved to christofferbillman.se and become my new portfolio!</p>
 			<GlassMaterial className='p-std'>
