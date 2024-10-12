@@ -12,6 +12,9 @@ export default class AnimatedBackgroundController {
 		this.circles = circles
 		this.defaultBodyColor = defaultBodyColor
 		this.body = document.getElementsByTagName('body')[0]
+		// Added after App.css is loaded so that margin reset doesn't transition on page load.
+		this.body.style.transitionDuration = '10s';
+		this.body.style.background = defaultBodyColor
 	}
 
 	reflectCircles() {	
@@ -77,7 +80,26 @@ export default class AnimatedBackgroundController {
 
 		this.circlesContainer = document.createElement('div')
 		this.circlesContainer.classList.add(style.animatedBackground)
-		this.circlesContainer.style.filter = `blur(${window.innerWidth/8}px)`
+
+		const filter = `
+<svg xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<filter id="goo">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+			<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+			<feBlend in="SourceGraphic" in2="goo" />
+		</filter>
+	</defs>
+</svg>
+`
+		const filterEl = document.createElement('span')
+		filterEl.innerHTML = filter
+
+		this.root.appendChild(filterEl)
+
+		//this.circlesContainer.style.filter = `blur(${window.innerWidth/8}px)`
+		// To force hardware acceleration in Safari
+		this.circlesContainer.style.transform = 'translate3d(0, 0, 0)'
 		this.root.appendChild(this.circlesContainer)
 	}
 
