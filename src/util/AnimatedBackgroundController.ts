@@ -1,5 +1,6 @@
 import Circle from './Circle'
 import style from '../components/AnimatedBackground/AnimatedBackground.module.css'
+import getBrowser from './GetBrowser'
 
 export default class AnimatedBackgroundController {
 	circles: Circle[]
@@ -95,11 +96,13 @@ export default class AnimatedBackgroundController {
 		const filterEl = document.createElement('span')
 		filterEl.innerHTML = filter
 
-		this.root.appendChild(filterEl)
+		// This effect works in Firefox, but is not hardware accelerated.
+		// Does not work in Safari.
+		if(getBrowser() == 'Chrome') {
+			this.root.appendChild(filterEl)
+		}
 
 		//this.circlesContainer.style.filter = `blur(${window.innerWidth/8}px)`
-		// To force hardware acceleration in Safari
-		this.circlesContainer.style.transform = 'translate3d(0, 0, 0)'
 		this.root.appendChild(this.circlesContainer)
 	}
 
