@@ -1,6 +1,6 @@
 import { createElement, forwardRef, ReactNode } from 'react'
 import style from './GlassMaterial.module.css'
-import getBrowser from '../../util/GetBrowser'
+import getBrowser from '../../../util/GetBrowser'
 
 interface Props {
 	className?: string
