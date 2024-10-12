@@ -20,7 +20,19 @@ export const SliderSelectorItem = forwardRef(function({ item, selectedValue, set
 			checked={selectedValue == item.value}
 			onChange={() => setSelection(item.value)}
 		/>
-		<label htmlFor={item.value}>{item.value}<Icon name={icon} size='0.75rem'/></label>
+		<label
+			htmlFor={item.value}
+			tabIndex={0}
+			onKeyDown={e => {
+				if (e.key === 'Enter' || e.key === ' ') {
+				  e.preventDefault();
+				  setSelection(item.value)
+				}
+			}}
+		>
+			{item.value}
+			<Icon name={icon} size='0.75rem'/>
+		</label>
 	</div>
 	)
 })
