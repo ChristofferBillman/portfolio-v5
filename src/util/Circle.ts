@@ -36,7 +36,7 @@ export default class Circle {
 	}
 
 	restoreColor() {
-		this.element.style.backgroundColor = this.defaultColor
+		this.setColor(this.defaultColor)
 	}
 
 	setScale(factor: number) {
