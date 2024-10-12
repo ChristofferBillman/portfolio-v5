@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useLayoutEffect, useRef, useState } from 'react'
+import { Dispatch, ReactNode, SetStateAction, useLayoutEffect, useRef, useState } from 'react'
 import GlassMaterial from '../GlassMaterial'
 import style from './SliderSelector.module.css'
 import { SliderSelectorItem } from './SliderSelectorItem'
@@ -8,9 +8,12 @@ interface Props {
 	selectedValue: string
 	setSelection: Dispatch<SetStateAction<string>>
 	className?: string
+	rightSlot?: ReactNode
+	wrapper?: 'glass' | 'div'
 }
+
 // This logic is insane and I will not understand it in 2 days.
-export function SliderSelector(props: Props) {
+export function SliderSelector({ wrapper = 'glass', ...props }: Props) {
 
 	const sliderRef = useRef<HTMLDivElement>(null)
 	const itemsRef = useRef<Array<HTMLDivElement | null>>([])
@@ -34,25 +37,34 @@ export function SliderSelector(props: Props) {
 		setSelectedItemWidth(newSelectedItemWidth)
 	}, [selectedIndex])
 
-return (
-	<GlassMaterial
-		className={`${style.sliderSelector} ${props.className}`}
-		ref={sliderRef}
-	>
-		{props.items.map((item, i) => (
-			<SliderSelectorItem
-				key={i}
-				item={item}
-				ref={el => itemsRef.current[i] = el}
-				{...props}
+	const Wrapper = getWrapper(wrapper)
+
+	return (
+		<Wrapper
+			className={`${style.sliderSelector} ${props.className}`}
+			ref={sliderRef}
+		>
+			{props.items.map((item, i) => (
+				<SliderSelectorItem
+					key={i}
+					item={item}
+					ref={el => itemsRef.current[i] = el}
+					{...props}
+				/>
+			))}
+			{props.rightSlot}
+			<span
+				className={style.selectedItem}
+				style={{
+					transform: `translateX(${offsetX}px)`,
+					width: selectedItemWidth + 'px',
+				}}
 			/>
-		))}
-		<span
-			className={style.selectedItem}
-			style={{
-				transform: `translateX(${offsetX}px)`,
-				width: selectedItemWidth + 'px',
-			}}
-		/>
-	</GlassMaterial>
-)}
+		</Wrapper>
+	)
+}
+
+const getWrapper = (el: 'glass' | 'div') => {
+	if (el == 'glass') return GlassMaterial
+	else return 'div'
+}
