@@ -1,8 +1,8 @@
 import { useState } from "react"
-import Button from "../components/Button"
-import GlassMaterial from "../components/GlassMaterial"
-import Icon from "../components/Icon"
-import SliderSelector from "../components/SliderSelector"
+import Button from "../components/common/Button"
+import GlassMaterial from "../components/common/GlassMaterial"
+import Icon from "../components/common/Icon"
+import SliderSelector from "../components/common/SliderSelector"
 import useAnimatedBackground from "../contexts/AnimatedBackgroundContext"
 
 export default function Playground() {
