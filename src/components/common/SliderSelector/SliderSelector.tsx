@@ -7,6 +7,7 @@ interface Props {
 	items: { value: string, icon: string }[]
 	selectedValue: string
 	setSelection: Dispatch<SetStateAction<string>>
+	className: string
 }
 // This logic is insane and I will not understand it in 2 days.
 export function SliderSelector(props: Props) {
@@ -35,7 +36,7 @@ export function SliderSelector(props: Props) {
 
 return (
 	<GlassMaterial
-		className={style.sliderSelector}
+		className={`${style.sliderSelector} ${props.className}`}
 		ref={sliderRef}
 	>
 		{props.items.map((item, i) => (
