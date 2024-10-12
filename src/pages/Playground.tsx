@@ -11,7 +11,7 @@ export default function Playground() {
 	const [selectedItem, setSelection] = useState('List')
 
 	return (
-		<>
+		<div style={{padding: '1rem'}}>
 			<h1>Hey there!</h1>
 			<p>As of now this is really just my personal playground. Eventually, this page will be moved to christofferbillman.se and become my new portfolio!</p>
 			<GlassMaterial className='p-std'>
@@ -62,6 +62,6 @@ export default function Playground() {
 				items={[{value: 'List', icon: 'list'},{value: 'Grid', icon: 'grid_view'},{value: 'Bento', icon: 'bento'}]}
 			/>
 			</div>
-		</>
+		</div>
 	)
 }
