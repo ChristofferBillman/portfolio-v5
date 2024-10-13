@@ -65,7 +65,18 @@ export function Menu() {
 			>
 				<div className={style.line}/>
 				<div className={style.projectsContainer}>
-					<p>Hello there how are you yes im good sir!</p>
+					<div className={style.col}>
+						<p>Highlighted projects</p>
+						<a>Placeholder 1</a>
+						<a>Placeholder 2</a>
+						<a>Placeholder 3</a>
+					</div>
+					<div className={style.col}>
+						<p>Links & resources</p>
+						<a>GitHub</a>
+						<a>LinkedIn</a>
+						<a>Resume <Icon name='download'/></a>
+					</div>
 				</div>
 				<div className={style.line}/>
 				<div className={style.controlsContainer}>
@@ -92,7 +103,7 @@ function MenuButton({ onClick, open }: ButtonProps) {
 	return (
 		<button className={style.menuButton} onClick={onClick}>
 			<Icon name={open ? 'close' : 'more_horiz'} color="black" size="0.75rem" />
-			<label style={{ color: 'black' }}>{open ? 'Close' : 'Menu'}</label>
+			<a style={{ color: 'black' }}>{open ? 'Close' : 'Menu'}</a>
 		</button>
 	)
 }

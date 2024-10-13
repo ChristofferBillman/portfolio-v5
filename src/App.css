@@ -38,8 +38,12 @@ label {
 	font-size: 0.6rem;
 }
 
-.p-std {
-	padding: 1rem;
+.g-test {
+	width: 10rem;
+	height: 10rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 @media (width <= 480px) {

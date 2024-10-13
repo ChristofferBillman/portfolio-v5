@@ -12,13 +12,10 @@ export default function Playground() {
 
 	return (
 		<>
-			<h1>Hey there!</h1>
-			<p>As of now this is really just my personal playground. Eventually, this page will be moved to christofferbillman.se and become my new portfolio!</p>
-			<GlassMaterial className='p-std'>
-				<p>This glass material is so cool! I can't believe that gradient borders + border radius + transparency is possible!!!</p>
-			</GlassMaterial>
+			<h1>Playground</h1>
+			<p>This is where I test different components and features.</p>
 			<div style={{margin: '1rem'}}/>
-			<div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap'}}>
+			<div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '1rem'}}>
 			<Button
 				onClick={() => {
 					animationController.setColors(['#C91010', '#CE522D'])
@@ -62,6 +59,9 @@ export default function Playground() {
 				items={[{text: 'List', value: 'list', icon: 'list'},{text: 'Grid', value: 'grid', icon: 'grid_view'},{text: 'Bento', value: 'bento', icon: 'bento'}]}
 			/>
 			</div>
+			<GlassMaterial className='g-test'>
+				<p>Glass Material</p>
+			</GlassMaterial>
 		</>
 	)
 }
