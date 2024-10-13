@@ -6,7 +6,9 @@
 	left: 0;
 	z-index: -2;
 	overflow: visible;
-	filter: url(#goo) blur(30px);
+	filter: url(#goo) blur(6px);
+	-webkit-filter: url(#goo) blur(6px);
+	will-change: filter;
 }
 
 .circle {
@@ -18,6 +20,7 @@
 	transition-duration: 10s;
 	overflow: hidden;
 	mix-blend-mode: hard-light;
+	will-change: transform;
 }
 
 .grain:before {
