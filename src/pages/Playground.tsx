@@ -15,6 +15,7 @@ export default function Playground() {
 		<>
 		<Menu/>
 		<div style={{padding: '1rem'}}>
+			<div style={{paddingTop: '4rem'}}/>
 			<h1>Hey there!</h1>
 			<p>As of now this is really just my personal playground. Eventually, this page will be moved to christofferbillman.se and become my new portfolio!</p>
 			<GlassMaterial className='p-std'>
@@ -24,7 +25,7 @@ export default function Playground() {
 			<div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap'}}>
 			<Button
 				onClick={() => {
-					animationController.setColors(['#C91010', '#CE522D'])
+					animationController.setColors(['#C91010', '#cc5f3d', '#ff386a', '#cc5f3d', '#cc5f3d'])
 				}}
 				text='Red'
 				rightSlot={<Icon name='palette' size='0.75rem'/>}
@@ -62,7 +63,7 @@ export default function Playground() {
 			<SliderSelector
 				selectedValue={selectedItem}
 				setSelection={setSelection}
-				items={[{value: 'List', icon: 'list'},{value: 'Grid', icon: 'grid_view'},{value: 'Bento', icon: 'bento'}]}
+				items={[{value: 'List', icon: 'list'},{value: 'Bento', icon: 'bento'}]}
 			/>
 			</div>
 		</div>

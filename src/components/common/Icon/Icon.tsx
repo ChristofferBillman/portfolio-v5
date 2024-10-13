@@ -4,13 +4,13 @@ interface Props {
 	color?: string
 }
 
-export function Icon({name, size = '1rem', color = 'rgba(255,255,255,0.8)'}: Props) {
+export function Icon({name, color = 'rgba(255,255,255,0.8)'}: Props) {
 	return (
 		<span
             className='material-symbols-rounded'
             style={{
 				color,
-                fontSize: size,
+                fontSize: 'inherit',
                 cursor: 'pointer',
                 userSelect: 'none',
                 fontVariationSettings: `'FILL' 0, 'wght' 400`

@@ -1,12 +1,5 @@
-
 html {
-	font-size: 32px;
-}
-
-@media (width <= 756px) {
-	html {
-		font-size: 18px;
-	}
+	font-size: 24px;
 }
 
 button {
@@ -15,8 +8,9 @@ button {
 
 body {
 	margin: 0;
+	width: 100vw;
 	min-height: 100vh;
-	overflow-x: hidden;
+	background: #4D9BF9;
 }
 
 h1 {
@@ -46,4 +40,16 @@ label {
 
 .p-std {
 	padding: 1rem;
+}
+
+@media (width <= 480px) {
+	h1 {
+		font-size: 2rem;
+	}
+	label {
+		font-size: 1rem;
+	}
+	a {
+		font-size: 1rem;
+	}
 }
