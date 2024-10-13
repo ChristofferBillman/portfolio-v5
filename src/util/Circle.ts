@@ -77,7 +77,6 @@ export default class Circle {
 	}
 
 	private applyTransformations() {
-		this.element.style.transformOrigin = 'center'
 		this.element.style.transform = `translateX(${this.position.x}px) translateY(${this.position.y}px) scale(${this.scaleFactor})`
 	}
 }

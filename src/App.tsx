@@ -9,7 +9,7 @@ function App() {
 		<Playground/>
 		<AnimatedBackground/>
 	</AnimatedBackgroundProvider>
-  )
+)
 }
 
 export default App

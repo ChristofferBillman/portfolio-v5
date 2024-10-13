@@ -4,7 +4,7 @@ import getBrowser from '../../../util/GetBrowser'
 
 interface Props {
 	className?: string
-	children: ReactNode
+	children?: ReactNode
 	onClick?: () => void
 	baseElement?: 'div' | 'button'
 }

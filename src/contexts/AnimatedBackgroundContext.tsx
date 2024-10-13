@@ -15,11 +15,11 @@ export function AnimatedBackgroundProvider({ children }: Props): ReactNode {
 	const initialPos = {x: 0, y: 0}
 
 	const animatedBackgroundHandler = new AnimatedBackgroundController([
-		new Circle(4, '#4D9BF9', initialPos),
+		new Circle(6, '#4D9BF9', initialPos),
 		new Circle(3, '#AD3EC2', initialPos),
 		new Circle(2, '#FE0886', initialPos),
-		new Circle(1, '#AD3EC2', initialPos),
-		new Circle(1, '#6233EE', initialPos),
+		new Circle(2, '#AD3EC2', initialPos),
+		new Circle(2, '#6233EE', initialPos),
 	],
 	'#4D9BF9')
 
