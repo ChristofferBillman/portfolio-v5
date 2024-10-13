@@ -4,7 +4,7 @@ import style from './SliderSelector.module.css'
 import { SliderSelectorItem } from './SliderSelectorItem'
 
 interface Props {
-	items: { value: string, icon: string }[]
+	items: { text: string, value: string, icon: string }[]
 	selectedValue: string
 	setSelection: Dispatch<SetStateAction<string>>
 	className?: string

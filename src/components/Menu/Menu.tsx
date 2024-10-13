@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import SliderSelector from "../common/SliderSelector";
 
 import style from './Menu.module.css'
@@ -6,11 +6,19 @@ import Icon from "../common/Icon";
 import GlassMaterial from "../common/GlassMaterial";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import Button from "../common/Button";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export function Menu() {
 
+	const navigate = useNavigate()
+	const location = useLocation()
+
 	const [selectedItem, setSelection] = useState('Home')
 	const [open, setOpen] = useState(false)
+
+	useEffect(() => {
+		setSelection(location.pathname)
+	}, [location])
 
 	const menuItemsRef = useRef<HTMLDivElement>(null)
 	const menuRef = useRef<HTMLDivElement>(null)
@@ -34,14 +42,15 @@ export function Menu() {
 			<div ref={menuItemsRef} className={style.menuItemsWrapper}>
 				<SliderSelector
 					items={[
-						{ value: 'Home', icon: 'home' },
-						{ value: 'Projects', icon: 'landscape' },
-						{ value: 'About', icon: 'person' },
-						{ value: 'Contact', icon: 'forum' }
+						{ text: 'Home', icon: 'home', value: '/' },
+						{ text: 'Projects', icon: 'landscape', value: '/projects' },
+						{ text: 'About', icon: 'person', value: '/about' },
+						{ text: 'Contact', icon: 'forum', value: '/contact' }
 					]}
 					selectedValue={selectedItem}
 					setSelection={item => {
 						setSelection(item)
+						navigate(item.toString().toLowerCase())
 						setOpen(false)
 					}}
 					className={style.slider}
@@ -60,9 +69,14 @@ export function Menu() {
 				</div>
 				<div className={style.line}/>
 				<div className={style.controlsContainer}>
-					<Button text="Test" leftSlot={<Icon name='bento'/>}/>
-					<Button text="Test" leftSlot={<Icon name='bento'/>}/>
-					<Button text="Test" leftSlot={<Icon name='bento'/>}/>
+					<Button
+						text="Playground"
+						onClick={() => {
+							navigate('/playground')
+							setOpen(false)
+						}}
+						leftSlot={<Icon name='toys'/>}
+					/>
 				</div>
 			</div>
 		</>

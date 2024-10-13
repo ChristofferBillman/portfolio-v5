@@ -3,7 +3,7 @@ import style from './SliderSelector.module.css'
 import Icon from '../Icon'
 
 interface Props {
-	item: {value: string, icon: string}
+	item: {text: string, value: string, icon: string}
 	selectedValue: string
 	setSelection: Dispatch<SetStateAction<string>>
 }
@@ -30,7 +30,7 @@ export const SliderSelectorItem = forwardRef(function({ item, selectedValue, set
 				}
 			}}
 		>
-			{item.value}
+			{item.text}
 			<Icon name={icon} size='0.75rem'/>
 		</label>
 	</div>
