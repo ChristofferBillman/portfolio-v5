@@ -74,10 +74,6 @@
 	opacity: 0;
 }
 
-.menuContentsOpen {
-	opacity: 1;
-}
-
 .open {
 	transform-origin: top;
 	transform: translate(0.5rem, -0.5rem);
