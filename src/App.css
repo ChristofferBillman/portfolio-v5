@@ -46,6 +46,10 @@ label {
 	justify-content: center;
 }
 
+.modal-test {
+	padding: 1rem;
+}
+
 @media (width <= 480px) {
 	h1 {
 		font-size: 2rem;
