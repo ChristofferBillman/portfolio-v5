@@ -5,11 +5,14 @@ import Icon from "../components/common/Icon"
 import SliderSelector from "../components/common/SliderSelector"
 import useAnimatedBackground from "../contexts/AnimatedBackgroundContext"
 import { Modal } from "../components/common/Modal/Modal"
+import { useNavigate } from "react-router-dom"
 
 export default function Playground() {
 
 	const animationController = useAnimatedBackground()
 	const [selectedItem, setSelection] = useState('List')
+
+	const navigate = useNavigate()
 
 	const [modalVisible, setModalVisible] = useState(false)
 	const contentRef = useRef<HTMLDivElement>(null)
@@ -59,6 +62,12 @@ export default function Playground() {
 					/>
 
 					<Button
+						onClick={() => navigate('/projects/chare')}
+						text='Go to sample project'
+						rightSlot={<Icon name='arrow_forward' size='0.75rem' />}
+					/>
+
+					<Button
 						onClick={() => {
 							setModalVisible(true)
 						}}
@@ -69,7 +78,7 @@ export default function Playground() {
 					<SliderSelector
 						selectedValue={selectedItem}
 						setSelection={setSelection}
-						items={[{ text: 'List', value: 'list', icon: 'list' }, { text: 'Grid', value: 'grid', icon: 'grid_view' }, { text: 'Bento', value: 'bento', icon: 'bento' }]}
+						items={[{ text: 'List', value: 'list', icon: 'list' }, { text: 'Bento', value: 'bento', icon: 'bento' }]}
 					/>
 				</div>
 				<GlassMaterial className='g-test'>
