@@ -15,7 +15,8 @@ export default class AnimatedBackgroundController {
 		this.body = document.getElementsByTagName('body')[0]
 		// Added after App.css is loaded so that margin reset doesn't transition on page load.
 		this.body.style.background = defaultBodyColor
-		this.body.style.transitionDuration = '10s';
+		this.body.style.transitionProperty = 'background'
+		this.body.style.transitionDuration = '10s'
 	}
 
 	reflectCircles() {	
