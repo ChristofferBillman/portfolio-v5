@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { forwardRef, ReactNode, ForwardedRef, useEffect, useLayoutEffect, useRef, useState } from "react";
 import SliderSelector from "../common/SliderSelector";
 
 import style from './Menu.module.css'
@@ -7,6 +7,7 @@ import GlassMaterial from "../common/GlassMaterial";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import Button from "../common/Button";
 import { useLocation, useNavigate } from "react-router-dom";
+import TransitionLifecycle from "../TransitionLifecycle";
 
 export function Menu() {
 
@@ -50,7 +51,7 @@ export function Menu() {
 					selectedValue={selectedItem}
 					setSelection={item => {
 						setSelection(item)
-						navigate(item.toString().toLowerCase())
+						navigate(item.toString())
 						setOpen(false)
 					}}
 					className={style.slider}
@@ -59,9 +60,10 @@ export function Menu() {
 				<MenuButton onClick={() => setOpen(!open)} open={open} />
 			</div>
 
-			<div
-				className={`${style.menuContents} ${open ? style.menuContentsOpen : ''}`}
+			<ContentTransition
+				className={`${style.menuContents}`}
 				ref={menuContentRef}
+				willRender={open}
 			>
 				<div className={style.line}/>
 				<div className={style.projectsContainer}>
@@ -89,7 +91,7 @@ export function Menu() {
 						leftSlot={<Icon name='toys'/>}
 					/>
 				</div>
-			</div>
+			</ContentTransition>
 		</>
 	)
 }
@@ -107,3 +109,26 @@ function MenuButton({ onClick, open }: ButtonProps) {
 		</button>
 	)
 }
+
+interface ContentTransitionProps {
+	willRender: boolean
+	children: ReactNode
+	className: string
+}
+const ContentTransition = forwardRef(({willRender, children, className}: ContentTransitionProps, ref: ForwardedRef<HTMLDivElement>) => {
+	return (
+		<TransitionLifecycle
+			ref={ref}
+			willRender={willRender}
+			className={className}
+			transition={{
+				initial: { opacity: 0},
+				transition: { opacity: 1},
+				exit: { opacity: 0},
+				duration: 500
+			}}
+		>
+			{children}
+		</TransitionLifecycle>
+	)
+})
