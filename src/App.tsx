@@ -7,6 +7,7 @@ import Playground from './pages/Playground'
 import Error from './pages/Error'
 
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
+import ProjectPage from './pages/ProjectPage'
 
 const router = createBrowserRouter([
 	{
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
 			{
 				path: '/playground',
 				element: <Playground/>,
+			},
+			{
+				path: '/projects/:name',
+				element: <ProjectPage/>,
 			}
 		]
 	}

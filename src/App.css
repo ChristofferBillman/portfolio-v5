@@ -4,6 +4,7 @@ html {
 
 button {
 	border: none;
+	background: none;
 }
 
 body {
@@ -19,11 +20,31 @@ h1 {
 	margin: 0;
 	font-family: 'Space Grotesk';
 }
+h2 {
+	color: white;
+	font-size: 2rem;
+	margin: 0;
+	font-family: 'Space Grotesk';
+}
 p {
 	font-family: 'Space Grotesk';
 	color: rgba(255,255,255, 0.8);
 	font-size: 1rem;
 	margin: 0;
+}
+.accent {
+	font-family: 'IBM Plex Mono';
+	color: rgba(255,255,255, 0.8);
+	font-weight: 700;
+	font-size: 0.75rem;
+}
+.caption {
+	font-family: 'Space Grotesk';
+	color: rgba(255,255,255, 0.5);
+	font-weight: 400;
+	font-style: italic;
+	font-size: 1rem;
+	margin-left: 2rem;
 }
 
 a {
