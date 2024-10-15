@@ -40,7 +40,7 @@ p {
 }
 .caption {
 	font-family: 'Space Grotesk';
-	color: rgba(255,255,255, 0.5);
+	color: rgba(255,255,255, 0.6);
 	font-weight: 400;
 	font-style: italic;
 	font-size: 1rem;
@@ -80,5 +80,8 @@ label {
 	}
 	a {
 		font-size: 1rem;
+	}
+	.caption {
+		margin-left: 0;
 	}
 }

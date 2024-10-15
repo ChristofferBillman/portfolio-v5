@@ -28,3 +28,34 @@
 	justify-content: center;
 	padding: 2rem;
 }
+
+@media (width <= 480px) {
+	.container {
+		padding: 0;
+	}
+	.container img {
+		border-radius: 1rem;
+	}
+	
+	.container h2 {
+		margin: 1rem 0 1rem 0;
+	}
+	.container p {
+		margin: 0;
+	}
+	
+	.navContainer {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+		margin: 1rem 0;
+	}
+	
+	.backhome {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 2rem;
+	}
+}

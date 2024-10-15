@@ -1,0 +1,9 @@
+.layout {
+	padding: 4rem 1rem 1rem 1rem;
+}
+
+@media (width <= 480px) {
+	.layout {
+		padding: 4rem 0.5rem 0.5rem 0.5rem;;
+	}
+}
