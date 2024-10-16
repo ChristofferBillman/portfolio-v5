@@ -19,7 +19,7 @@ export function Menu() {
 	const [open, setOpen] = useState(false)
 
 	useEffect(() => {
-		setSelection(location.pathname)
+		setSelection(`/${location.pathname.split('/').slice(1, 2).join('')}`)
 	}, [location])
 
 	const menuItemsRef = useRef<HTMLDivElement>(null)
