@@ -8,24 +8,45 @@ import Error from './pages/Error'
 
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 import ProjectPage from './pages/ProjectPage'
+import Projects from './pages/Projects'
+import About from './pages/About'
+import Contact from './pages/Contact'
 
+const errorElement = <Error/>
 const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <Layout/>,
-		errorElement: <Error/>,
 		children: [
 			{
 				path: '/',
 				element: <Home/>,
+				errorElement
 			},
 			{
-				path: '/playground',
-				element: <Playground/>,
+				path: '/projects',
+				element: <Projects/>,
+				errorElement,
 			},
 			{
 				path: '/projects/:name',
 				element: <ProjectPage/>,
+				errorElement
+			},
+			{
+				path: '/about',
+				element: <About/>,
+				errorElement
+			},
+			{
+				path: '/contact',
+				element: <Contact/>,
+				errorElement
+			},
+			{
+				path: '/playground',
+				element: <Playground/>,
+				errorElement
 			}
 		]
 	}
