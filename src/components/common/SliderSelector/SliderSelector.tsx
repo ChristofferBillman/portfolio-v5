@@ -10,38 +10,43 @@ interface Props {
 	className?: string
 	rightSlot?: ReactNode
 	wrapper?: 'glass' | 'div'
+	direction?: 'vertical' | 'horizontal'
 }
 
 // This logic is insane and I will not understand it in 2 days.
-export function SliderSelector({ wrapper = 'glass', ...props }: Props) {
+export function SliderSelector({ wrapper = 'glass', direction = 'horizontal', ...props }: Props) {
 
 	const sliderRef = useRef<HTMLDivElement>(null)
 	const itemsRef = useRef<Array<HTMLDivElement | null>>([])
 
-	const [offsetX, setOffsetX] = useState(0)
-	const [selectedItemWidth, setSelectedItemWidth] = useState(0)
+	const [offset, setOffset] = useState(0)
+	const [selectedItemLen, setSelectedItemLen] = useState(0)
 
 	const selectedIndex = props.items.map(item => item.value).indexOf(props.selectedValue)
 
 	// Get these values before render, why they are in useLayoutEffect instead of directly in the component.
-	useLayoutEffect(() => {
-		// Calculate cumulative width up to the selected item
-		const newOffsetX = itemsRef.current.slice(0, selectedIndex).reduce((total, item) => (
-			item ? total + item.getBoundingClientRect().width : total
+	useLayoutEffect(() => {		
+		const mode = direction == 'horizontal' ? 'width' : 'height'
+		// Calculate cumulative width/height up to the selected item
+		const newOffset = itemsRef.current.slice(0, selectedIndex).reduce((total, item) => (
+			item ? total + item.getBoundingClientRect()[mode] : total
 		), 0)
 
-		// Get the width of the selected item
-		const newSelectedItemWidth = itemsRef.current[selectedIndex]?.getBoundingClientRect().width || 0
+		// Get the width/height of the selected item
+		let newSelectedItemLen = itemsRef.current[selectedIndex]?.getBoundingClientRect()[mode] || 0
+		// Lmao I can't even
+		if(mode == 'height') newSelectedItemLen = 170
 
-		setOffsetX(newOffsetX)
-		setSelectedItemWidth(newSelectedItemWidth)
-	}, [selectedIndex])
+		setOffset(newOffset)
+		setSelectedItemLen(newSelectedItemLen)
+
+	}, [direction, selectedIndex])
 
 	const Wrapper = getWrapper(wrapper)
 
 	return (
 		<Wrapper
-			className={`${style.sliderSelector} ${props.className}`}
+			className={`${style.sliderSelector} ${props.className} ${direction == 'vertical' ? style.vertical: ''}`}
 			ref={sliderRef}
 		>
 			{props.items.map((item, i) => (
@@ -56,8 +61,8 @@ export function SliderSelector({ wrapper = 'glass', ...props }: Props) {
 			<span
 				className={style.selectedItem}
 				style={{
-					transform: `translateX(${offsetX}px)`,
-					width: selectedItemWidth + 'px',
+					transform: `translate${direction == 'horizontal' ? 'X' : 'Y'}(${offset}px)`,
+					width: selectedItemLen + 'px',
 				}}
 			/>
 		</Wrapper>

@@ -8,6 +8,7 @@ import useOutsideClick from "../../hooks/useOutsideClick";
 import Button from "../common/Button";
 import { useLocation, useNavigate } from "react-router-dom";
 import TransitionLifecycle from "../TransitionLifecycle";
+import isMobile from "../../util/IsMobile";
 
 export function Menu() {
 
@@ -25,11 +26,24 @@ export function Menu() {
 	const menuRef = useRef<HTMLDivElement>(null)
 	const menuContentRef = useRef<HTMLDivElement>(null)
 
+	// This code is also crazy, but nessecary, since menu items are only mounted by TransitionContent AFTER the first render cycle.
 	useLayoutEffect(() => {
-		if (menuRef.current == null || menuItemsRef.current == null || menuContentRef.current == null) return
-		menuRef.current.style.width = menuItemsRef.current?.offsetWidth + 'px'
-		menuContentRef.current.style.width = menuItemsRef.current?.offsetWidth + 'px'
-	}, [open])
+		const menuItems = menuItemsRef.current
+		const menu = menuRef.current
+		const menuContent = menuContentRef.current
+
+		if (!menuItems || !menu || !menuContent) return
+		const resizeObserver = new ResizeObserver(() => {
+			menu.style.width = menuItems.offsetWidth + 'px'
+			menuContent.style.width = menuItems.offsetWidth + 'px'
+		})
+
+		// When menuItemsRef width is updated, run the code to set the container to that width too.
+		resizeObserver.observe(menuItemsRef.current)
+
+		// Cleanup
+		return () => resizeObserver.disconnect()
+	}, [])
 
 	useOutsideClick(() => setOpen(false), [menuRef, menuItemsRef, menuContentRef])
 
@@ -39,26 +53,31 @@ export function Menu() {
 				className={`${style.menuWrapper} ${open ? style.open : ''}`}
 				ref={menuRef}
 			/>
-
-			<div ref={menuItemsRef} className={style.menuItemsWrapper}>
-				<SliderSelector
-					items={[
-						{ text: 'Home', icon: 'home', value: '/' },
-						{ text: 'Projects', icon: 'landscape', value: '/projects' },
-						{ text: 'About', icon: 'person', value: '/about' },
-						{ text: 'Contact', icon: 'forum', value: '/contact' }
-					]}
-					selectedValue={selectedItem}
-					setSelection={item => {
-						setSelection(item)
-						navigate(item.toString())
-						setOpen(false)
-					}}
-					className={style.slider}
-					wrapper='div'
-				/>
-				<MenuButton onClick={() => setOpen(!open)} open={open} />
-			</div>
+				{/* Having opacity be 0 at initial render apperently makes safari skip applying the backdrop-filter - which makes my life difficult. But only sometimes like what??  */}
+				<ContentTransition
+					ref={menuItemsRef}
+					className={style.menuItemsWrapper}
+					willRender={!isMobile() || open}
+				>
+					<SliderSelector
+						items={[
+							{ text: 'Home', icon: 'home', value: '/' },
+							{ text: 'Projects', icon: 'landscape', value: '/projects' },
+							{ text: 'About', icon: 'person', value: '/about' },
+							{ text: 'Contact', icon: 'forum', value: '/contact' }
+						]}
+						selectedValue={selectedItem}
+						setSelection={item => {
+							setSelection(item)
+							navigate(item.toString())
+							setOpen(false)
+						}}
+						className={style.slider}
+						wrapper='div'
+						direction={isMobile() ? 'vertical' : 'horizontal'}
+					/>
+					<MenuButton onClick={() => setOpen(!open)} open={open} />
+				</ContentTransition>
 
 			<ContentTransition
 				className={`${style.menuContents}`}
@@ -113,9 +132,9 @@ function MenuButton({ onClick, open }: ButtonProps) {
 interface ContentTransitionProps {
 	willRender: boolean
 	children: ReactNode
-	className: string
+	className?: string
 }
-const ContentTransition = forwardRef(({willRender, children, className}: ContentTransitionProps, ref: ForwardedRef<HTMLDivElement>) => {
+const ContentTransition = forwardRef(({willRender, children, className = ''}: ContentTransitionProps, ref: ForwardedRef<HTMLDivElement>) => {
 	return (
 		<TransitionLifecycle
 			ref={ref}
