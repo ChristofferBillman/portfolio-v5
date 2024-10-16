@@ -31,6 +31,7 @@ p {
 	color: rgba(255,255,255, 0.8);
 	font-size: 1rem;
 	margin: 0;
+	white-space: pre-wrap;
 }
 .accent {
 	font-family: 'IBM Plex Mono';
@@ -67,8 +68,15 @@ label {
 	justify-content: center;
 }
 
-.modal-test {
+.p-1 {
 	padding: 1rem;
+}
+
+.row {
+	display: flex;
+	align-items: center;
+	margin: 1rem 0;
+	gap: 1rem;
 }
 
 @media (width <= 480px) {
