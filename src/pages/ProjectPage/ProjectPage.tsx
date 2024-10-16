@@ -6,13 +6,14 @@ import { useEffect } from "react"
 import useAnimatedBackground from "../../contexts/AnimatedBackgroundContext"
 
 import style from './ProjectPage.module.css'
+import { useTranslation } from "../../contexts/TranslationContext"
 
 const projects = [{
 	name: 'Chare',
 	title: 'Hur kan man göra samåkning lika smidigt som att boka en tåg eller bussbiljett?',
-	colors: ['#8884FF','#EB8258','#D8D6FF'],
-	content: 
-	`
+	colors: ['#8884FF', '#EB8258', '#D8D6FF'],
+	content:
+		`
 	![Alttext](../img/chare/Hero.png "Det blev många olika Hi-Fi-prototyper som dessa.")
 	## Uppgiften
 	Projekt i kursen "Prototyputveckling för mobila applikationer” (PUMA:an). I teamet var vi 5 studenter som skulle ta fram ett koncept, en design och en MVP för en mobilapplikation. Med andra ord, så skulle vi jobba genom hela designprocessen - från idé till implementation. Från kursens sida fanns inga krav på hur vi skulle arbeta eller vilka tekniker som skulle användas.
@@ -47,54 +48,56 @@ const projects = [{
 export function ProjectPage() {
 
 	const { name } = useParams()
-	const navigate = useNavigate()
 	const animationController = useAnimatedBackground()
 
 	const project = projects.find(project => project.name.toLowerCase() == name)
 
 	useEffect(() => {
-		if(!project) return
+		if (!project) return
 		animationController.setColors(project.colors)
-	},[animationController, project])
+	}, [animationController, project])
 
-	if(!project) return <NoProject/>
+	if (!project) return <NoProject />
 
 	return (
-	<div className={style.container}>
-		<div className={style.navContainer}>
-			<Button
-				text='Alla projekt'
-				onClick={() => {
-					animationController.restoreDefaultColors()
-					navigate(-1)
-				}}
-				leftSlot={<Icon name='arrow_back'/>}
-			/>
-			<span className='accent'>
-				{project.name}
-			</span>
+		<div className={style.container}>
+			<div className={style.navContainer}>
+				<BackButton/>
+				<span className='accent'>
+					{project.name}
+				</span>
+			</div>
+			<h1 className={style.header}>{project.title}</h1>
+			<Markdown content={project.content} />
+			<div className={style.backhome}>
+				<BackButton/>
+			</div>
 		</div>
-		<h1 className={style.header}>{project.title}</h1>
-		<Markdown content={project.content}/>
-		<div className={style.backhome}>
-			<Button
-					text='Alla projekt'
-					onClick={() => {
-						animationController.restoreDefaultColors()
-						navigate(-1)
-					}}
-					leftSlot={<Icon name='arrow_back'/>}
-				/>
-		</div>
-	</div>
+	)
+}
+
+function BackButton() {
+	const [translation] = useTranslation()
+	const navigate = useNavigate()
+	const animationController = useAnimatedBackground()
+
+	return (
+		<Button
+			text={translation.AllProjects}
+			onClick={() => {
+				animationController.restoreDefaultColors()
+				navigate(-1)
+			}}
+			leftSlot={<Icon name='arrow_back' />}
+		/>
 	)
 }
 
 function NoProject() {
 	return (
-	<div style={{padding: '1rem'}}>
-		<h1>Oops!</h1>
-		<p>There doesn't seem to be a project with that name. It may have been deleted or moved.</p>
-	</div>
+		<div style={{ padding: '1rem' }}>
+			<h1>Oops!</h1>
+			<p>There doesn't seem to be a project with that name. It may have been deleted or moved.</p>
+		</div>
 	)
 }

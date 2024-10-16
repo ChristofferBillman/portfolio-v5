@@ -11,6 +11,7 @@ import ProjectPage from './pages/ProjectPage'
 import Projects from './pages/Projects'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import TranslationProvider from './contexts/TranslationContext'
 
 const errorElement = <Error/>
 const router = createBrowserRouter([
@@ -55,7 +56,9 @@ const router = createBrowserRouter([
 function App() {
 	return (
 	<AnimatedBackgroundProvider>
-		<RouterProvider router={router}/>
+		<TranslationProvider>
+			<RouterProvider router={router}/>
+		</TranslationProvider>
 		<AnimatedBackground/>
 	</AnimatedBackgroundProvider>
 )

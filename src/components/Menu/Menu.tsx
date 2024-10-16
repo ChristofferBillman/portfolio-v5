@@ -9,11 +9,13 @@ import Button from "../common/Button";
 import { useLocation, useNavigate } from "react-router-dom";
 import TransitionLifecycle from "../TransitionLifecycle";
 import isMobile from "../../util/IsMobile";
+import { useTranslation } from "../../contexts/TranslationContext";
 
 export function Menu() {
 
 	const navigate = useNavigate()
 	const location = useLocation()
+	const [ translation ] =  useTranslation()
 
 	const [selectedItem, setSelection] = useState('Home')
 	const [open, setOpen] = useState(false)
@@ -61,10 +63,10 @@ export function Menu() {
 				>
 					<SliderSelector
 						items={[
-							{ text: 'Home', icon: 'home', value: '/' },
-							{ text: 'Projects', icon: 'landscape', value: '/projects' },
-							{ text: 'About', icon: 'person', value: '/about' },
-							{ text: 'Contact', icon: 'forum', value: '/contact' }
+							{ text: translation.Home, icon: 'home', value: '/' },
+							{ text: translation.Projects, icon: 'landscape', value: '/projects' },
+							{ text: translation.About, icon: 'person', value: '/about' },
+							{ text: translation.Contact, icon: 'forum', value: '/contact' }
 						]}
 						selectedValue={selectedItem}
 						setSelection={item => {
@@ -121,10 +123,13 @@ interface ButtonProps {
 }
 
 function MenuButton({ onClick, open }: ButtonProps) {
+
+	const [ translation ] = useTranslation()
+
 	return (
 		<button className={style.menuButton} onClick={onClick}>
 			<Icon name={open ? 'close' : 'more_horiz'} color="black" size="0.75rem" />
-			<a style={{ color: 'black' }}>{open ? 'Close' : 'Menu'}</a>
+			<a style={{ color: 'black' }}>{open ? translation.Close : translation.Menu}</a>
 		</button>
 	)
 }

@@ -1,8 +1,14 @@
+import { useTranslation } from "../contexts/TranslationContext"
+
 export default function Home() {
+
+	const [ translation ] = useTranslation()
+	
 	return (
 	<>
-		<h1>Hey there!</h1>
-		<p>This site is under construction 🛠️!<br/>Eventually, it will be moved to <a style={{fontSize: 'inherit'}} href='https://christofferbillman.se' target='_blank'>christofferbillman.se</a> and become my new portfolio.</p>
+		<h1>{translation.HeyThere}</h1>
+		<p>{translation.UnderConstructionText}</p>
+		<a style={{fontSize: 'inherit'}} href='https://christofferbillman.se' target='_blank'>christofferbillman.se</a>
 	</>
 	)
 }

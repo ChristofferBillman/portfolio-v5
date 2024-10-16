@@ -90,7 +90,7 @@ export default function Playground() {
 				visible={modalVisible}
 				setVisible={setModalVisible}
 				bgRef={contentRef}
-				className="modal-test"
+				className="p-1"
 			>
 				<p>This is some modal content. I should have the effect present in visionOS modals.</p>
 				<Button
