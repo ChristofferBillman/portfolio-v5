@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-export default function useOutsideClick(onClick: () => void, refs: React.RefObject<HTMLDivElement>[]
+export default function useOutsideClick(onClick: () => void, refs: React.RefObject<HTMLElement>[]
 ) {
 	useEffect(() => {
 		const handleClickOutside = (e: MouseEvent) => {
