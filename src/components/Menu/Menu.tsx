@@ -17,7 +17,7 @@ export function Menu() {
 	const location = useLocation()
 	const [ translation ] =  useTranslation()
 
-	const [selectedItem, setSelection] = useState('Home')
+	const [selectedItem, setSelection] = useState('/')
 	const [open, setOpen] = useState(false)
 
 	useEffect(() => {
@@ -27,27 +27,30 @@ export function Menu() {
 	const menuItemsRef = useRef<HTMLDivElement>(null)
 	const menuRef = useRef<HTMLDivElement>(null)
 	const menuContentRef = useRef<HTMLDivElement>(null)
+	const menuButtonRef = useRef<HTMLButtonElement>(null)
 
 	// This code is also crazy, but nessecary, since menu items are only mounted by TransitionContent AFTER the first render cycle.
 	useLayoutEffect(() => {
 		const menuItems = menuItemsRef.current
 		const menu = menuRef.current
 		const menuContent = menuContentRef.current
+		const menuButton = menuButtonRef.current
 
-		if (!menuItems || !menu || !menuContent) return
+		if (!menuItems || !menu || !menuContent || !menuButton) return
 		const resizeObserver = new ResizeObserver(() => {
-			menu.style.width = menuItems.offsetWidth + 'px'
+			const newWidth = menuItems.offsetWidth
+			menu.style.width = newWidth + 'px'
 			menuContent.style.width = menuItems.offsetWidth + 'px'
 		})
 
 		// When menuItemsRef width is updated, run the code to set the container to that width too.
-		resizeObserver.observe(menuItemsRef.current)
+		resizeObserver.observe(menuItems)
 
 		// Cleanup
 		return () => resizeObserver.disconnect()
 	}, [])
 
-	useOutsideClick(() => setOpen(false), [menuRef, menuItemsRef, menuContentRef])
+	useOutsideClick(() => setOpen(false), [menuRef, menuItemsRef, menuContentRef, menuButtonRef])
 
 	return (
 		<>
@@ -75,11 +78,12 @@ export function Menu() {
 							setOpen(false)
 						}}
 						className={style.slider}
-						wrapper='div'
+						wrapper='nav'
 						direction={isMobile() ? 'vertical' : 'horizontal'}
 					/>
-					<MenuButton onClick={() => setOpen(!open)} open={open} />
 				</ContentTransition>
+
+				<MenuButton onClick={() => setOpen(!open)} open={open} ref={menuButtonRef} />
 
 			<ContentTransition
 				className={`${style.menuContents}`}
@@ -122,17 +126,17 @@ interface ButtonProps {
 	open: boolean
 }
 
-function MenuButton({ onClick, open }: ButtonProps) {
+const MenuButton = forwardRef(({ onClick, open }: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
 
 	const [ translation ] = useTranslation()
 
 	return (
-		<button className={style.menuButton} onClick={onClick}>
+		<button className={style.menuButton} onClick={onClick} ref={ref}>
 			<Icon name={open ? 'close' : 'more_horiz'} color="black" size="0.75rem" />
 			<a style={{ color: 'black' }}>{open ? translation.Close : translation.Menu}</a>
 		</button>
 	)
-}
+})
 
 interface ContentTransitionProps {
 	willRender: boolean
@@ -146,9 +150,10 @@ const ContentTransition = forwardRef(({willRender, children, className = ''}: Co
 			willRender={willRender}
 			className={className}
 			transition={{
-				initial: { opacity: 0},
-				transition: { opacity: 1},
-				exit: { opacity: 0},
+				initial: { opacity: 0 },
+				transition: { opacity: 1 },
+				// This is a hack to make exit non-animated since display is not transitionable.
+				exit: { opacity: 0, display: 'none'},
 				duration: 500
 			}}
 		>
