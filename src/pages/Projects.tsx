@@ -4,6 +4,8 @@ import Icon from '../components/common/Icon'
 import SliderSelector from '../components/common/SliderSelector'
 import { useTranslation } from '../contexts/TranslationContext'
 import { Modal } from '../components/common/Modal/Modal'
+import getProjects from '../util/getProjects'
+import ProjectListItem from '../components/ProjectListItem'
 
 export default function Projects() {
 
@@ -36,6 +38,8 @@ export default function Projects() {
 				setSelection={setView}
 			/>
 		</div>
+
+		{getProjects().map(project => <ProjectListItem project={project}/>)}
 	</div>
 	<Modal
 		visible={filterModalVisible}
