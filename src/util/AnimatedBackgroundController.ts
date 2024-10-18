@@ -39,12 +39,8 @@ export default class AnimatedBackgroundController {
 			circle.setColor(colors[index % colors.length])
 		})
 
-		this.body.style.transitionDuration = '2s'
+		this.setBodyTransitionDurationWithTimeout(2000)
 		this.body.style.background = colors[0]
-
-		setTimeout(() => {
-			this.body.style.transitionDuration = '10s'
-		}, 2000)
 	}
 
 	restoreDefaultColors() {
@@ -52,6 +48,7 @@ export default class AnimatedBackgroundController {
 		this.forAllCircles(circle => {
 			circle.restoreColor()
 		})
+		this.setBodyTransitionDurationWithTimeout(2000)
 		this.body.style.background = this.defaultBodyColor
 	}
 
@@ -70,6 +67,11 @@ export default class AnimatedBackgroundController {
 	
 	private forAllCircles(func: (circle: Circle, index: number) => void) {
 		this.circles.forEach((circle, index) => func(circle, index))
+	}
+
+	private setBodyTransitionDurationWithTimeout(valueInMs: number) {
+		setTimeout(() => this.body.style.transitionDuration = '10s', valueInMs)
+		this.body.style.transitionDuration = valueInMs + 'ms'
 	}
 
 	setRoot(root: HTMLElement | null) {
