@@ -9,7 +9,7 @@ interface Props {
 	setSelection: Dispatch<SetStateAction<string>>
 	className?: string
 	rightSlot?: ReactNode
-	wrapper?: 'glass' | 'div'
+	wrapper?: 'glass' | 'div' | 'nav'
 	direction?: 'vertical' | 'horizontal'
 }
 
@@ -69,7 +69,7 @@ export function SliderSelector({ wrapper = 'glass', direction = 'horizontal', ..
 	)
 }
 
-const getWrapper = (el: 'glass' | 'div') => {
+const getWrapper = (el: 'glass' | 'div' | 'nav') => {
 	if (el == 'glass') return GlassMaterial
-	else return 'div'
+	else return el
 }
