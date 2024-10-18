@@ -1,4 +1,5 @@
 import React, {createContext, ReactNode, useContext, useState} from 'react'
+import getLocale from '../util/getLocale'
 
 interface TranslationContextProps {
 	children: React.ReactNode
@@ -21,6 +22,7 @@ export type Translation = {
 	SourceCode: string
 	FooterTagline: string
 	AllProjects: string
+	ReadMore: string
 }
 
 type TranslationContext = [Translation, (_: 'EN' | 'SE') => void]
@@ -57,14 +59,6 @@ export const useTranslation = () => {
 	return useContext(TranslationContext)
 }
 
-function getLocale() {
-	const locale = navigator.language
-
-	if (locale === 'en-US') return 'EN'
-	if (locale === 'sv-SE') return 'SE'
-	return 'EN'
-}
-
 const translations: Translation[] = [
 	{
 		Name: 'SE',
@@ -82,7 +76,8 @@ const translations: Translation[] = [
 		BuiltWithReact: 'Byggd med React.',
 		SourceCode: 'Källkod.',
 		FooterTagline: 'Skapad med kärlek.',
-		AllProjects: 'Alla projekt'
+		AllProjects: 'Alla projekt',
+		ReadMore: 'Läs mer'
 	},
 	{
 		Name: 'EN',
@@ -100,6 +95,7 @@ const translations: Translation[] = [
 		BuiltWithReact: 'Built with React.',
 		SourceCode: 'Source.',
 		FooterTagline: 'Made with love.',
-		AllProjects: 'All projects'
+		AllProjects: 'All projects',
+		ReadMore: 'Read more'
 	},
 ]
