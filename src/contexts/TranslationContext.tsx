@@ -75,13 +75,12 @@ const translations: Translation[] = [
 		Close: 'Stäng',
 		Menu: 'Meny',
 		BuiltWithReact: 'Byggd med React.',
-		SourceCode: 'Källkod.',
+		SourceCode: 'Källkod',
 		FooterTagline: 'Skapad med kärlek.',
 		AllProjects: 'Alla projekt',
 		ReadMore: 'Läs mer',
 		LinksAndResources: 'Länkar & resurser'
-	},
-	{
+	},{
 		Name: 'EN',
 		Home: 'Home',
 		Projects: 'Projects',
@@ -95,7 +94,7 @@ const translations: Translation[] = [
 		Close: 'Close',
 		Menu: 'Menu',
 		BuiltWithReact: 'Built with React.',
-		SourceCode: 'Source.',
+		SourceCode: 'Source',
 		FooterTagline: 'Made with love.',
 		AllProjects: 'All projects',
 		ReadMore: 'Read more',

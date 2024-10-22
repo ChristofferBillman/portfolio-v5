@@ -19,7 +19,7 @@ export function Footer() {
 			<p>christoffer.billman@gmail.com</p>
 		</div>
 		<div className={style.infoContainer}>
-			<p>{translation.BuiltWithReact} <a href='https://github.com/ChristofferBillman/portfolio/'>{translation.SourceCode}</a><br/>Version 0.0.0</p>
+			<p>{translation.BuiltWithReact} <A href='https://github.com/ChristofferBillman/portfolio/'>{translation.SourceCode}.</A><br/>Version 0.0.0</p>
 		</div>
 		<div className={`${style.infoContainer} ${style.alignRight}`}>
 			<h3>{translation.LinksAndResources}</h3>
