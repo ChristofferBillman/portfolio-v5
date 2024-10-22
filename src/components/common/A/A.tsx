@@ -1,8 +1,9 @@
+import { ReactNode } from "react"
 import Icon from "../Icon"
 
 interface Props {
 	href: string
-	children: string
+	children: ReactNode
 }
 
 export function A({href, children}: Props) {
