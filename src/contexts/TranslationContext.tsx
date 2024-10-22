@@ -23,6 +23,7 @@ export type Translation = {
 	FooterTagline: string
 	AllProjects: string
 	ReadMore: string
+	LinksAndResources: string
 }
 
 type TranslationContext = [Translation, (_: 'EN' | 'SE') => void]
@@ -77,7 +78,8 @@ const translations: Translation[] = [
 		SourceCode: 'Källkod.',
 		FooterTagline: 'Skapad med kärlek.',
 		AllProjects: 'Alla projekt',
-		ReadMore: 'Läs mer'
+		ReadMore: 'Läs mer',
+		LinksAndResources: 'Länkar & resurser'
 	},
 	{
 		Name: 'EN',
@@ -96,6 +98,7 @@ const translations: Translation[] = [
 		SourceCode: 'Source.',
 		FooterTagline: 'Made with love.',
 		AllProjects: 'All projects',
-		ReadMore: 'Read more'
+		ReadMore: 'Read more',
+		LinksAndResources: 'Links & Resources'
 	},
 ]
