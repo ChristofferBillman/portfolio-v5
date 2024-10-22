@@ -48,8 +48,10 @@ export default class Circle {
 		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 		if(reduceMotion) return
 
-		const viewportWidth = window.innerWidth
-		const viewportHeight = window.innerHeight
+		const body = document.getElementsByTagName('body')[0]
+
+		const viewportWidth = body.offsetWidth
+		const viewportHeight = body.offsetHeight
 
 		const maxX = viewportWidth - this.position.x + viewportWidth/2
 		const maxY = viewportHeight - this.position.y + viewportHeight/2
