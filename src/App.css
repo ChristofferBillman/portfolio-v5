@@ -26,6 +26,12 @@ h2 {
 	margin: 0;
 	font-family: 'Space Grotesk';
 }
+h3 {
+	color: white;
+	font-size: 1rem;
+	margin: 0;
+	font-family: 'Space Grotesk';
+}
 p {
 	font-family: 'Space Grotesk';
 	color: rgba(255,255,255, 0.8);
