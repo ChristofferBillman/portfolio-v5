@@ -32,7 +32,6 @@
 	display: flex;
 	align-items: center;
 	position: fixed;
-	padding-right: 100px;
 	top: 1rem;
 	right: 1rem;
 	z-index: 3;
@@ -92,16 +91,13 @@
 	align-self: baseline;
 }
 
-@media (width <= 480px) {
+@media (width <= 800px) {
 	.menuWrapper {
 		height: 2rem;
 	}
-	.menuItemsWrapper {
-		padding-right: 140px;
-	}
 	.open {
-		height: 78vh;
-		width: 87vw !important;
+		height: calc(100vh - 2rem);
+		width: calc(100vw - 2rem) !important;
 	}
 	.slider {
 		position: fixed;
@@ -116,8 +112,8 @@
 	}
 	.menuContents {
 		flex-direction: column;
-		padding: 0.5rem;
-		width: 81vw !important;
+		padding: 1rem;
+		width: calc(100vw - 2rem) !important;
 		margin-top: 8.5rem;
 	}
 }
