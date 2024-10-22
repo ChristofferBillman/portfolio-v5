@@ -31,7 +31,7 @@ export function ProjectPage() {
 					{project.name}
 				</span>
 			</div>
-			<h1 className={style.header}>{project.title}</h1>
+			<h1>{project.title}</h1>
 			<Markdown content={project.content} />
 			<div className={style.backhome}>
 				<BackButton/>

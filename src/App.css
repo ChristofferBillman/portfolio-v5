@@ -33,6 +33,7 @@ p {
 	margin: 0;
 	white-space: pre-wrap;
 }
+
 .accent {
 	font-family: 'IBM Plex Mono';
 	color: rgba(255,255,255, 0.8);
@@ -46,6 +47,10 @@ p {
 	font-style: italic;
 	font-size: 1rem;
 	margin-left: 2rem;
+}
+
+.increasedLinespace {
+	line-height: 1.5;
 }
 
 a {
@@ -75,19 +80,20 @@ label {
 .row {
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
 	margin: 1rem 0;
 	gap: 1rem;
 }
 
-@media (width <= 480px) {
+@media (width <= 800px) {
 	h1 {
 		font-size: 2rem;
 	}
 	label {
-		font-size: 1rem;
+		font-size: 0.8rem;
 	}
 	a {
-		font-size: 1rem;
+		font-size: 0.8rem;
 	}
 	.caption {
 		margin-left: 0;

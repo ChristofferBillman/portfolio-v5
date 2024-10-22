@@ -22,8 +22,7 @@ export default function Playground() {
 			<div ref={contentRef}>
 				<h1>Playground</h1>
 				<p>This is where I test different components and features.</p>
-				<div style={{ margin: '1rem' }} />
-				<div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+				<div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', margin: '1rem 0' }}>
 					<Button
 						onClick={() => {
 							animationController.setColors(['#C91010', '#CE522D'])
