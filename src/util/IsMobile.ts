@@ -1,3 +1,3 @@
 export default function isMobile() {
-	return window.innerWidth < 480
+	return window.innerWidth < 800
 }

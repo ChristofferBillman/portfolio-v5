@@ -18,7 +18,7 @@
 	box-shadow: none;
 }
 
-@media (width <= 480px) {
+@media (width <= 800px) {
 	.button {
 		padding: 0.5rem 1rem;
 		font-size: 1rem;

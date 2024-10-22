@@ -34,7 +34,7 @@ function parse(content: string): ReactNode {
 	}
 
 	function p(line: string) {
-		elements.push(createElement('p', undefined, line))
+		elements.push(createElement('p', {className: 'increasedLinespace'}, line))
 	}
 
 	function whitespace() {
