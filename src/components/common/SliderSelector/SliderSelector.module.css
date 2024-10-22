@@ -45,8 +45,11 @@
 	transform: translateX(0px);
 }
 
-@media (width <= 480px) {
+@media (width <= 800px) {
 	.selectedItem {
 		height: 2rem;
+	}
+	.sliderSelector {
+		padding: .15rem 0.2rem .15rem 0.2rem;
 	}
 }

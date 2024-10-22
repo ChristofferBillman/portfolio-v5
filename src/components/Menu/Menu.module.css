@@ -96,7 +96,7 @@
 		height: 2rem;
 	}
 	.open {
-		height: calc(100vh - 2rem);
+		height: 51vh;
 		width: calc(100vw - 2rem) !important;
 	}
 	.slider {

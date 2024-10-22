@@ -35,7 +35,7 @@ export function SliderSelector({ wrapper = 'glass', direction = 'horizontal', ..
 		// Get the width/height of the selected item
 		let newSelectedItemLen = itemsRef.current[selectedIndex]?.getBoundingClientRect()[mode] || 0
 		// Lmao I can't even
-		if(mode == 'height') newSelectedItemLen = 170
+		if(mode == 'height') newSelectedItemLen = 300
 
 		setOffset(newOffset)
 		setSelectedItemLen(newSelectedItemLen)
