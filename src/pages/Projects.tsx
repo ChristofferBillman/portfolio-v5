@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { SetStateAction, useRef, useState } from 'react'
 import Button from '../components/common/Button'
 import Icon from '../components/common/Icon'
 import SliderSelector from '../components/common/SliderSelector'
@@ -7,6 +7,11 @@ import { Modal } from '../components/common/Modal/Modal'
 import getProjects from '../util/getProjects'
 import ProjectListItem from '../components/ProjectListItem'
 import isMobile from '../util/IsMobile'
+import ProjectBentoItem from '../components/ProjectBentoItem'
+import BentoGrid from '../components/BentoGrid'
+import TransitionLifecycle from '../components/TransitionLifecycle'
+
+const VIEW_TRANSITION_DURATION = 500
 
 export default function Projects() {
 
@@ -29,11 +34,21 @@ export default function Projects() {
 
 	const viewOptions = isMobile() ? mobileViewOptions : destopViewOptions
 
+	const [projectsRendered, setProjectsRendered]= useState(true)
+
+	const handleViewChange = (newState: SetStateAction<string>) => {
+		setProjectsRendered(false)
+		setTimeout(() => {
+			setView(newState)
+			setProjectsRendered(true)
+		}, VIEW_TRANSITION_DURATION)
+	}
+
 	return (
 	<>
 	<div ref={pageRef}>
 		<h1>{translation.Projects}</h1>
-		<p>{translation.ProjectsPreamle}</p>
+		<p style={{maxWidth: '40rem'}}>{translation.ProjectsPreamle}</p>
 
 		<div className='row'>
 			<Button
@@ -45,11 +60,22 @@ export default function Projects() {
 			<SliderSelector
 				items={viewOptions}
 				selectedValue={view}
-				setSelection={setView}
+				setSelection={handleViewChange}
 			/>
 		</div>
+		
+		<TransitionLifecycle
+			willRender={projectsRendered}
+			transition={{
+				initial: { opacity: 0, transform: 'scale(.98)'},
+				transition: { opacity: 1, transform: 'scale(1)'},
+				exit: { opacity: 0, transform: 'scale(.98)'},
+				duration: VIEW_TRANSITION_DURATION
+			}}
+		>
+			<ProjectsView view={view}/>
+		</TransitionLifecycle>
 
-		{getProjects().map(project => <ProjectListItem project={project}/>)}
 	</div>
 	<Modal
 		visible={filterModalVisible}
@@ -65,4 +91,55 @@ export default function Projects() {
 	</Modal>
 	</>
 	)
+}
+
+interface ProjectsViewProps {
+	view: string
+}
+function ProjectsView({ view }: ProjectsViewProps) {
+	const [ bentoSizes ] = useState(getProjects().map(() => randomBentoSizing()))
+
+	switch(view) {
+		case 'list': return (
+			getProjects().map(project => <ProjectListItem project={project}/>)
+		)
+		case 'bento': return (
+			<BentoGrid>
+			{getProjects().map((project, i) => {
+				return (
+				<ProjectBentoItem
+					key={project.name}
+					project={project}
+					height={bentoSizes[i].h}
+					width={bentoSizes[i].w}
+				/>)
+			})}
+		</BentoGrid>
+		)
+		case 'grid': return (
+			<BentoGrid>
+			{getProjects().map(project => {
+				return (
+				<ProjectBentoItem
+					key={project.name}
+					project={project}
+					height={2}
+					width={2}
+				/>)
+			})}
+		</BentoGrid>
+		)
+	}
+}
+
+// Returns a random number between 1 (inclusive) and max (inclusive).
+function randomBentoSizing(): {w: number, h: number} {
+	const r = Math.ceil(Math.random() * 4)
+	switch(r) {
+		case 1: return {w: 2 , h: 1}
+		case 2: return {w: 2, h: 1 }
+		case 3: return {w: 2, h: 2}
+		case 4: return {w: 2, h: 3}
+		default: return {w: 2, h: 3}
+	}
 }
