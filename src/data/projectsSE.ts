@@ -35,4 +35,26 @@ export const projectsSE: Project[] = [{
 
 	[Bild på färdig app]
 	`
+	},{
+		name: 'Labbplantan',
+		title: 'Smart och uppkopplad bevattning av krukväxter',
+		thumbnail: '../img/lab-plant/setup.webp',
+		colors: ['#428c29', '#298c4f', '#578c29','#1bab2e'],
+		content: `
+		![Alttext](../img/lab-plant/setup.webp "Ett elefantöra blev försökskanin för våra experiment.")
+		## Testtesttest
+		kdsfjadlksfjsdölfjksdaölkfdf
+		## Testtesttest
+		kdsfjadlksfjsdölfjksdaölkfdf
+		## Testtesttest
+		kdsfjadlksfjsdölfjksdaölkfdf
+	`
+	},{
+		name: '',
+		title: '',
+		thumbnail: '../img/',
+		colors: ['#8884FF', '#EB8258', '#D8D6FF'],
+		content: `
+
+	`
 }]
