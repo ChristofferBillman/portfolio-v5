@@ -6,14 +6,28 @@ import { useTranslation } from '../contexts/TranslationContext'
 import { Modal } from '../components/common/Modal/Modal'
 import getProjects from '../util/getProjects'
 import ProjectListItem from '../components/ProjectListItem'
+import isMobile from '../util/IsMobile'
 
 export default function Projects() {
 
 	const [ translation ] = useTranslation()
-	const [ view, setView ] = useState('bento')
+	const [ view, setView ] = useState('list')
 
 	const [ filterModalVisible, setFilterModalVisible ] = useState(false)
 	const pageRef = useRef(null)
+
+	const destopViewOptions = [
+		{ text: translation.List, value: 'list', icon: 'list' },
+		{ text: translation.Grid, value: 'grid', icon: 'grid_view' },
+		{ text: 'Bento',value: 'bento', icon: 'bento'}
+	]
+
+	const mobileViewOptions = [
+		{ text: translation.List, value: 'list', icon: 'list' },
+		{ text: translation.Grid, value: 'grid', icon: 'grid_view' },
+	]
+
+	const viewOptions = isMobile() ? mobileViewOptions : destopViewOptions
 
 	return (
 	<>
@@ -29,11 +43,7 @@ export default function Projects() {
 				onClick={() => setFilterModalVisible(true)}
 			/>
 			<SliderSelector
-				items={[
-					{ text: translation.List, value: 'list', icon: 'list' },
-					{ text: translation.Grid, value: 'grid', icon: 'grid_view' },
-					{ text: 'Bento',value: 'bento', icon: 'bento'}
-				]}
+				items={viewOptions}
 				selectedValue={view}
 				setSelection={setView}
 			/>
