@@ -6,6 +6,7 @@ import Icon from "../common/Icon"
 
 import style from './ProjectListItem.module.css'
 import APP_CONFIG from "../../../AppConfig"
+import Img from "../common/Img"
 
 interface Props {
 	project: Project
@@ -27,7 +28,10 @@ export function ProjectListItem({ project }: Props) {
 					onClick={() => navigate('/projects/' + project.name.toLowerCase())}
 				/>
 			</div>
-			<img src={project.thumbnail + APP_CONFIG.IMG_FILEEXTENSION}/>
+			<Img
+				src={project.thumbnail + APP_CONFIG.IMG_FILEEXTENSION}
+				className={style.coverImage}
+			/>
 		</div>
 	)
 }
