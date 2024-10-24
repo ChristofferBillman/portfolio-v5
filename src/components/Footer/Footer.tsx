@@ -1,11 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "../../contexts/TranslationContext";
 import A from "../common/A";
+import Button from "../common/Button";
 import GlassMaterial from "../common/GlassMaterial";
+import Icon from "../common/Icon";
 import style from './Footer.module.css'
 
 export function Footer() {
 
 	const [translation] = useTranslation()
+	const navigate = useNavigate()
 
 	return (
 		<GlassMaterial className={style.footer}>
@@ -17,6 +21,14 @@ export function Footer() {
 					</div>
 					<div className={style.infoContainer}>
 						<p>{translation.BuiltWithReact} <A href='https://github.com/ChristofferBillman/portfolio/'>{translation.SourceCode}.</A><br />Version 0.0.0</p>
+						
+						<Button
+							text="Playground"
+							onClick={() => {
+								navigate('/playground')
+							}}
+							leftSlot={<Icon name='toys' />}
+						/>
 					</div>
 				</div>
 
