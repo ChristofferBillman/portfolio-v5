@@ -5,11 +5,13 @@ import style from './Menu.module.css'
 import Icon from "../common/Icon";
 import GlassMaterial from "../common/GlassMaterial";
 import useOutsideClick from "../../hooks/useOutsideClick";
-import Button from "../common/Button";
 import { useLocation, useNavigate } from "react-router-dom";
 import TransitionLifecycle from "../TransitionLifecycle";
 import isMobile from "../../util/IsMobile";
 import { useTranslation } from "../../contexts/TranslationContext";
+import useAnimatedBackground from "../../contexts/AnimatedBackgroundContext";
+import Toggle from "../common/Toggle";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 export function Menu() {
 
@@ -19,6 +21,10 @@ export function Menu() {
 
 	const [selectedItem, setSelection] = useState('/')
 	const [open, setOpen] = useState(false)
+
+	const [reduceColors, setReduceColors] = useLocalStorage('reduce_colors', false)
+	const [reduceMotion, setReduceMotion] = useLocalStorage('reduce_motion', false)
+	const animationController = useAnimatedBackground()
 
 	const [isMobileState, setIsMobileState] = useState(isMobile())
 
@@ -122,14 +128,29 @@ export function Menu() {
 					</div><div className={style.line} /></>
 				}
 				<div className={style.controlsContainer}>
-					<Button
-						text="Playground"
-						onClick={() => {
-							navigate('/playground')
-							setOpen(false)
+					<div className={style.optionsContainer}>
+					<Toggle
+						text='Reduce colors'
+						toggled={reduceColors}
+						setToggled={toggled => {
+							animationController.setReduceColors(toggled)
+							setReduceColors(toggled)
 						}}
-						leftSlot={<Icon name='toys' />}
 					/>
+					<Toggle
+						text='Reduce motion'
+						toggled={reduceMotion}
+						setToggled={toggled => {
+							if(toggled) {
+								animationController.detatchFromDom()
+							} else {
+								console.log('attatched!')
+								animationController.attachToDom()
+							}
+							setReduceMotion(toggled)
+						}}
+					/>
+					</div>
 				</div>
 			</ContentTransition>
 		</>

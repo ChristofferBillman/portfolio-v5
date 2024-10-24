@@ -91,6 +91,11 @@
 	align-self: baseline;
 }
 
+.optionsContainer {
+	display: flex;
+	gap: 0.5rem;
+}
+
 @media (width <= 800px) {
 	.menuWrapper {
 		height: 2rem;
