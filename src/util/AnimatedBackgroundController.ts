@@ -63,7 +63,7 @@ export default class AnimatedBackgroundController {
 	}
 
 	setReduceColors(option: boolean) {
-		if(option == true) this.setColors(['#2A2A2A'])
+		if(option == true) this.setColors(['#39342C','#525252', '#525252'])
 		if(option == false) this.restoreDefaultColors(true)
 		this.reduceColors = option
 	}
