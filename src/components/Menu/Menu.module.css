@@ -94,7 +94,7 @@
 
 .optionsContainer {
 	display: flex;
-	gap: 0.1rem;
+	gap: 0.5rem;
 }
 
 @media (width <= 800px) {
