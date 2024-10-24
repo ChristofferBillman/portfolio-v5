@@ -86,7 +86,7 @@ export default class AnimatedBackgroundController {
 		this.circlesContainer.classList.add(style.animatedBackground)
 
 		const filter = `
-<svg xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" height="0" style="display: block">
 	<defs>
 		<filter id="goo">
 			<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
@@ -95,7 +95,7 @@ export default class AnimatedBackgroundController {
 	</defs>
 </svg>
 `
-		const filterEl = document.createElement('span')
+		const filterEl = document.createElement('div')
 		filterEl.innerHTML = filter
 
 		// This effect works in Firefox, but is not hardware accelerated.
