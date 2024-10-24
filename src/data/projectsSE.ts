@@ -130,7 +130,7 @@ export const projectsSE: Project[] = [{
 	, {
 	name: 'TIP',
 	title: 'Inspireras, planera, res!',
-	thumbnail: '../img/tip/promo',
+	thumbnail: '../img/tip/key',
 	colors: ['#2A2A2A', '#181818', '#D8005B'],
 	content: `
 	![alttext](../img/tip/promo "En reklambild som bl.a. användes i vår slutpresentation för lärare och studenter.")
@@ -214,6 +214,30 @@ export const projectsSE: Project[] = [{
 	En annan AI-integration var att “dagens uppdrag” (eller “knåpen”), genererades av ChatGPT, så att de var nya och unika varje dag.
 
 	![Tre bilder på en AI-funktion, Lo-Fi, Mid-Fi och Hi-Fi](../img/knap/progression "Vyn där man får välja dagens uppdrag. Progressionen från Lo-Fi, Mid-Fi till Hi-Fi syns från vänster till höger.")
+`
+}, {
+	name: 'GreetUp',
+	title: 'En app för att minska ensamhet hos äldre i Australien',
+	thumbnail: '../img/greetup/cover',
+	colors: ['#167F56', '#1EAE75', '#79C2A5'],
+	content: `
+	![alt](../img/greetup/promo "")
+	## Uppgiften
+	Genomfördes som del av kursen Teknik för sociala medier, där vi samarbetade med marknadsföringsstudenter från Edith Cowan University i Australien. De stod för marknadsundersökning och affärsidé, medan vi i Sverige agerade utvecklarteam. Från kursens sida var det ett krav att vi skulle förverkliga en idé som minskade ensamheten hos äldre i Australien.
+
+	Alla medlemmar i mitt team gick samtidigt kursen “applikationsutveckling för internet”. Det gjorde det möjligt för oss att göra slutprojekten i båda kurserna som ett och samma. Vi hade alltså 4 veckor heltid på oss att förverkliga idén.
+
+	## Idé & Koncept
+	Vår idé var GreetUp - utforska ditt grannskap idag! Appen …
+
+	## Den tekniska biten då?
+	Frontenden byggde vi som en PWA (Progressive Web Application) i React. För användaren innebär det att de kan trycka “lägg till på hemskärm” när de är inne på hemsidan. Hemsidan fungerar då mycket mer likt en faktiskt app, utan de grafiska element som finns i en webbläsare, ex. sökruta och navigationsknappar.
+
+	API:et byggdes i C#, med ASP.NET MVC. Vi använde oss även av Entity Framework, vilket är en sk. ORM (Object Relational Mapper). Det gjorde så att vi kunde skriva datamodeller och deras relationer i C#. Baserat på datamodellerna, så genererade Entity Framework en SQL-databas åt oss, en metod som kallas “Code first”.
+
+	## Reflektion
+	Eftersom projektet var så omfattande, så krävde det att vi hade mer ordentliga arbetssätt och metoder. Det var första gången jag fick jobba ordentligt med agil arbetsmetodik, bl.a. daily standups, sprintar och retrospectives. Vidare så krävde det att vi använde oss av git och GitHub på ett helt annat sätt än förut. Vi lärde oss om bl.a. merging-strategier, branching, pull requests, CI/CD, m.m.
+
 `
 }
 ]
