@@ -5,7 +5,10 @@
 	padding: 2rem;
 	border-radius: 2rem;
 	cursor: pointer;
+	text-align: left;
 	transition-duration: 1000ms;
+	background-position: center;
+	background-size: cover;
 	transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 

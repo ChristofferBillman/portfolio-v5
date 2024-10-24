@@ -52,8 +52,9 @@ p {
 	color: rgba(255,255,255, 0.6);
 	font-weight: 400;
 	font-style: italic;
-	font-size: 1rem;
-	margin-left: 2rem;
+	font-size: 0.8rem;
+	display: block;
+	margin: 0 8rem 1rem 8rem;
 }
 
 .increasedLinespace {

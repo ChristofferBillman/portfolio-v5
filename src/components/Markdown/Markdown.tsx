@@ -1,4 +1,5 @@
 import { createElement, ReactNode } from "react"
+import APP_CONFIG from '../../../AppConfig'
 
 interface Props {
 	content: string
@@ -47,10 +48,10 @@ function parse(content: string): ReactNode {
 		const altEnd = line.indexOf(']', 1)
 		const alt = line.substring(2, altEnd)
 		const srcEnd = line.indexOf('"', altEnd) - 1
-		const src = line.substring(altEnd + 2, srcEnd)
+		const src = line.substring(altEnd + 2, srcEnd) + APP_CONFIG.IMG_FILEEXTENSION
 		const caption = line.substring(srcEnd + 2, line.indexOf('"',srcEnd + 2))
 
-		elements.push(createElement('img', { src, alt }))
+		elements.push(createElement('img', { src, alt, style: {maxHeight: '150vh', objectFit: 'cover'} }))
 		elements.push(createElement('span', {className: 'caption'} , caption))
 	}
 

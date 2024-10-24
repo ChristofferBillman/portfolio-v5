@@ -132,12 +132,11 @@ function ProjectsView({ view }: ProjectsViewProps) {
 	}
 }
 
-// Returns a random number between 1 (inclusive) and max (inclusive).
 function randomBentoSizing(): {w: number, h: number} {
 	const r = Math.ceil(Math.random() * 4)
 	switch(r) {
-		case 1: return {w: 2 , h: 1}
-		case 2: return {w: 2, h: 1 }
+		case 1: return {w: 2, h: 3}
+		case 2: return {w: 3, h: 2 }
 		case 3: return {w: 2, h: 2}
 		case 4: return {w: 2, h: 3}
 		default: return {w: 2, h: 3}

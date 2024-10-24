@@ -7,13 +7,13 @@ import ScrollToTop from "../../components/common/ScrollToTop";
 
 export function Layout() {
 	return (
-	<>
-		<Menu/>
-		<div className={style.layout}>
-			<Outlet/>
-		</div>
-		<Footer/>
-		<ScrollToTop/>
-	</>
+		<>
+			<Menu />
+			<div className={style.layout}>
+				<Outlet />
+			</div>
+			<ScrollToTop />
+			<Footer />
+		</>
 	)
 }
