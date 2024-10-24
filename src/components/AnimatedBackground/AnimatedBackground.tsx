@@ -14,7 +14,7 @@ export function AnimatedBackground() {
 
 		return () => {
 			clearInterval(interval)
-			animationController.removeRoot()
+			animationController.detatchRoot()
 		}
 	}, [animationController])
 
