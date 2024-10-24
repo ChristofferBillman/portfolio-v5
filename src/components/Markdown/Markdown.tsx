@@ -1,5 +1,6 @@
 import { createElement, ReactNode } from "react"
 import APP_CONFIG from '../../../AppConfig'
+import Img from "../common/Img"
 
 interface Props {
 	content: string
@@ -51,8 +52,14 @@ function parse(content: string): ReactNode {
 		const src = line.substring(altEnd + 2, srcEnd) + APP_CONFIG.IMG_FILEEXTENSION
 		const caption = line.substring(srcEnd + 2, line.indexOf('"',srcEnd + 2))
 
-		elements.push(createElement('img', { src, alt, style: {maxHeight: '150vh', objectFit: 'cover'} }))
-		elements.push(createElement('span', {className: 'caption'} , caption))
+		elements.push(
+			<Img
+				src={src}
+				alt={alt}
+				style={{maxHeight: '130vh', minHeight: '30rem', objectFit: 'cover'}}
+			/>)
+
+		elements.push(<span className='caption'>{caption}</span>)
 	}
 
 	function expectEqual(char: string, char2: string) {
