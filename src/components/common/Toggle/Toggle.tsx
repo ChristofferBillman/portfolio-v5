@@ -14,6 +14,7 @@ export function Toggle({toggled, setToggled, text = ''}: Props) {
 				<input
 					type="checkbox"
 					onChange={() => setToggled(!toggled)}
+					checked={toggled}
 				/>
 				<span className={style.slider}/>
 			</GlassMaterial>
