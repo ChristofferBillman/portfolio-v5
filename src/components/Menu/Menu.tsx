@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, ForwardedRef, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { forwardRef, ReactNode, ForwardedRef, useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
 import SliderSelector from "../common/SliderSelector";
 
 import style from './Menu.module.css'
@@ -12,12 +12,13 @@ import { useTranslation } from "../../contexts/TranslationContext";
 import useAnimatedBackground from "../../contexts/AnimatedBackgroundContext";
 import Toggle from "../common/Toggle";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import getLocale from "../../util/getLocale";
 
 export function Menu() {
 
 	const navigate = useNavigate()
 	const location = useLocation()
-	const [translation] = useTranslation()
+	const [translation, setTranslation] = useTranslation()
 
 	const [selectedItem, setSelection] = useState('/')
 	const [open, setOpen] = useState(false)
@@ -25,6 +26,8 @@ export function Menu() {
 	const [reduceColors, setReduceColors] = useLocalStorage('reduce_colors', false)
 	const [reduceMotion, setReduceMotion] = useLocalStorage('reduce_motion', false)
 	const animationController = useAnimatedBackground()
+
+	const [lang, setLang] = useState(getLocale())
 
 	const [isMobileState, setIsMobileState] = useState(isMobile())
 
@@ -37,6 +40,21 @@ export function Menu() {
 	const menuContentRef = useRef<HTMLDivElement>(null)
 	const menuButtonRef = useRef<HTMLButtonElement>(null)
 
+	const setMenuDimensions = useCallback(() => {
+		const menuItems = menuItemsRef.current
+		const menu = menuRef.current
+		const menuContent = menuContentRef.current
+		const menuButton = menuButtonRef.current
+
+		if (!menuItems || !menu || !menuContent || !menuButton) return
+
+		const padd = 10
+		const newWidth = menuItems.offsetWidth + menuButton.offsetWidth
+		menu.style.width = newWidth + padd + 'px'
+		menuContent.style.width = newWidth + 'px'
+		menuItems.style.marginRight = isMobileState ? '0' : menuButton.offsetWidth + padd + 'px'
+	}, [isMobileState])
+
 	// This code is also crazy, but nessecary, since menu items are only mounted by TransitionContent AFTER the first render cycle.
 	useLayoutEffect(() => {
 		const handleResize = () => {
@@ -44,23 +62,13 @@ export function Menu() {
 				setIsMobileState(isMobile())
 			}
 		}
-
-		const menuItems = menuItemsRef.current
-		const menu = menuRef.current
-		const menuContent = menuContentRef.current
-		const menuButton = menuButtonRef.current
-
-		if (!menuItems || !menu || !menuContent || !menuButton) return
-		const resizeObserver = new ResizeObserver(() => {
-			const padd = 10
-			const newWidth = menuItems.offsetWidth + menuButton.offsetWidth
-			menu.style.width = newWidth + padd + 'px'
-			menuContent.style.width = newWidth + 'px'
-			menuItems.style.paddingRight = isMobileState ? '0' : menuButton.offsetWidth + padd + 'px'
-		})
-
 		// When menuItemsRef width is updated, run the code to set the container to that width too.
+		const menuItems = menuItemsRef.current
+		if (!menuItems) return
+
+		const resizeObserver = new ResizeObserver(setMenuDimensions)
 		resizeObserver.observe(menuItems)
+		
 		window.addEventListener('resize', handleResize)
 
 		// Cleanup
@@ -68,7 +76,7 @@ export function Menu() {
 			resizeObserver.disconnect()
 			window.removeEventListener('resize', handleResize)
 		}
-	},[isMobileState])
+	},[isMobileState, setMenuDimensions])
 
 	useOutsideClick(() => setOpen(false), [menuRef, menuItemsRef, menuContentRef, menuButtonRef])
 
@@ -130,7 +138,7 @@ export function Menu() {
 				<div className={style.controlsContainer}>
 					<div className={style.optionsContainer}>
 					<Toggle
-						text='Reduce colors'
+						text={translation.ReduceColor}
 						toggled={reduceColors}
 						setToggled={toggled => {
 							animationController.setReduceColors(toggled)
@@ -138,7 +146,7 @@ export function Menu() {
 						}}
 					/>
 					<Toggle
-						text='Reduce motion'
+						text={translation.ReduceMotion}
 						toggled={reduceMotion}
 						setToggled={toggled => {
 							if(toggled) {
@@ -151,6 +159,17 @@ export function Menu() {
 						}}
 					/>
 					</div>
+					<SliderSelector
+						items={[
+							{ text: '🇸🇪', value: 'SE' },
+							{ text: '🇬🇧', value: 'EN' },
+						]}
+						selectedValue={lang}
+						setSelection={item => {
+							setTranslation(item as 'EN' | 'SE')
+							setLang(item)
+					}}
+					/>
 				</div>
 			</ContentTransition>
 		</>
