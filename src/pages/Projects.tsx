@@ -10,13 +10,14 @@ import isMobile from '../util/IsMobile'
 import ProjectBentoItem from '../components/ProjectBentoItem'
 import BentoGrid from '../components/BentoGrid'
 import TransitionLifecycle from '../components/TransitionLifecycle'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 const VIEW_TRANSITION_DURATION = 500
 
 export default function Projects() {
 
 	const [ translation ] = useTranslation()
-	const [ view, setView ] = useState('list')
+	const [ view, setView ] = useLocalStorage('project_view_preference','list')
 
 	const [ filterModalVisible, setFilterModalVisible ] = useState(false)
 	const pageRef = useRef(null)
