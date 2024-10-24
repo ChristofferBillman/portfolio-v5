@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Ignore original images.
+public/img/*/*.png
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
