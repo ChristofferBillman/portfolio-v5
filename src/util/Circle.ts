@@ -6,6 +6,7 @@ export default class Circle {
 	element: HTMLDivElement
 	defaultColor: string
 	scaleFactor: number
+	root: HTMLElement | null = null
 	position: Position
 	
 	constructor(initalScaleFactor: number, color: string, position: Position) {
@@ -17,8 +18,17 @@ export default class Circle {
 		this.defaultColor = color
 	}
 
-	attachToDom(root: HTMLElement) {
-		root.appendChild(this.element)
+	attachToDom() {
+		if(!this.root) throw new Error('Circle: Tried to attatch before root was set.')
+		this.root.appendChild(this.element)
+	}
+	detatchFromDom() {
+		if(!this.root) throw new Error('Circle: Tried to detatch before root was set.')
+		this.root.innerHTML = ''
+	}
+
+	setRoot(root: HTMLElement | null) {
+		this.root = root
 	}
 
 	setTransitionDurationWithTimeout(valueInMs: number) {

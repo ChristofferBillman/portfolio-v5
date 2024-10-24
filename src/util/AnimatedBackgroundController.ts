@@ -8,9 +8,11 @@ export default class AnimatedBackgroundController {
 	circlesContainer: HTMLElement | null = null
 	body: HTMLBodyElement
 	defaultBodyColor: string
+	reduceColors: boolean
 	
 	constructor(circles: Circle[], defaultBodyColor: string) {
 		this.circles = circles
+		this.reduceColors = false
 		this.defaultBodyColor = defaultBodyColor
 		this.body = document.getElementsByTagName('body')[0]
 		// Added after App.css is loaded so that margin reset doesn't transition on page load.
@@ -34,6 +36,7 @@ export default class AnimatedBackgroundController {
 	}
 
 	setColors(colors: string[]) {
+		if(this.reduceColors) return
 		this.triggerDramatic()
 		this.forAllCircles((circle, index) => {
 			circle.setColor(colors[index % colors.length])
@@ -43,7 +46,8 @@ export default class AnimatedBackgroundController {
 		this.body.style.background = colors[0]
 	}
 
-	restoreDefaultColors() {
+	restoreDefaultColors(ignoreReduceColors?: boolean) {
+		if(!ignoreReduceColors && this.reduceColors) return
 		this.triggerDramatic()
 		this.forAllCircles(circle => {
 			circle.restoreColor()
@@ -58,10 +62,22 @@ export default class AnimatedBackgroundController {
 		})
 	}
 
+	setReduceColors(option: boolean) {
+		if(option == true) this.setColors(['#2A2A2A'])
+		if(option == false) this.restoreDefaultColors(true)
+		this.reduceColors = option
+	}
+
 	attachToDom() {
 		this.forAllCircles(circle => {
 			if(!this.circlesContainer) throw new Error('Tried to attatch circles to DOM, even if animation root has not been set.')
-			circle.attachToDom(this.circlesContainer)
+			circle.attachToDom()
+		})
+	}
+	detatchFromDom() {
+		this.forAllCircles(circle => {
+			if(!this.circlesContainer) throw new Error('Tried to detatch circles to DOM, even if animation root has not been set.')
+			circle.detatchFromDom()
 		})
 	}
 	
@@ -104,11 +120,15 @@ export default class AnimatedBackgroundController {
 			this.root.appendChild(filterEl)
 		}
 
-		//this.circlesContainer.style.filter = `blur(${window.innerWidth/8}px)`
 		this.root.appendChild(this.circlesContainer)
+
+		this.forAllCircles(circle => {
+			circle.setRoot(this.circlesContainer)
+			circle.attachToDom()
+		})
 	}
 
-	removeRoot() {
+	detatchRoot() {
 		if(!this.root) throw new Error('Cannot clear root if root has not been set.')
 		this.root.innerHTML = ''
 	}
