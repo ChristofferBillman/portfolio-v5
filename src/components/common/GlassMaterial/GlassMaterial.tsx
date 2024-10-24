@@ -6,7 +6,7 @@ interface Props {
 	className?: string
 	children?: ReactNode
 	onClick?: () => void
-	baseElement?: 'div' | 'button'
+	baseElement?: 'div' | 'button' | 'label'
 }
 
 export const GlassMaterial = forwardRef(function ({ className = '', children, onClick, baseElement = 'div' }: Props, ref: React.ForwardedRef<HTMLDivElement>) {
