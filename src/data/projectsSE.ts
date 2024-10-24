@@ -14,17 +14,17 @@ export const projectsSE: Project[] = [{
 	Projekt i kursen "Prototyputveckling för mobila applikationer” (PUMA:an). I teamet var vi 5 studenter som skulle ta fram ett koncept, en design och en MVP för en mobilapplikation. Med andra ord, så skulle vi jobba genom hela designprocessen - från idé till implementation. Från kursens sida fanns inga krav på hur vi skulle arbeta eller vilka tekniker som skulle användas.
 
 	## Idé & Koncept
-	Tidigt bestod processen av ett intensivt idéarbete, vilket innebar utforskande av idéer, brainstorming och diskussion inom gruppen. Under denna fas diskuterades allt från prissättningsmodeller och genomförbarhet till grafisk utformning och användarflöden. Inte helt förvånansvärt resulterade idéarbetet i en idé: Chare, en app för att förenkla samåkande. Tanken var att personer som skulle köra bil till en destination, kan publicera att de kommer göra det i appen. Personer som behöver resa till samma eller en destination skulle då kunna skicka en förfrågan om att få följa med, mot en liten slant - något som skulle gynna både föraren, passageraren och miljön.
+	Tidigt bestod processen av ett intensivt idéarbete, vilket innebar utforskande av idéer, brainstorming och diskussion inom gruppen. Under denna fas diskuterades allt från prissättningsmodeller och genomförbarhet till grafisk utformning och användarflöden. Inte helt förvånansvärt resulterade idéarbetet i en idé: Chare, en app för att förenkla samåkande. Tanken var att personer som skulle köra bil till en destination, kunde publicera deras resa i appen. Personer som behöver resa till samma eller en närliggande destination kunde då kunna skicka en förfrågan om att få följa med mot en liten slant. Det är något som skulle gynna både föraren, passageraren och miljön.
 
 	## Prototyping
-	Efter idéarbetet satte vi igång med rapid prototyping - en metod för att ta fram en stor bredd idéer snabbt. En timer på 10 minuter sattes igång och varje gruppmedlem skulle skissa på hur de tänkte hur appen kunde utformas. Varje medlem fick presentera sina skisser, som sedan diskuteras inom gruppen. Detta upprepades tills vi kände att vi hade samsyn och en bra grund att arbeta vidare från. Fördelen med denna metod är att dåliga idéer och designs snabbt filtreras ut, vilket skapar utrymme för nya idéer och utveckling av dem som blir kvar. En grundläggande struktur för appens navigation skapades tillsammans, och olika områden av appen tilldelades olika gruppmedlemmar. Därefter skapades wireframes (mid-fi:s) av respektive del av appen. Dessa diskuterades, och förbättrades iterativt. Därefter utvecklade vi Hi-Fi-prototyper i Figma, som skulle ligga till grund för implementationen.
+	Efter idéarbetet satte vi igång med rapid prototyping - en metod för att ta fram en stor bredd idéer snabbt. En timer på 10 minuter sattes igång och varje gruppmedlem skulle skissa på hur de tänkte hur appen kunde utformas. Varje medlem fick presentera sina skisser, som sedan diskuteras inom gruppen. Detta upprepades tills vi kände att vi hade samsyn och en bra grund att arbeta vidare från. Fördelen med denna metod är att dåliga idéer och designs snabbt filtreras ut, vilket skapar utrymme för nya idéer och utveckling av dem som blir kvar.
+	\n
+	En grundläggande struktur för appens navigation skapades tillsammans, och olika områden av appen tilldelades olika gruppmedlemmar. Därefter skapades wireframes (mid-fi:s) av respektive del av appen. Dessa diskuterades, och förbättrades iterativt. Därefter utvecklade vi Hi-Fi-prototyper i Figma, som skulle ligga till grund för implementationen.
 
 	## Problem & Lösningar
-	Något som diskuterades hett var hur man skulle få till en prismodell som gynnade både förare, medåkande och de som driver appen. ???
+	Ett problem som diskuterades var vare sig förare verkligen var villiga att ta in en främling i sin bil - och om passagerare skulle vara villiga att sätta sig i en främlings bil. Scenariot "ung tjej som reser sent på kvällen i en främlings bil" visade på att idén aldrig skulle fungera.
 
-	Ett annat problem som diskuterades var vare sig förare verkligen var villiga att ta in en främling i sin bil - och om passagerare skulle vara villiga att sätta sig i en främlings bil. Scenariot att en ung tjej ska resa sent på kvällen, och göra det ensam med en främling, var det som visade på att idén aldrig skulle fungera.
-
-	Problemet löstes genom att på olika sätt skapa legitimitet och tillit. Vi utvecklade profil-delen av appen, och la till information som är svårare att fejka, exempelvis hur många resor man har gjort, recensioner från andra användare och när man skapade profilen. Vidare så diskuterades verifiering med BankID eller andra ID-handlingar som ett sätt att styrka säkerheten och tilliten till plattformen.
+	Problemet löstes genom att på olika sätt skapa legitimitet och tillit. Vi utvecklade profil-delen av appen, och la till information som är svårare att fejka, exempelvis hur många resor man har gjort, recensioner från andra användare och när man skapade profilen. Vidare så diskuterades verifiering med BankID eller andra ID-handlingar som ett sätt att styrka säkerheten och tilliten bland plattformens användare.
 
 	## Utveckling
 	Under utvecklingsfasen så arbetade vi i sprintar och försökte till så stor mån som möjligt att följa agil utvecklingsmetodik. Vi hade en strikt deadline på när vår MVP skulle vara klar, så i praktiken blev det någon slags blandning mellan vattenfallsmodellen och agila metoder.
@@ -34,10 +34,9 @@ export const projectsSE: Project[] = [{
 	![Diagram på dataflödet inom appen](../img/chare/Data Flow "Tekniker som användes för projektet(vänster) och dataflödesmodellen för hela applikationen, MVVM (Model - View - Viewmodel) (höger).")
 
 	## Resultatet
-	Klar med MVP:n blev vi inte, men vi kom en god bit på vägen, något som ändå var otroligt i och med att vi hade nästan noll erfarenhet av Androidutveckling sedan tidigare. Framförallt så lärde vi oss mycket om utveckling av mobila applikationer.
-
-	[Bild på färdig app]
-	`
+	Klar med MVP:n blev vi inte, men vi kom en god bit på vägen, något som ändå var otroligt i och med att vi hade nästan noll erfarenhet av Androidutveckling sedan tidigare. Det viktiga var trots allt att vi lärde oss om utveckling av mobila applikationer - vilket vi gjorde.
+	`,
+	position: 60
 }, {
 	name: 'Labbplantan',
 	title: 'Smart och uppkopplad bevattning av krukväxter',
@@ -67,12 +66,13 @@ export const projectsSE: Project[] = [{
 
 	## Takeaways
 	Framförallt var det väldigt roligt att få testa på att jobba med riktig elektronik och hårdvara, istället för bara mjukvara. Det var spännande att se att mjukvara och kod man skriver kan leda till att saker händer i den fysiska, verkliga världen.
-	`
+	`,
+	position: 50
 }, {
 	name: 'Examensarbete',
 	title: 'Finns det ett samband mellan användbarhet och upplevd säkerhet?',
 	thumbnail: '../img/thesis/promo',
-	colors: ['#001650','#00C2FF', '#80E1FF', '#108CFF', '#108CFF'],
+	colors: ['#001650', '#00C2FF', '#80E1FF', '#108CFF', '#108CFF'],
 	content: `
 	![Olika grafiska element som svävar runt texten "DinBank"](../img/thesis/promo "Den påhittade internetbanken som användes som del av arbetet.")
 	## Vad?
@@ -83,11 +83,11 @@ export const projectsSE: Project[] = [{
 	Tidigt i processen fastställdes det att en prototyp skulle användas utifrån något slags scenario och sedan utvärderas av testpersoner. Det fastställdes att prototypen skulle vara en internetbank, och scenariot en äldre släkting som skulle ha hjälp med bankärenden.
 
 	## Hur?
-	De första veckorna bestod arbetet nästan uteslutande av litteraturstudier. Därefter tog den praktiska biten av arbetet fart på riktigt, som innebar att först skapa en prototyp av en fiktiv internetbank. Det blev arbete med pappersprototyper (Lo-Fi) hela vägen till färdiga prototyper som var redo för implementering (Hi-Fi). Denna design förbättrades sedan ytterligare med hjälp av klasskompisar och alumner på programmet, där de fick utföra s.k. heuristiska analyser.
+	De första veckorna bestod arbetet nästan uteslutande av litteraturstudier. Därefter tog den praktiska biten av arbetet fart på riktigt, som innebar att först skapa en prototyp av en fiktiv internetbank. Det blev arbete med pappersprototyper (Lo-Fi) hela vägen till färdiga prototyper som var redo för implementation (Hi-Fi). Denna design förbättrades sedan ytterligare med hjälp av klasskompisar och alumner på programmet, där de fick utföra s.k. heuristiska analyser.
 
 	Baserat på den färdiga prototypen, skapades en ny, som försämrades på olika sätt för att sänka användbarheten. Det fanns nu två varianter, en med hög och en med låg användbarhet.
 
-	Båda dessa implementerades sedan som en webbapplikation i React. Denna webbapplikation förklarade scenariot, och gav medverkande ett antal bankärenden att slutföra i den fiktiva internetbanken. Varannan medverkande fick använda varianten med hög respektive låg användbarhet. Efter de slutfört alla uppgifter, så fick de svara på två formulär, ett som skulle ta reda på hur användbar prototypen var, och ett som skulle ta reda på hur säker prototypen upplevdes.
+	Båda dessa implementerades sedan som en webbapplikation i React. Webbappen förklarade scenariot, och gav medverkande ett antal bankärenden att slutföra i den fiktiva internetbanken. Varannan medverkande fick använda varianten med hög respektive låg användbarhet. Efter de slutfört alla uppgifter, så fick de svara på två formulär, ett som skulle ta reda på hur användbar prototypen var, och ett som skulle ta reda på hur säker prototypen upplevdes.
 
 	![Diagram som visar de olika delarna i processen. Skapa prototyp -> Heuristiska analyser -> Bygg och skicka ut enkät.](../img/thesis/processSE "De övergripande stegen i arbetsprocessen.")
 
@@ -95,8 +95,9 @@ export const projectsSE: Project[] = [{
 	Baserat på frågorna om hur användbara prototyperna var, så gick det att fastställa att de faktiskt hade olika användbarhet, en förutsättning för att kunna säga om det fanns något samband. I stort så gick det att säga att de medverkande hade högre tillit till varianten med hög användbarhet, även om skillnaden var liten. Feedback och synliggörande av olika säkerhetsåtgärder ökar den upplevda säkerheten. En reflektion som uppkom under arbetets gång var att aspekter såsom autentiseringsprocedur och rykte förmodligen har en större inverkan på den upplevda säkerheten än användbarheten.
 
 	## Vad tar jag med mig?
-	Min absolut största lärdom från examensarbetet var nog beslutstagande. Under arbetets gång så övervägde jag en mängd olika tillvägagångssätt och alternativ - och hade kanske lite beslutsångest kring många av dessa. Att överväga och utforska alla alternativ har utan tvekan tjänat mig väl - men jag hade förmodligen fått mer gjort och snabbare om jag inte skjutit upp vissa beslut.
-	`
+	En av lärdomarna från examensarbetet hade med beslutstagande att göra. Under arbetets gång så övervägde jag en mängd olika tillvägagångssätt och alternativ - och hade beslutsångest kring dessa. Att överväga och utforska alla alternativ har utan tvekan tjänat mig väl - men jag hade förmodligen fått mer gjort och snabbare om jag inte skjutit upp vissa beslut.
+	`,
+	position: 10
 }, {
 	name: 'Wikisajt',
 	title: 'Dokumentation av roleplaying och händelser på en Minecraftserver',
@@ -121,18 +122,19 @@ export const projectsSE: Project[] = [{
 
 	Initialt försökte jag även att bygga redigera-läget för wikisidor som en WYSIWYG-editor (what you see is what you get), något som visade sig vara för mycket att implementera helt själv. Att få till en sådan hade varit en bra möjlighet för vidareutveckling!
 
-	![Jämförelse mellan en wysiwyg-editor och en vanlig editor."](../img/wiki/wysiwyg.png "Notions WYSIWYG-editor (vänster), och den som finns på wikisajten - en vanlig editor (höger).")
+	![Jämförelse mellan en wysiwyg-editor och en vanlig editor."](../img/wiki/wysiwyg "Notions WYSIWYG-editor (vänster), och den som finns på wikisajten - en vanlig editor (höger).")
 
-	## Takeaways
-	Det var ett kul projekt! Att koda ihop något helt själv ledde till att man till stor del kunde bestämma helt själv hur allt skulle vara uppbyggt. Det är dessutom mycket roligare när det är något man själv är engagerad i.
-`
+	## Nutid
+	I skrivande stund så är projektet vilande och ligger nere. Det ansågs inte värt att hosta den, då ingen använde applikationen längre.
+`,
+	position: 20
 }
 	, {
-	name: 'TIP',
-	title: 'Inspireras, planera, res!',
-	thumbnail: '../img/tip/key',
-	colors: ['#2A2A2A', '#181818', '#D8005B'],
-	content: `
+		name: 'TIP',
+		title: 'Inspireras, planera, res!',
+		thumbnail: '../img/tip/key',
+		colors: ['#2A2A2A', '#181818', '#D8005B'],
+		content: `
 	![alttext](../img/tip/promo "En reklambild som bl.a. användes i vår slutpresentation för lärare och studenter.")
 	## Uppgiften
 	Som del av kursen “affärsmässig tjänstedesign och teknikutveckling” utvecklade jag och en annan student en affärsidé, koncept och första prototyp för en app. Fokuset genom hela kursen var de affärsmässiga aspekterna, såsom kundsegment, värdeerbjudande, intäktsmodell, med mera.
@@ -163,14 +165,15 @@ export const projectsSE: Project[] = [{
 	Att få pitcha i skarpt läge var även lärorikt. Att få göra det har bidragit till ett bättre självförtroende, att man kan tänka “jo, jag kan faktiskt”, även om det känns svårt och utmanande.
 
 	![Tre iPhones med bilder på Hi-Fi prototyper](../img/tip/result "")
-`
-}
+`,
+		position: 30
+	}
 	, {
-	name: 'Umeå Lokaltrafik - Redesign',
-	title: 'Omdesignad linjekarta för Umeås Lokaltrafik',
-	thumbnail: '../img/transit/hero',
-	colors: ['#2C2B2B', '#E52F2F', '#E5862F', '#2F78E5', '#E9C400'],
-	content: `
+		name: 'Umeå Lokaltrafik - Redesign',
+		title: 'Omdesignad linjekarta för Umeås Lokaltrafik',
+		thumbnail: '../img/transit/hero',
+		colors: ['#2C2B2B', '#E52F2F', '#E5862F', '#2F78E5', '#E9C400'],
+		content: `
 	![Ett diagram över Umeås lokaltrafik.](../img/transit/map_dark "")
 	## Bakgrund
 	Varje morgon på väg till universitetet, stod jag i busskuren och väntade på min buss. För att få tiden att gå, så ställde jag mig en dag och glodde framför linjekartan som är uppsatt i busskuren. Jag såg skeva vinklar, olika typsnitt, och grafiska element som inte var i linje med varandra. Då tänkte jag, det här skriker ju bara "hej kom och hjälp mig” - så då gjorde jag det!
@@ -183,17 +186,18 @@ export const projectsSE: Project[] = [{
 	Jag inspirerades mycket av hur tunnelbanekartor är konstruerade. Jag tog inspiration från bl.a. Stockholms, Oslos och Londons tunnelbanor. Jag rätade ut busslinjer så gott det gick, och låste dem till 45 graders vinklar.
 
 	## Nutid & vidareutveckling
-	Kartan finns att kika på online, med live-aspekten av kartan är inte implementerad ännu. Just nu ligger projektet lite vilande, men jag planerar att fortsätta när jag har tid.
+	Kartan finns att kika på online, men live-aspekten av kartan är inte implementerad ännu. Just nu ligger projektet lite vilande, men jag planerar att fortsätta när jag har tid.
 
 	Om det är något jag skulle vilja förbättra med kartan är det nog dess igenkännbarhet och personlighet. Jag vill att man direkt ska känna “det här är Umeå” när man ser den.
-`
-}
+`,
+		position: 40
+	}
 	, {
-	name: 'Knåp',
-	title: 'Dagliga uppdrag för äldre och familjen',
-	thumbnail: '../img/knap/promo',
-	colors: ['#141414', '#F6B96D', '#3C3C3C'],
-	content: `
+		name: 'Knåp',
+		title: 'Dagliga uppdrag för äldre och familjen',
+		thumbnail: '../img/knap/promo',
+		colors: ['#141414', '#F6B96D', '#3C3C3C'],
+		content: `
 	![Olika vyer i appen.](../img/knap/showcase "")
 	## Vad var uppgiften?
 	Som del av kursen “Innovativa mobila tjänster och system”, byggde vi i ett team på 6 personer en app. Temat som helhet under kursen var “agetech”, dvs. teknik för äldre personer. Just vårt team fick frågeställningen “how do we empower elderly in their daily lives” att utgå ifrån.
@@ -214,8 +218,9 @@ export const projectsSE: Project[] = [{
 	En annan AI-integration var att “dagens uppdrag” (eller “knåpen”), genererades av ChatGPT, så att de var nya och unika varje dag.
 
 	![Tre bilder på en AI-funktion, Lo-Fi, Mid-Fi och Hi-Fi](../img/knap/progression "Vyn där man får välja dagens uppdrag. Progressionen från Lo-Fi, Mid-Fi till Hi-Fi syns från vänster till höger.")
-`
-}, {
+`,
+		position: 70
+	}, {
 	name: 'GreetUp',
 	title: 'En app för att minska ensamhet hos äldre i Australien',
 	thumbnail: '../img/greetup/cover',
@@ -238,6 +243,7 @@ export const projectsSE: Project[] = [{
 	## Reflektion
 	Eftersom projektet var så omfattande, så krävde det att vi hade mer ordentliga arbetssätt och metoder. Det var första gången jag fick jobba ordentligt med agil arbetsmetodik, bl.a. daily standups, sprintar och retrospectives. Vidare så krävde det att vi använde oss av git och GitHub på ett helt annat sätt än förut. Vi lärde oss om bl.a. merging-strategier, branching, pull requests, CI/CD, m.m.
 
-`
+`,
+	position: 80
 }
 ]
