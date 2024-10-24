@@ -56,7 +56,7 @@ function parse(content: string): ReactNode {
 			<Img
 				src={src}
 				alt={alt}
-				style={{maxHeight: '130vh', minHeight: '30rem', objectFit: 'cover'}}
+				style={{maxHeight: '130vh', objectFit: 'cover'}}
 			/>)
 
 		elements.push(<span className='caption'>{caption}</span>)

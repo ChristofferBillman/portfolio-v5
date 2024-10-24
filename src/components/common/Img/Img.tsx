@@ -8,12 +8,15 @@ export function Img({src, ...props}: Props ) {
 	const [isLoaded, setIsLoaded] = useState(false)
 
 	return (
-		<div className={`${isLoaded ? '' : style.loader} ${props.className}`} style={props.style}>	
+		<div
+			className={`${isLoaded ? '' : style.loader} ${props.className}`}
+			style={props.style}
+		>
 			<img
 				{...props}
 				src={src}
 				onLoad={() => setIsLoaded(true)}
-				style={{opacity: isLoaded ? 1 : 0, width: '100%', height: '100%'}}
+				style={{...props.style, opacity: isLoaded ? 1 : 0, width: '100%', height: '100%', display: 'block' }}
 			/>
 		</div>
 	)
