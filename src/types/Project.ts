@@ -4,4 +4,5 @@ export default interface Project {
 	thumbnail: string
 	colors: string[]
 	content: string
+	position: number
 }
