@@ -30,7 +30,7 @@
 	padding: 2rem 0;
 }
 
-@media (width <= 800px) {
+@media (width <= 1200px) {
 	.container {
 		padding: 0;
 	}

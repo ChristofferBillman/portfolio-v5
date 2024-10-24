@@ -1,5 +1,7 @@
 .layout {
 	padding: 4rem 1rem 1rem 1rem;
+	max-width: 1400px;
+	margin: 0 auto;
 }
 
 @media (width <= 800px) {
