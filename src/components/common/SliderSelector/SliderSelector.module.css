@@ -30,6 +30,7 @@
 	display: flex;
 	gap: 0.2rem;
 	flex-direction: row-reverse;
+	user-select: none;
 	border-radius: 200px;
 }
 
