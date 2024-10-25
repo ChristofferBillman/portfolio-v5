@@ -8,14 +8,11 @@ import useAnimatedBackground from "../../contexts/AnimatedBackgroundContext"
 import style from './ProjectPage.module.css'
 import { useTranslation } from "../../contexts/TranslationContext"
 import getProjects from "../../util/getProjects"
-import { Resource } from "../../types/Project"
 
 export function ProjectPage() {
 
 	const { name } = useParams()
 	const animationController = useAnimatedBackground()
-
-	const [ translation ] = useTranslation()
 
 	const project = getProjects().find(project => project.name.toLowerCase() == name)
 	
@@ -36,16 +33,6 @@ export function ProjectPage() {
 			</div>
 			<h1>{project.title}</h1>
 			<Markdown content={project.content} />
-
-			{project.resources && project.resources.length != 0 &&
-			<>
-				<h2>{translation.LinksAndResources}</h2>
-				
-				<div className={style.resourceContainer}>
-					{project.resources?.map(r => <ResourceItem resource={r}/>)}
-				</div>
-			</>
-			}
 			<div className={style.backhome}>
 				<BackButton/>
 			</div>
@@ -76,31 +63,5 @@ function NoProject() {
 			<h1>Oops!</h1>
 			<p>There doesn't seem to be a project with that name. It may have been deleted or moved.</p>
 		</div>
-	)
-}
-
-function ResourceItem({resource}: {resource: Resource}) {
-
-	const getIconName = (resourceType: string | undefined) => {
-		switch(resourceType) {
-			case 'pdf': return 'picture_as_pdf'
-			case 'figma': return 'design_services'
-			case 'code': return 'code'
-			default: return 'open_in_new'
-		}
-	}
-
-	const iconName = getIconName(resource.type)
-
-
-	return (
-		<a
-			href={resource.href}
-			target='_blank'
-			className={style.link}
-		>
-			<span>{resource.text}</span>
-			{iconName && <Icon name={iconName}/>}
-		</a>
 	)
 }
