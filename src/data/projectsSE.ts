@@ -297,13 +297,14 @@ export const projectsSE: Project[] = [{
 		name: 'Yotei',
 		title: 'Planeringsverktyg för en Budoklubb i Umeå',
 		thumbnail: '../img/yotei/promo',
-		colors: ['#167F56', '#1EAE75', '#79C2A5'],
+		colors: ['#A73439','#E16369', '#FDA5AC', '#F8EBEC'],
 		content: `
-	![alt](../img/yotei/promo "")
+	![alt](../img/yotei/promo_big "")
 	## Finns inte ännu!
+	![alt](../img/yotei/myversion "")
 	...
 `,
-		position: 80,
+		position: 90,
 		resources: [{
 			type: 'figma',
 			text: 'Designfil',
@@ -312,6 +313,14 @@ export const projectsSE: Project[] = [{
 			type: 'figma',
 			text: 'Designfil (mitt förslag)',
 			href: "..."
+		},{
+			type: 'pdf',
+			text: 'Nybörjarguide för Hooks',
+			href: "../React Hooks Cheatsheet.pdf"
+		},{
+			type: 'pdf',
+			text: 'Presentationsfil för workshop i React',
+			href: "../React Workshop.pdf"
 		}]
 	}
 ]
