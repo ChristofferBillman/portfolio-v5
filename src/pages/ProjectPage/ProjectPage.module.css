@@ -30,6 +30,31 @@
 	padding: 2rem 0;
 }
 
+.resourceContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin: 1rem 8rem 1rem 8rem;
+}
+
+.link {
+	position: relative;
+	font-size: 1rem;
+	display: block;
+	text-align: center;
+	width: fit-content;
+}
+
+.link span:first-child {
+	margin-right: 0.3rem;
+}
+
+.link span:nth-child(2) {
+	position: absolute;
+	top: 3px;
+	right: -1rem;
+}
+
 @media (width <= 1200px) {
 	.container {
 		padding: 0;
@@ -43,6 +68,10 @@
 	}
 	.container p {
 		margin: 0;
+	}
+
+	.resourceContainer {
+		margin: 1rem 0 1rem 0;
 	}
 	
 	.navContainer {
