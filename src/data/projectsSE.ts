@@ -36,7 +36,16 @@ export const projectsSE: Project[] = [{
 	## Resultatet
 	Klar med MVP:n blev vi inte, men vi kom en god bit på vägen, något som ändå var otroligt i och med att vi hade nästan noll erfarenhet av Androidutveckling sedan tidigare. Det viktiga var trots allt att vi lärde oss om utveckling av mobila applikationer - vilket vi gjorde.
 	`,
-	position: 60
+	position: 60,
+	resources: [{
+		type: "figma",
+		text: "Designfil",
+		href: "https://www.figma.com/design/UMugzTm8x48Fu1xmzCQd6I/Chare?node-id=4-190&t=ZqeKUEdO6aV3eDI9-1"
+	},{
+		type: "code",
+		text: "Källkod",
+		href: "https://github.com/Savalige/Chare/"
+	}]
 }, {
 	name: 'Labbplantan',
 	title: 'Smart och uppkopplad bevattning av krukväxter',
@@ -97,7 +106,16 @@ export const projectsSE: Project[] = [{
 	## Vad tar jag med mig?
 	En av lärdomarna från examensarbetet hade med beslutstagande att göra. Under arbetets gång så övervägde jag en mängd olika tillvägagångssätt och alternativ - och hade beslutsångest kring dessa. Att överväga och utforska alla alternativ har utan tvekan tjänat mig väl - men jag hade förmodligen fått mer gjort och snabbare om jag inte skjutit upp vissa beslut.
 	`,
-	position: 10
+	position: 10,
+	resources: [{
+		type: "pdf",
+		text: "Slutpresentation",
+		href: "../Examensarbete slutpresentation.pdf"
+	},{
+		type: "webpage",
+		text: "Rapport i DiVA (Digitala Vetenskapliga Arkivet)",
+		href: "https://urn.kb.se/resolve?urn=urn:nbn:se:umu:diva-225743"
+	}]
 }, {
 	name: 'Wikisajt',
 	title: 'Dokumentation av roleplaying och händelser på en Minecraftserver',
@@ -127,7 +145,13 @@ export const projectsSE: Project[] = [{
 	## Nutid
 	I skrivande stund så är projektet vilande och ligger nere. Det ansågs inte värt att hosta den, då ingen använde applikationen längre.
 `,
-	position: 20
+	position: 20,
+	resources: [{
+		type: 'code',
+		text: 'Källkod',
+		href: "https://github.com/ChristofferBillman/wiki-app"
+	}
+]
 }
 	, {
 		name: 'TIP',
@@ -166,7 +190,16 @@ export const projectsSE: Project[] = [{
 
 	![Tre iPhones med bilder på Hi-Fi prototyper](../img/tip/result "")
 `,
-		position: 30
+		position: 30,
+		resources: [{
+			type: 'pdf',
+			text: 'Slutpresentation',
+			href: "../Affärsmässiga slutpresentation.pdf"
+		},{
+			type: 'figma',
+			text: 'Designfil',
+			href: "https://www.figma.com/design/xwBHlfcGjGoFS9eCydm8iX/Aff%C3%A4rsm%C3%A4ssiga?node-id=0-1&t=zOjFTqS7XHVp1bq5-1"
+		}]
 	}
 	, {
 		name: 'Umeå Lokaltrafik - Redesign',
@@ -190,7 +223,18 @@ export const projectsSE: Project[] = [{
 
 	Om det är något jag skulle vilja förbättra med kartan är det nog dess igenkännbarhet och personlighet. Jag vill att man direkt ska känna “det här är Umeå” när man ser den.
 `,
-		position: 40
+	position: 40,
+	resources: [{
+			type: 'webpage',
+			text: 'Webbplats',
+			href: "https://transit.christofferbillman.se"
+		},
+		{
+			type: 'code',
+			text: 'Källkod',
+			href: "https://github.com/ChristofferBillman/umea-transit-map"
+		},
+	]
 	}
 	, {
 		name: 'Knåp',
@@ -219,13 +263,13 @@ export const projectsSE: Project[] = [{
 
 	![Tre bilder på en AI-funktion, Lo-Fi, Mid-Fi och Hi-Fi](../img/knap/progression "Vyn där man får välja dagens uppdrag. Progressionen från Lo-Fi, Mid-Fi till Hi-Fi syns från vänster till höger.")
 `,
-		position: 70
+	position: 70
 	}, {
-	name: 'GreetUp',
-	title: 'En app för att minska ensamhet hos äldre i Australien',
-	thumbnail: '../img/greetup/cover',
-	colors: ['#167F56', '#1EAE75', '#79C2A5'],
-	content: `
+		name: 'GreetUp',
+		title: 'En app för att minska ensamhet hos äldre i Australien',
+		thumbnail: '../img/greetup/cover',
+		colors: ['#167F56', '#1EAE75', '#79C2A5'],
+		content: `
 	![alt](../img/greetup/promo "")
 	## Uppgiften
 	Genomfördes som del av kursen Teknik för sociala medier, där vi samarbetade med marknadsföringsstudenter från Edith Cowan University i Australien. De stod för marknadsundersökning och affärsidé, medan vi i Sverige agerade utvecklarteam. Från kursens sida var det ett krav att vi skulle förverkliga en idé som minskade ensamheten hos äldre i Australien.
@@ -242,8 +286,32 @@ export const projectsSE: Project[] = [{
 
 	## Reflektion
 	Eftersom projektet var så omfattande, så krävde det att vi hade mer ordentliga arbetssätt och metoder. Det var första gången jag fick jobba ordentligt med agil arbetsmetodik, bl.a. daily standups, sprintar och retrospectives. Vidare så krävde det att vi använde oss av git och GitHub på ett helt annat sätt än förut. Vi lärde oss om bl.a. merging-strategier, branching, pull requests, CI/CD, m.m.
-
 `,
-	position: 80
-}
+		position: 80,
+		resources: [{
+			type: 'code',
+			text: 'Källkod',
+			href: "https://github.com/emmylindgren/GreetUp"
+		}]
+	}, {
+		name: 'Yotei',
+		title: 'Planeringsverktyg för en Budoklubb i Umeå',
+		thumbnail: '../img/yotei/promo',
+		colors: ['#167F56', '#1EAE75', '#79C2A5'],
+		content: `
+	![alt](../img/yotei/promo "")
+	## Finns inte ännu!
+	...
+`,
+		position: 80,
+		resources: [{
+			type: 'figma',
+			text: 'Designfil',
+			href: "https://www.figma.com/design/64zymyGJSp7BuQthnOhvMt/PVT?node-id=1-68&t=BWnl0eXCgXBLfSoa-1"
+		},{
+			type: 'figma',
+			text: 'Designfil (mitt förslag)',
+			href: "..."
+		}]
+	}
 ]

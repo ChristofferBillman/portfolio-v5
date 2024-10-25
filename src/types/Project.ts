@@ -5,4 +5,11 @@ export default interface Project {
 	colors: string[]
 	content: string
 	position: number
+	resources?: Resource[]
+}
+
+export interface Resource {
+	type: 'webpage' | 'pdf' | 'figma' | 'code'
+	text: string
+	href: string
 }
