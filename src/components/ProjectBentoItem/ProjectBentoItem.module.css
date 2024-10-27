@@ -12,6 +12,12 @@
 	transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.container:focus-visible {
+	outline: 5px solid rgb(0, 94, 255);
+	outline-offset: 5px;
+	transform: scale(1.05);
+}
+
 .container:hover {
 	transform: scale(1.05);
 }

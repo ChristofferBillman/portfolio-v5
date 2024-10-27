@@ -28,6 +28,11 @@
 	right: 1rem;
 }
 
+.menuButton:focus-visible {
+	outline: 3px solid rgb(0, 94, 255);
+	outline-offset: 5px;
+}
+
 .menuItemsWrapper {
 	display: flex;
 	align-items: center;
