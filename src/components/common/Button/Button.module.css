@@ -2,10 +2,12 @@
 	width: fit-content;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	gap: 0.5rem;
 	transition-duration: 200ms;
 	padding: 0.5rem;
 	font-size: 0.75rem;
+	color: white;
 }
 
 .button:hover {
@@ -16,6 +18,20 @@
 .button:active {
 	transform: scale(0.9);
 	box-shadow: none;
+}
+.button:focus-visible {
+	outline: 3px solid rgb(0, 94, 255);
+	outline-offset: 5px;
+}
+
+.whiteWrapper {
+	background: white;
+	color: black;
+	border-radius: 500px;
+}
+
+.link {
+	color: inherit;
 }
 
 @media (width <= 800px) {
