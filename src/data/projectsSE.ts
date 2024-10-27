@@ -31,7 +31,7 @@ export const projectsSE: Project[] = [{
 
 	Vi valde att implementera själva appen i Android, av den enkla anledningen att vi ville lära oss mer om Androidutveckling. Backenden bestod av ett REST-API skrivet med .NET MVC. Databasen blev MySQL, tillsammans med Entity Framework för datamodellering och gränssnitt till databasen.
 
-	![Diagram på dataflödet inom appen](../img/chare/Data Flow "Tekniker som användes för projektet(vänster) och dataflödesmodellen för hela applikationen, MVVM (Model - View - Viewmodel) (höger).")
+	![Diagram på dataflödet inom appen](../img/chare/df "Tekniker som användes för projektet(vänster) och dataflödesmodellen för hela applikationen, MVVM (Model - View - Viewmodel) (höger).")
 
 	## Resultatet
 	Klar med MVP:n blev vi inte, men vi kom en god bit på vägen, något som ändå var otroligt i och med att vi hade nästan noll erfarenhet av Androidutveckling sedan tidigare. Det viktiga var trots allt att vi lärde oss om utveckling av mobila applikationer - vilket vi gjorde.
@@ -214,7 +214,7 @@ export const projectsSE: Project[] = [{
 	## En ny utformning och stil
 	I mina ögon fanns det två tillvägagångssätt, att (1) fokusera på den geografiska kopplingen och  förankra den ytterligare, eller (2) koppla lös från det geografiska och fokusera på relationerna mellan busslinjer och hållplatser. Båda har sina för och nackdelar, men jag valde det andra alternativet - framförallt för att det ger mer kreativ frihet i hur man kan utforma kartan.
 
-	![En bild på londons tunnelbana och bussnätet i Stockholms innerstad](../img/transit/comparison "Londons tunnelbana (vänster) har låg geografisk anknytning. Kartorna över bussarna i stockholm har hög geografisk anknytning (höger).")
+	![En bild på Londons tunnelbana och bussnätet i Stockholms innerstad](../img/transit/comparison "Kartan för Londons tunnelbana (vänster) har låg geografisk anknytning. Kartorna över bussarna i Stockholm har hög geografisk anknytning (höger).")
 
 	Jag inspirerades mycket av hur tunnelbanekartor är konstruerade. Jag tog inspiration från bl.a. Stockholms, Oslos och Londons tunnelbanor. Jag rätade ut busslinjer så gott det gick, och låste dem till 45 graders vinklar.
 
@@ -274,7 +274,7 @@ export const projectsSE: Project[] = [{
 	## Uppgiften
 	Genomfördes som del av kursen Teknik för sociala medier, där vi samarbetade med marknadsföringsstudenter från Edith Cowan University i Australien. De stod för marknadsundersökning och affärsidé, medan vi i Sverige agerade utvecklarteam. Från kursens sida var det ett krav att vi skulle förverkliga en idé som minskade ensamheten hos äldre i Australien.
 
-	Alla medlemmar i mitt team gick samtidigt kursen “applikationsutveckling för internet”. Det gjorde det möjligt för oss att göra slutprojekten i båda kurserna som ett och samma. Vi hade alltså 4 veckor heltid på oss att förverkliga idén.
+	Alla medlemmar i mitt team gick samtidigt kursen “Applikationsutveckling för internet”. Det gjorde det möjligt för oss att göra slutprojekten i båda kurserna som ett och samma. Det gav oss 5 veckor heltid i utvecklingstid.
 
 	## Idé & Koncept
 	Vår idé var GreetUp - utforska ditt grannskap idag! Appen …
@@ -282,7 +282,7 @@ export const projectsSE: Project[] = [{
 	## Den tekniska biten då?
 	Frontenden byggde vi som en PWA (Progressive Web Application) i React. För användaren innebär det att de kan trycka “lägg till på hemskärm” när de är inne på hemsidan. Hemsidan fungerar då mycket mer likt en faktiskt app, utan de grafiska element som finns i en webbläsare, ex. sökruta och navigationsknappar.
 
-	API:et byggdes i C#, med ASP.NET MVC. Vi använde oss även av Entity Framework, vilket är en sk. ORM (Object Relational Mapper). Det gjorde så att vi kunde skriva datamodeller och deras relationer i C#. Baserat på datamodellerna, så genererade Entity Framework en SQL-databas åt oss, en metod som kallas “Code first”.
+	API:et byggdes i C#, med ASP.NET MVC. Vi använde oss även av Entity Framework, vilket är en sk. ORM (Object Relational Mapper). Det gjorde så att vi kunde skriva datamodeller och deras relationer i C#. Baserat på datamodellerna, så genererade Entity Framework en SQL-databas åt oss, en metod som kallas “Code First”.
 
 	## Reflektion
 	Eftersom projektet var så omfattande, så krävde det att vi hade mer ordentliga arbetssätt och metoder. Det var första gången jag fick jobba ordentligt med agil arbetsmetodik, bl.a. daily standups, sprintar och retrospectives. Vidare så krävde det att vi använde oss av git och GitHub på ett helt annat sätt än förut. Vi lärde oss om bl.a. merging-strategier, branching, pull requests, CI/CD, m.m.
@@ -300,9 +300,37 @@ export const projectsSE: Project[] = [{
 		colors: ['#A73439','#E16369', '#FDA5AC', '#F8EBEC'],
 		content: `
 	![alt](../img/yotei/promo_big "")
-	## Finns inte ännu!
-	![alt](../img/yotei/myversion "")
-	...
+	## Vad?
+	Som del av kursen “Programvaruteknik”, utvecklade jag tillsammans med 50 andra studenter ett planeringsverktyg för en Budoklubb i Umeå. Kursen bestod av 3 veckors intensiv teori kring programvaruteknik och 7 veckors utvecklingstid. Något som var unikt för kursen var att efter teoridelen sköttes arbetet nästan uteslutande av studenterna - med minimal styrning från kursens lärare och handledare.
+
+	Ännu en intressant förutsättning var att vi fick ärva förra årets kodbas. Att förstå, utöka och förbättra en existerande kodbas - med minimal dokumentation, var en erfarenhet som var mycket värdefull.
+
+	## Hur fick vi ihop samarbetet?
+	För att organisera hela utvecklingsarbetet, användes Spotifys modell för agil projektledning. Gruppen delades upp i olika teams (eller squads), som sedan fick ansvar över en särskild del, till exempel huvudmeny eller inställningar. Medlemmarna i varje squad tilldelades även ansvar inom ett särskilt kompetensområde, exempelvis backend, test/pipeline, frontend, design, mm. Alla personer inom kompetensområdet bildade en ny grupp, ett s.k. chapter.
+
+	Det här tillvägagångssättet gjorde det möjligt för varje squad att jobba relativt oberoende, samtidigt som man kunde dela med sig av kunskap och lärdomar inom sitt chapter.
+
+	Jag var del av squadet som hade ansvar över “tekniker”-delen. Jag var även del av frontend-chaptret för det mesta, men hoppade även in med scrum master/PO-chaptret under en sprint.
+
+	## Tekniken
+	Frontenden bestod av en webbapplikation skriven i Javascript och React. Backenden var byggd som ett REST-API skrivet med Java Springboot. Det hela deployades i en docker-container, på en server som tillhandahölls av universitetet. På denna server körde även CI/CD-pipelinen, som innehöll enhetstester, E2E-tester och deploy-script.
+
+	Projektet drevs som ett multi-repo, som var uppdelat i “backend”, “frontend”, “infra” och “docs”. När kursen var slut hade totalt 782 (!!!) merge requests godkänts och mergats inom dessa.
+
+	## Workshop
+	Den stora majoriteten av studenterna hade aldrig jobbat med React eller Frontendutveckling över huvud taget. Det var även där som det fanns störst behov för förbättringar. Det var med denna bakgrund som jag tog eget initiativ och anordnade en workshop inom React. Mer än hälften av kursens studenter deltog, och många uppskattade workshopen, och tyckte att det gjorde dem redo att sätta igång med utvecklingsarbetet.
+
+	## Min roll
+	Tidigt i arbetet spenderade jag en del tid med designteamet, för att ta fram en ny grafisk profil och identitet. Jag hade tagit fram ett förslag, som i slutändan inte blev del av projektet, p.g.a. tidsbrist.
+
+	I och med att jag var en av de få som kunde React, så blev jag tillsammans med en annan student de facto handledare inom frontend. Vi två sprang runt mycket och hjälpte olika team med frontend-relaterade problem, något jag tror bidrog mycket till att vi kom så långt vi gjorde.
+
+	![3 vyer av mitt desingnförslag](../img/yotei/myversion "Tre vyer i mitt designförslag. En huvudtanke med designen var att samla alla åtgärder i en åtgärdslist högst upp.")
+
+	## Takeaways
+	Den här perioden under mina studier kan ha varit en av de mest intensiva och utmanande - men också en av de roligaste och mest lärorika. Jag fick arbeta med en bredd olika uppgifter, under stort eget ansvar och styrning, något som jag gärna gör igen. Det var också väldigt roligt och givande att ha en handledarroll.
+
+	Att arbeta så många i ett och samma utvecklingsprojekt var en otroligt stor utmaning rent organisatoriskt. Det är otroligt att det hela gick ihop - men det gjorde det.
 `,
 		position: 90,
 		resources: [{
