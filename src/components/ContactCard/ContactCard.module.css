@@ -43,6 +43,7 @@
 
 @media (width <= 800px) {
 	.container {
+		box-sizing: border-box;
 		width: 100%;
 	}
 }

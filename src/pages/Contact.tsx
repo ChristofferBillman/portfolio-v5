@@ -36,7 +36,7 @@ export default function Contact() {
 						title={translation.Phone}
 						info='+46 07 577 22 97'
 						copy
-						href={['sms:+46075772297', 'tel:+46075772297']} 
+						href={['sms:+46705772297', 'tel:+46705772297']} 
 					/>
 					<ContactCard
 						title={translation.Email}
