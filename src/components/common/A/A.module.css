@@ -1,0 +1,17 @@
+.link {
+	position: relative;
+	font-size: 1rem;
+	display: block;
+	text-align: center;
+	width: fit-content;
+}
+
+.link span:first-child {
+	margin-right: 0.3rem;
+}
+
+.link span:nth-child(2) {
+	position: absolute;
+	top: 3px;
+	right: -1rem;
+}
