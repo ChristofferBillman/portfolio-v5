@@ -28,3 +28,4 @@ public/img/*/*.png
 
 tsconfig.node.tsbuildinfo
 tsconfig.app.tsbuildinfo
+public/bundlesize.json

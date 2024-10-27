@@ -6,6 +6,8 @@ import GlassMaterial from "../common/GlassMaterial";
 import Icon from "../common/Icon";
 import style from './Footer.module.css'
 
+import bundleSizes from '../../../public/bundlesize.json'
+
 export function Footer() {
 
 	const [translation] = useTranslation()
@@ -28,7 +30,11 @@ export function Footer() {
 								iconName='arrow_outward'
 							/>
 							<br />
-							Version 0.0.0
+							<strong>This build:</strong>
+							<br />
+							{bundleSizes.originalSize} uncompressed
+							<br />
+							{bundleSizes.gzippedSize} gzipped
 						</p>
 						
 						<Button
