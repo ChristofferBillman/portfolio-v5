@@ -9,6 +9,7 @@ import style from './ProjectPage.module.css'
 import { useTranslation } from "../../contexts/TranslationContext"
 import getProjects from "../../util/getProjects"
 import { Resource } from "../../types/Project"
+import A from "../../components/common/A"
 
 export function ProjectPage() {
 
@@ -86,21 +87,17 @@ function ResourceItem({resource}: {resource: Resource}) {
 			case 'pdf': return 'picture_as_pdf'
 			case 'figma': return 'design_services'
 			case 'code': return 'code'
-			default: return 'open_in_new'
+			default: return 'arrow_outward'
 		}
 	}
 
 	const iconName = getIconName(resource.type)
 
-
 	return (
-		<a
+		<A
 			href={resource.href}
-			target='_blank'
-			className={style.link}
-		>
-			<span>{resource.text}</span>
-			{iconName && <Icon name={iconName}/>}
-		</a>
+			text={resource.text}
+			iconName={iconName}
+		/>
 	)
 }

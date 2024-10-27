@@ -35,6 +35,10 @@
 	font-size: inherit;
 }
 
+.bwr {
+	display: inline;
+}
+
 @media (width <= 800px) {
 	.content {
 		flex-direction: column;

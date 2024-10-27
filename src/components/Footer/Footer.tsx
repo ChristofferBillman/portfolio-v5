@@ -20,7 +20,16 @@ export function Footer() {
 						<p>(c) Christoffer Billman 2024.<br />{translation.FooterTagline}</p>
 					</div>
 					<div className={style.infoContainer}>
-						<p>{translation.BuiltWithReact} <A href='https://github.com/ChristofferBillman/portfolio/'>{translation.SourceCode}.</A><br />Version 0.0.0</p>
+						<p className={style.bwr}>
+							{translation.BuiltWithReact + ' '}
+							<A
+								text={translation.SourceCode}
+								href='https://github.com/ChristofferBillman/portfolio/'
+								iconName='arrow_outward'
+							/>
+							<br />
+							Version 0.0.0
+						</p>
 						
 						<Button
 							text="Playground"
@@ -40,8 +49,16 @@ export function Footer() {
 					</div>
 					<div className={style.infoContainer}>
 						<h3>{translation.LinksAndResources}</h3>
-						<A href="https://www.linkedin.com/in/christoffer-billman-840029212">LinkedIn</A>
-						<A href="https://github.com/ChristofferBillman">GitHub</A>
+						<A
+							text='LinkedIn'
+							href="https://www.linkedin.com/in/christoffer-billman-840029212"
+							iconName="arrow_outward"
+						/>
+						<A
+							text='GitHub'
+							href="https://github.com/ChristofferBillman"
+							iconName="arrow_outward"
+						/>
 					</div>
 				</div>
 			</div>
