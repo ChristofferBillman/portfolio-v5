@@ -8,14 +8,15 @@ interface Props {
 	leftSlot?: ReactNode
 	rightSlot?: ReactNode
 	type?: 'white' | 'glass'
+	className?: string
 }
-export function Button({ text, onClick, leftSlot = '', rightSlot = '', type = 'glass' }: Props) {
+export function Button({ text, onClick, leftSlot = '', rightSlot = '', type = 'glass', className='' }: Props) {
 
 	const Wrapper = type == 'glass' ? GlassMaterial : WhiteMaterial
 
 	return (
 		<Wrapper
-			className={style.button}
+			className={`${style.button} ${className}`}
 			onClick={onClick}
 			baseElement='button'
 		>
@@ -37,7 +38,7 @@ interface WhiteMaterialProps {
 }
 function WhiteMaterial({children, onClick, className}: WhiteMaterialProps) {
 	return (
-		<button className={`${className} ${style.whiteWrapper}`} onClick={onClick}>
+		<button className={`${style.whiteWrapper} ${className}`} onClick={onClick}>
 			{children}
 		</button>
 	)

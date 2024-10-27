@@ -14,6 +14,7 @@ export type Translation = {
 	HeyThere: string
 	UnderConstructionText: string
 	ProjectsPreamle: string
+	ContactPreamble: string
 	List: string
 	Grid: string
 	Close: string
@@ -26,6 +27,8 @@ export type Translation = {
 	LinksAndResources: string
 	ReduceMotion: string
 	ReduceColor: string
+	Phone: string
+	Email: string
 }
 
 type TranslationContext = [Translation, (_: 'EN' | 'SE') => void]
@@ -83,7 +86,10 @@ const translations: Translation[] = [
 		ReadMore: 'Läs mer',
 		LinksAndResources: 'Länkar & resurser',
 		ReduceMotion: 'Minska rörelse',
-		ReduceColor: 'Minska färg'
+		ReduceColor: 'Minska färg',
+		ContactPreamble: 'Jag berättar gärna mer om mig själv, och vill gärna höra mer om dig! Hör av dig!',
+		Phone: 'Telefon',
+		Email: 'Mejl'
 	},{
 		Name: 'EN',
 		Home: 'Home',
@@ -104,6 +110,9 @@ const translations: Translation[] = [
 		ReadMore: 'Read more',
 		LinksAndResources: 'Links & Resources',
 		ReduceMotion: 'Reduce motion',
-		ReduceColor: 'Reduce color'
+		ReduceColor: 'Reduce color',
+		ContactPreamble: 'I would love to share more about myself, and hear more about you! Get in touch!',
+		Phone: 'Phone',
+		Email: 'Email'
 	},
 ]

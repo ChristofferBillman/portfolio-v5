@@ -58,6 +58,7 @@ export default function Playground() {
 						}}
 						text='Restore defaults'
 						rightSlot={<Icon name='settings_backup_restore' size='0.75rem' />}
+						type="white"
 					/>
 
 					<Button

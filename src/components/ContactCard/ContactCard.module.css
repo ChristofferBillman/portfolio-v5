@@ -1,0 +1,48 @@
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	width: fit-content;
+	gap: 1rem;
+	transition-duration: 500ms;
+	transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.textContainer {
+	display: block;
+}
+
+.linksContainer {
+	display: flex;
+	gap: 1rem;
+}
+
+.textContainer :first-child {
+	font-weight: 500;
+}
+.container img {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.icon {
+	padding: 0 .3rem;
+}
+
+.greenbg {
+	background: rgb(0, 193, 74) !important;
+	color: white
+}
+
+.err {
+	background: rgb(193, 0, 0) !important;
+	color: white
+}
+
+@media (width <= 800px) {
+	.container {
+		width: 100%;
+	}
+}
