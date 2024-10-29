@@ -11,6 +11,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 	gap: 4rem;
+	margin-top: 5rem;
 }
 .rightContent .infoContainer {
 	align-items: flex-end;
@@ -37,6 +38,10 @@
 
 .bwr {
 	display: inline;
+}
+
+.semiBold {
+	font-weight: 500;
 }
 
 @media (width <= 800px) {

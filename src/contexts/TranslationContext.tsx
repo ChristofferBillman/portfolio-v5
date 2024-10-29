@@ -29,6 +29,12 @@ export type Translation = {
 	ReduceColor: string
 	Phone: string
 	Email: string
+	BundleSize: string
+	ContactCTAText: string
+	NiceToMeet: string
+	HeroDesc: string
+	HighlightedProjects: string
+	Resume: string
 }
 
 type TranslationContext = [Translation, (_: 'EN' | 'SE') => void]
@@ -89,7 +95,13 @@ const translations: Translation[] = [
 		ReduceColor: 'Minska färg',
 		ContactPreamble: 'Jag berättar gärna mer om mig själv, och vill gärna höra mer om dig! Hör av dig!',
 		Phone: 'Telefon',
-		Email: 'Mejl'
+		Email: 'Mejl',
+		BundleSize: 'Buntstorlek, detta bygge:',
+		ContactCTAText: 'Hör av dig så tar vi en kaffe!',
+		NiceToMeet: 'Kul att råkas! Jag är...',
+		HeroDesc: '[Kärnfull beskrivning av mig]',
+		HighlightedProjects: 'Utvalda projekt',
+		Resume: 'CV'
 	},{
 		Name: 'EN',
 		Home: 'Home',
@@ -113,6 +125,12 @@ const translations: Translation[] = [
 		ReduceColor: 'Reduce color',
 		ContactPreamble: 'I would love to share more about myself, and hear more about you! Get in touch!',
 		Phone: 'Phone',
-		Email: 'Email'
+		Email: 'Email',
+		BundleSize: 'Bundle size, this build:',
+		ContactCTAText: "Reach out, and we'll grab a coffee!",
+		NiceToMeet: 'Hi, nice to meet you! I am...',
+		HeroDesc: '[placeholder]',
+		HighlightedProjects: 'Highlighted Projects',
+		Resume: 'Resume'
 	},
 ]

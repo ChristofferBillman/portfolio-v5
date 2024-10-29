@@ -1,9 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "../../contexts/TranslationContext";
 import A from "../common/A";
-import Button from "../common/Button";
 import GlassMaterial from "../common/GlassMaterial";
-import Icon from "../common/Icon";
 import style from './Footer.module.css'
 
 import bundleSizes from '../../../public/bundlesize.json'
@@ -11,7 +8,6 @@ import bundleSizes from '../../../public/bundlesize.json'
 export function Footer() {
 
 	const [translation] = useTranslation()
-	const navigate = useNavigate()
 
 	return (
 		<GlassMaterial className={style.footer}>
@@ -19,7 +15,7 @@ export function Footer() {
 				<div className={style.leftContent}>
 					<div className={style.infoContainer}>
 						<h2>Christoffer<br />Billman</h2>
-						<p>(c) Christoffer Billman 2024.<br />{translation.FooterTagline}</p>
+						<p>© Christoffer Billman 2024.<br />{translation.FooterTagline}</p>
 					</div>
 					<div className={style.infoContainer}>
 						<p className={style.bwr}>
@@ -29,21 +25,9 @@ export function Footer() {
 								href='https://github.com/ChristofferBillman/portfolio/'
 								iconName='arrow_outward'
 							/>
-							<br />
-							<strong>This build:</strong>
-							<br />
-							{bundleSizes.originalSize} uncompressed
-							<br />
-							{bundleSizes.gzippedSize} gzipped
+							<br/>
+							{bundleSizes.originalSize} | {bundleSizes.gzippedSize} gzip
 						</p>
-						
-						<Button
-							text="Playground"
-							onClick={() => {
-								navigate('/playground')
-							}}
-							leftSlot={<Icon name='toys' />}
-						/>
 					</div>
 				</div>
 
