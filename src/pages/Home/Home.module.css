@@ -1,0 +1,88 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 20rem;
+	margin-bottom: 20rem;
+}
+
+.heroImg {
+	width: 500px;
+	height: 500px;
+	object-fit: cover;
+	border-radius: 5000px;
+}
+
+.introContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.projectsContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 5rem;
+}
+
+.btnContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	margin-bottom: 10rem;
+}
+
+.contactContainer {
+	margin: 5rem auto;
+	max-width: 50rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-gap: 3rem;
+	justify-items: center;
+}
+
+.r1, .r2, .r3, .r4 {
+	transform: var(--rotate) var(--translateX);
+}
+
+.r1 {
+	--rotate: rotate(-5deg);
+	--translateX: translateX(1rem);
+	animation: float 10s ease-in-out infinite;
+}
+
+.r2 {
+	--rotate: rotate(2deg);
+	--translateX: translateX(-3rem);
+	animation: float 10s ease-in-out infinite;
+	animation-delay: 2s;
+}
+
+.r3 {
+	--rotate: rotate(2deg);
+	--translateX: translateX(0);
+	animation: float 10s ease-in-out infinite;
+	animation-delay: 4s;
+}
+
+.r4 {
+	--rotate: rotate(-3deg);
+	--translateX: translateX(-2rem) translateY(-1rem);
+	animation: float 10s ease-in-out infinite;
+	animation-delay: 6s;
+}
+
+@keyframes float {
+	0% {
+		transform: translateY(0) var(--rotate) var(--translateX);
+	}
+	50% {
+		transform: translateY(-20px) var(--rotate) var(--translateX);
+	}
+	100% {
+		transform: translateY(0) var(--rotate) var(--translateX);
+	}
+}
