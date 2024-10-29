@@ -21,7 +21,7 @@ export function ProjectBentoItem({ project, height, width }: Props) {
 				gridColumn: `span ${width}`,
 				backgroundImage: `linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), url("${project.thumbnail + APP_CONFIG.IMG_FILEEXTENSION}")`
 			}}
-			onClick={() => navigate('/projects/' + project.name.toLowerCase())}
+			onClick={() => navigate('/projects/' + project.id)}
 			tabIndex={0}
 		>
 			<span className='accent'>{project.name}</span>

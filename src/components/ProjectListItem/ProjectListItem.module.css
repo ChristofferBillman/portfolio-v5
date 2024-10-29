@@ -6,6 +6,25 @@
 	margin-bottom: 2rem;
 }
 
+.largeContainer {
+	flex-direction: column-reverse;
+	gap: 1rem;
+	align-items: flex-start;
+}
+
+.largeContainer .coverImage {
+	width: 100%;
+	height: 20rem;
+}
+
+.largeContainer .infoContainer {
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	flex-wrap: wrap;
+}
+
 .coverImage {
 	width: 20rem;
 	height: 10rem;

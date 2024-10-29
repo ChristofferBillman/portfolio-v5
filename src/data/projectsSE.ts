@@ -4,6 +4,7 @@ import Project from "../types/Project"
 // It is added later in the Markdown component.
 
 export const projectsSE: Project[] = [{
+	id: 'chare',
 	name: 'Chare',
 	title: 'Hur kan man göra samåkning lika smidigt som att boka en tåg eller bussbiljett?',
 	thumbnail: '../img/chare/Hero',
@@ -47,6 +48,7 @@ export const projectsSE: Project[] = [{
 		href: "https://github.com/Savalige/Chare/"
 	}]
 }, {
+	id: 'labplant',
 	name: 'Labbplantan',
 	title: 'Smart och uppkopplad bevattning av krukväxter',
 	thumbnail: '../img/lab-plant/setup',
@@ -78,6 +80,7 @@ export const projectsSE: Project[] = [{
 	`,
 	position: 50
 }, {
+	id: 'thesis',
 	name: 'Examensarbete',
 	title: 'Finns det ett samband mellan användbarhet och upplevd säkerhet?',
 	thumbnail: '../img/thesis/promo',
@@ -117,6 +120,7 @@ export const projectsSE: Project[] = [{
 		href: "https://urn.kb.se/resolve?urn=urn:nbn:se:umu:diva-225743"
 	}]
 }, {
+	id: 'wiki',
 	name: 'Wikisajt',
 	title: 'Dokumentation av roleplaying och händelser på en Minecraftserver',
 	thumbnail: '../img/wiki/promo',
@@ -154,6 +158,7 @@ export const projectsSE: Project[] = [{
 ]
 }
 	, {
+		id: 'tip',
 		name: 'TIP',
 		title: 'Inspireras, planera, res!',
 		thumbnail: '../img/tip/key',
@@ -202,6 +207,7 @@ export const projectsSE: Project[] = [{
 		}]
 	}
 	, {
+		id: 'transit',
 		name: 'Umeå Lokaltrafik - Redesign',
 		title: 'Omdesignad linjekarta för Umeås Lokaltrafik',
 		thumbnail: '../img/transit/hero',
@@ -237,6 +243,7 @@ export const projectsSE: Project[] = [{
 	]
 	}
 	, {
+		id: 'knap',
 		name: 'Knåp',
 		title: 'Dagliga uppdrag för äldre och familjen',
 		thumbnail: '../img/knap/promo',
@@ -265,6 +272,7 @@ export const projectsSE: Project[] = [{
 `,
 	position: 70
 	}, {
+		id: 'greetup',
 		name: 'GreetUp',
 		title: 'En app för att minska ensamhet hos äldre i Australien',
 		thumbnail: '../img/greetup/cover',
@@ -294,6 +302,7 @@ export const projectsSE: Project[] = [{
 			href: "https://github.com/emmylindgren/GreetUp"
 		}]
 	}, {
+		id: 'yotei',
 		name: 'Yotei',
 		title: 'Planeringsverktyg för en Budoklubb i Umeå',
 		thumbnail: '../img/yotei/promo',

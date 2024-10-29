@@ -18,7 +18,7 @@ export function ProjectPage() {
 
 	const [ translation ] = useTranslation()
 
-	const project = getProjects().find(project => project.name.toLowerCase() == name)
+	const project = getProjects().find(project => project.id == name)
 	
 	useEffect(() => {
 		if (!project) return

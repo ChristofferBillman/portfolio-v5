@@ -10,22 +10,27 @@ import Img from "../common/Img"
 
 interface Props {
 	project: Project
+	variant?: 'large' | 'normal'
 }
 
-export function ProjectListItem({ project }: Props) {
+export function ProjectListItem({ project, variant = 'normal' }: Props) {
 
 	const [ translation ] = useTranslation()
 	const navigate = useNavigate()
 
+	const isLarge = variant == 'large' 
+
 	return (
-		<div className={style.container}>
+		<div className={`${style.container} ${isLarge ? style.largeContainer : ''}`}>
 			<div className={style.infoContainer}>
-				<span className={'accent'}>{project.name}</span>
-				<p className={style.desc}>{project.title}</p>
+				<div>
+					<span className={'accent'}>{project.name}</span>
+					<p className={style.desc}>{project.title}</p>
+				</div>
 				<Button
 					text={translation.ReadMore}
 					rightSlot={<Icon name='arrow_forward'/>}
-					onClick={() => navigate('/projects/' + project.name.toLowerCase())}
+					onClick={() => navigate('/projects/' + project.id)}
 				/>
 			</div>
 			<Img
