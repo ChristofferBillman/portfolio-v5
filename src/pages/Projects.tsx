@@ -18,6 +18,7 @@ export default function Projects() {
 
 	const [ translation ] = useTranslation()
 	const [ view, setView ] = useLocalStorage('project_view_preference','list')
+	const [ sliderViewSetting, setSliderViewSetting ] = useState(view)
 
 	const [ filterModalVisible, setFilterModalVisible ] = useState(false)
 	const pageRef = useRef(null)
@@ -39,10 +40,16 @@ export default function Projects() {
 
 	const handleViewChange = (newState: SetStateAction<string>) => {
 		setProjectsRendered(false)
-		setTimeout(() => {
+		setSliderViewSetting(newState)
+
+		const timeout = setTimeout(() => {
 			setView(newState)
 			setProjectsRendered(true)
 		}, VIEW_TRANSITION_DURATION)
+
+		return () => {
+			clearTimeout(timeout)
+		}
 	}
 
 	return (
@@ -60,7 +67,7 @@ export default function Projects() {
 			/>
 			<SliderSelector
 				items={viewOptions}
-				selectedValue={view}
+				selectedValue={sliderViewSetting}
 				setSelection={handleViewChange}
 			/>
 		</div>
