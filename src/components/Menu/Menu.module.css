@@ -54,11 +54,6 @@
 	gap: 0.5rem;
 }
 
-.col a {
-	display: flex;
-	align-items: center;
-}
-
 .projectsContainer {
 	display: flex;
 	gap: 0.5rem;
@@ -74,8 +69,8 @@
 
 .menuContents {
 	z-index: 4;
-	top: 3rem;
-	padding: 1rem;
+	top: 2.9rem;
+	padding: 0 1rem 1rem 1rem;
 	box-sizing: border-box;
 	right: 1.5rem;
 	position: fixed;

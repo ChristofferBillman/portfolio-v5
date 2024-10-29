@@ -13,6 +13,7 @@ import useAnimatedBackground from "../../contexts/AnimatedBackgroundContext";
 import Toggle from "../common/Toggle";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import getLocale from "../../util/getLocale";
+import A from "../common/A";
 
 export function Menu() {
 
@@ -121,17 +122,17 @@ export function Menu() {
 				<div className={style.line} />
 				{!isMobileState &&
 					<><div className={style.projectsContainer}>
-						<div className={style.col}>
-							<p>Highlighted projects</p>
-							<a>Placeholder 1</a>
-							<a>Placeholder 2</a>
-							<a>Placeholder 3</a>
+						<div className={`${style.col} label`}>
+							<h3>{translation.HighlightedProjects}</h3>
+							<A href='/projects/thesis' text='Thesis' target='_self'/>
+							<A href='/projects/yotei' text='Yotei' target='_self'/>
+							<A href='/projects/transit' text='Umeå transit redesign' target='_self'/>
 						</div>
-						<div className={style.col}>
-							<p>Links & resources</p>
-							<a>GitHub</a>
-							<a>LinkedIn</a>
-							<a>Resume <Icon name='download' /></a>
+						<div className={`${style.col} label`}>
+							<h3>{translation.LinksAndResources}</h3>
+							<A href='GitHub' text='GitHub' iconName='code'/>
+							<A href='' text='LinkedIn' iconName='arrow_outward'/>
+							<A href='' text={translation.Resume} iconName='description'/>
 						</div>
 					</div><div className={style.line} /></>
 				}
