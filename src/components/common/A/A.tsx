@@ -5,13 +5,14 @@ interface Props {
 	href: string
 	iconName?: string
 	text: string
+	target?: string
 }
 
-export function A({href, iconName, text}: Props) {
+export function A({href, iconName, text, target = '_blank'}: Props) {
 	return (
 		<a
 			href={href}
-			target='_blank'
+			target={target}
 			className={style.link}
 		>
 			<span>{text}</span>
