@@ -1,6 +1,7 @@
-import ContactCard from "../components/ContactCard"
+import FloatingContactLinks from "../components/FloatingContactLinks"
 import TransitionLifecycle from "../components/TransitionLifecycle"
 import { useTranslation } from "../contexts/TranslationContext"
+
 
 export default function Contact() {
 
@@ -19,32 +20,7 @@ export default function Contact() {
 					duration: 500
 				}}
 			>
-				<div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginTop: '5rem' }}>
-					<ContactCard
-						title='LinkedIn'
-						info='Christoffer Billman'
-						img='../img/linkedin.png'
-						href={['www.linkedin.com/in/christoffer-billman-840029212']}
-					/>
-					<ContactCard
-						title='GitHub'
-						info='ChristofferBillman'
-						img='../img/gh.png'
-						href={['https://github.com/ChristofferBillman']}
-					/>
-					<ContactCard
-						title={translation.Phone}
-						info='+46 70 577 22 97'
-						copy
-						href={['sms:+46705772297', 'tel:+46705772297']} 
-					/>
-					<ContactCard
-						title={translation.Email}
-						info='christoffer.billman@gmail.com'
-						copy
-						href={['mailto:christoffer.billman@gmail.com']}
-					/>
-				</div>
+				<FloatingContactLinks/>
 			</TransitionLifecycle>
 		</>
 	)
