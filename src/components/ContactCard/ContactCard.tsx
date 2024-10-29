@@ -10,15 +10,16 @@ interface Props {
 	img?: string
 	href?: string[]
 	copy?: boolean
+	className?: string
 }
-export function ContactCard({ title, info, img, href, copy }: Props) {
+export function ContactCard({ title, info, img, href, copy, className = '' }: Props) {
 
 	const [icon, setIcon] = useState('content_copy')
 
 	const bgStyle = icon == 'close' ? style.err : (icon == 'check' ? style.greenbg : '')
 
 	return (
-		<GlassMaterial className={style.container}>
+		<GlassMaterial className={`${style.container} ${className}`}>
 			{img && <img src={img} />}
 			<div className={style.textContainer}>
 				<p>{title}</p>
