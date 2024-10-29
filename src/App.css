@@ -32,6 +32,7 @@ h3 {
 	font-size: 1rem;
 	margin: 0;
 	font-family: 'Space Grotesk';
+	font-weight: 500;
 }
 p {
 	font-family: 'Space Grotesk';
@@ -67,7 +68,7 @@ a {
 	font-size: 0.6rem;
 }
 
-label {
+label, .label {
 	font-family: 'Space Grotesk';
 	color: rgba(255,255,255, 1);
 	font-size: 0.6rem;
