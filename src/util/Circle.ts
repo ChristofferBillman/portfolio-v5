@@ -58,16 +58,15 @@ export default class Circle {
 		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 		if(reduceMotion) return
 
-		const body = document.getElementsByTagName('body')[0]
+		const body = document.body
 
-		const viewportWidth = body.offsetWidth
-		const viewportHeight = body.offsetHeight
+		const bodyWidth = body.offsetWidth
+		const vpHeight = window.innerWidth
 
-		const maxX = viewportWidth - this.position.x + viewportWidth/2
-		const maxY = viewportHeight - this.position.y + viewportHeight/2
-
-		const randomX = Math.floor(Math.random() * maxX)
-		const randomY = Math.floor(Math.random() * maxY)
+		const scrollDistance = document.documentElement.scrollTop
+		const randomX = Math.floor(Math.random() * bodyWidth)
+		// Ensures that circles always move in towards where the user is scrolled.
+		const randomY = Math.floor(scrollDistance + Math.random() * vpHeight)
 
 		this.setPosition({x: randomX, y: randomY})
 	}
@@ -85,7 +84,7 @@ export default class Circle {
 	}
 
 	reflectPosition() {
-		this.setPosition(this.getReflectedPosition(this.element))
+		this.setPosition({x: this.getReflectedPosition(this.element).x, y: this.position.y})
 	}
 
 	private applyTransformations() {

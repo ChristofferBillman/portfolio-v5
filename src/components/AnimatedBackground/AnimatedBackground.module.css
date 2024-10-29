@@ -13,8 +13,8 @@
 }
 
 .circle {
-	width: 50vw;
-	height: 50vw;
+	width: 100vw;
+	height: 100vw;
 	top: 0;
 	left: 0;
 	border-radius: 1000px;
@@ -25,7 +25,11 @@
 	transform-origin: center;
 	mix-blend-mode: hard-light;
 	will-change: transform;
+}
 
+.circle:nth-child(odd) {
+	width: 50vw;
+	height: 50vw;
 }
 
 .grain:before {
