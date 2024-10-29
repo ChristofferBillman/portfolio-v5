@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 import GlassMaterial from '../GlassMaterial'
 import style from './Button.module.css'
+import clsx from 'clsx'
 
 interface Props {
 	text?: string
@@ -38,7 +39,7 @@ interface WhiteMaterialProps {
 }
 function WhiteMaterial({children, onClick, className}: WhiteMaterialProps) {
 	return (
-		<button className={`${style.whiteWrapper} ${className}`} onClick={onClick}>
+		<button className={clsx(style.whiteWrapper, className)} onClick={onClick}>
 			{children}
 		</button>
 	)

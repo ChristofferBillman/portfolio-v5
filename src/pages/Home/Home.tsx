@@ -8,6 +8,8 @@ import Icon from '../../components/common/Icon'
 import Img from "../../components/common/Img"
 import FloatingContactLinks from "../../components/FloatingContactLinks"
 
+import clsx from "clsx"
+
 export function Home() {
 
 	const [ translation ] = useTranslation()
@@ -17,10 +19,13 @@ export function Home() {
 	<>
 		<div className={style.container}>
 			<div className={style.introContainer}>
-				<Img src='../img/me.webp' className={style.heroImg}/>
+				<Img src='../img/me.webp' className={clsx(style.heroImg, style.fadeIn)}/>
 				<div>
-					<p>{translation.NiceToMeet}</p>
-					<h1>Christoffer <br/> Billman</h1>
+					<p className={style.fadeIn}>{translation.NiceToMeet}</p>
+					<h1 className={clsx(style.fadeIn, style.stagger1)}>Christoffer <br/> Billman</h1>
+					<p className={clsx(style.scrollCTA, style.fadeIn, style.stagger2)}>
+						{translation.ScrollToSeeMore} 
+					</p>
 				</div>
 			</div>
 

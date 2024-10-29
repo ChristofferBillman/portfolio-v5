@@ -14,6 +14,7 @@ import Toggle from "../common/Toggle";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import getLocale from "../../util/getLocale";
 import A from "../common/A";
+import clsx from "clsx";
 
 export function Menu() {
 
@@ -31,6 +32,8 @@ export function Menu() {
 	const [lang, setLang] = useState(getLocale())
 
 	const [isMobileState, setIsMobileState] = useState(isMobile())
+
+	const [menuVisible, setMenuVisible] = useState(false)
 
 	useEffect(() => {
 		setSelection(`/${location.pathname.split('/').slice(1, 2).join('')}`)
@@ -79,12 +82,27 @@ export function Menu() {
 		}
 	},[isMobileState, setMenuDimensions])
 
+	useEffect(() => {
+		if(location.pathname != '/') {
+			setMenuVisible(true)
+		}
+
+		const onScrollEnough = () => {
+			if(window.scrollY > 1300 && location.pathname === '/') {
+				setMenuVisible(true)
+			}
+		}
+
+		window.addEventListener('scroll', onScrollEnough)
+		return () => window.removeEventListener('scroll', onScrollEnough)
+	}, [location.pathname])
+
 	useOutsideClick(() => setOpen(false), [menuRef, menuItemsRef, menuContentRef, menuButtonRef])
 
 	return (
-		<>
+		<div style={{opacity: menuVisible ? 1: 0, transitionDuration: '500ms'}}>
 			<GlassMaterial
-				className={`${style.menuWrapper} ${open ? style.open : ''}`}
+				className={clsx(style.menuWrapper, open && style.open)}
 				ref={menuRef}
 			/>
 			{/* Having opacity be 0 at initial render apperently makes safari skip applying the backdrop-filter - which makes my life difficult. But only sometimes like what??  */}
@@ -173,7 +191,7 @@ export function Menu() {
 					/>
 				</div>
 			</ContentTransition>
-		</>
+		</div>
 	)
 }
 

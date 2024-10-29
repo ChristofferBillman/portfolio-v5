@@ -1,3 +1,5 @@
+import clsx from "clsx"
+
 interface Props {
 	name: string
 	size?: string
@@ -8,7 +10,7 @@ interface Props {
 export function Icon({name, color = 'inherit', className = ''}: Props) {
 	return (
 		<span
-            className={`${className} material-symbols-rounded`}
+            className={clsx(className, 'material-symbols-rounded')}
             style={{
 				color,
                 fontSize: 'inherit',

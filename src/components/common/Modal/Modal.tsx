@@ -6,6 +6,7 @@ import useOutsideClick from '../../../hooks/useOutsideClick'
 import GlassMaterial from '../GlassMaterial'
 
 import style from './Modal.module.css'
+import clsx from 'clsx'
 
 interface Props {
 	visible: boolean
@@ -44,7 +45,7 @@ export function Modal({ visible, setVisible, children, className = '', bgRef}: P
 			style={{zIndex: 1000, position: 'fixed', top:'50%', left:'50%'}}
 			ref={ref}
 		>
-			<GlassMaterial className={`${style.modal} ${className}`}>
+			<GlassMaterial className={clsx(style.modal, className)}>
 				{children}
 			</GlassMaterial>
 		</TransitionLifecycle>

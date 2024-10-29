@@ -1,6 +1,7 @@
 import { createElement, forwardRef, ReactNode } from 'react'
 import style from './GlassMaterial.module.css'
 import getBrowser from '../../../util/GetBrowser'
+import clsx from 'clsx'
 
 interface Props {
 	className?: string
@@ -17,7 +18,7 @@ export const GlassMaterial = forwardRef(function ({ className = '', children, on
 		return createElement(
 			baseElement,
 			{
-				className: `${style.glass} ${clickableStyle} ${className}`,
+				className: clsx(style.glass, clickableStyle, className),
 				onClick,
 				ref,
 				tabIndex: onClick ? 0 : undefined,

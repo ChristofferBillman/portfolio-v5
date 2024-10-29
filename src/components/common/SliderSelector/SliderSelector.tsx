@@ -2,6 +2,7 @@ import { Dispatch, ReactNode, SetStateAction, useLayoutEffect, useRef, useState 
 import GlassMaterial from '../GlassMaterial'
 import style from './SliderSelector.module.css'
 import { SliderSelectorItem } from './SliderSelectorItem'
+import clsx from 'clsx'
 
 interface Props {
 	items: { text: string, value: string, icon?: string }[]
@@ -46,7 +47,7 @@ export function SliderSelector({ wrapper = 'glass', direction = 'horizontal', ..
 
 	return (
 		<Wrapper
-			className={`${style.sliderSelector} ${props.className} ${direction == 'vertical' ? style.vertical: ''}`}
+			className={clsx(style.sliderSelector, props.className, direction == 'vertical' && style.vertical)}
 			ref={sliderRef}
 		>
 			{props.items.map((item, i) => (

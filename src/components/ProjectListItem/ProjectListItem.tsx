@@ -7,6 +7,7 @@ import Icon from "../common/Icon"
 import style from './ProjectListItem.module.css'
 import APP_CONFIG from "../../../AppConfig"
 import Img from "../common/Img"
+import clsx from "clsx"
 
 interface Props {
 	project: Project
@@ -21,7 +22,7 @@ export function ProjectListItem({ project, variant = 'normal' }: Props) {
 	const isLarge = variant == 'large' 
 
 	return (
-		<div className={`${style.container} ${isLarge ? style.largeContainer : ''}`}>
+		<div className={clsx(style.container, isLarge && style.largeContainer)}>
 			<div className={style.infoContainer}>
 				<div>
 					<span className={'accent'}>{project.name}</span>

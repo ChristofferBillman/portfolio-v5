@@ -3,6 +3,7 @@ import Button from "../common/Button"
 import GlassMaterial from "../common/GlassMaterial"
 import Icon from "../common/Icon"
 import style from './ContactCard.module.css'
+import clsx from "clsx"
 
 interface Props {
 	title: string
@@ -19,7 +20,7 @@ export function ContactCard({ title, info, img, href, copy, className = '' }: Pr
 	const bgStyle = icon == 'close' ? style.err : (icon == 'check' ? style.greenbg : '')
 
 	return (
-		<GlassMaterial className={`${style.container} ${className}`}>
+		<GlassMaterial className={clsx(style.container, className)}>
 			{img && <img src={img} />}
 			<div className={style.textContainer}>
 				<p>{title}</p>
