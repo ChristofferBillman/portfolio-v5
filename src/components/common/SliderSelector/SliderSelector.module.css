@@ -3,6 +3,7 @@
 	align-items: center;
 	padding: 0 0.2rem 0 0.2rem;
 	box-sizing: border-box;
+	width: fit-content;
 }
 .vertical {
 	flex-direction: column;
