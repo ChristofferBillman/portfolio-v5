@@ -8,15 +8,16 @@ interface Props {
 	project: Project
 	height: number
 	width: number
+	className?: string
 }
 
-export function ProjectBentoItem({ project, height, width }: Props) {
+export function ProjectBentoItem({ project, height, width, className }: Props) {
 
 	const navigate = useNavigate()
 
 	return (
 		<button
-			className={clsx(style.container, 'observe')}
+			className={clsx(style.container, className, 'observe')}
 			style={{
 				gridRow: `span ${height}`,
 				gridColumn: `span ${width}`,

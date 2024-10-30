@@ -1,0 +1,54 @@
+.container {
+	gap: 5rem;
+	width: 75vw;
+	margin: 0 auto;
+}
+
+.r1, .r2, .r3 {
+	transform: var(--scale) var(--rotate) var(--translateX);
+	transition-duration: 500ms;
+	transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.r1:hover, .r2:hover, .r3:hover {
+	transform: scale(1.1);
+}
+
+.r1 {
+	transform: rotate(-1deg);
+}
+
+.r2 {
+	transform: rotate(2deg);
+}
+
+.r3 {
+	transform: rotate(1deg);
+}
+
+@media (width <= 800px) {
+	.container {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+	}
+
+	.r1 {
+		--rotate: rotate(-5deg);
+		animation: float 10s ease-in-out infinite;
+		--translateX: translateX(0);
+	}
+	
+	.r2 {
+		--rotate: rotate(2deg);
+		--translateX: translateX(0);
+		animation: float 10s ease-in-out infinite;
+		animation-delay: 2s;
+	}
+	
+	.r3 {
+		--rotate: rotate(2deg);
+		--translateX: translateX(0);
+		animation: float 10s ease-in-out infinite;
+		animation-delay: 4s;
+	}
+}
