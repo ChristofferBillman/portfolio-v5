@@ -32,6 +32,11 @@ export function ContactCard({ title, info, img, href, copy, className = '' }: Pr
 						type='white'
 						className={bgStyle}
 						onClick={() => {
+							if(!navigator.clipboard) {
+								setIcon('close')
+								setTimeout(() => setIcon('content_copy'), 2000)
+								return
+							}
 							navigator.clipboard.writeText(info)
 								.then(() => setIcon('check'))
 								.catch(() => setIcon('close'))
