@@ -36,7 +36,7 @@ export function ProjectListItem({ project, variant = 'normal' }: Props) {
 			</div>
 			<Img
 				src={project.thumbnail + APP_CONFIG.IMG_FILEEXTENSION}
-				className={style.coverImage}
+				className={clsx(style.coverImage, 'observe')}
 			/>
 		</div>
 	)

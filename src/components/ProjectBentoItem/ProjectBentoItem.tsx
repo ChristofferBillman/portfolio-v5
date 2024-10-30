@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import Project from "../../types/Project"
 import style from './ProjectBentoItem.module.css'
 import APP_CONFIG from "../../../AppConfig"
+import clsx from "clsx"
 
 interface Props {
 	project: Project
@@ -15,7 +16,7 @@ export function ProjectBentoItem({ project, height, width }: Props) {
 
 	return (
 		<button
-			className={style.container}
+			className={clsx(style.container, 'observe')}
 			style={{
 				gridRow: `span ${height}`,
 				gridColumn: `span ${width}`,

@@ -57,6 +57,7 @@ function parse(content: string): ReactNode {
 				src={src}
 				alt={alt}
 				style={{maxHeight: '130vh', objectFit: 'cover'}}
+				className='observe'
 			/>)
 
 		elements.push(<span className='caption'>{caption}</span>)
