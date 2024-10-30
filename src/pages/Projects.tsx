@@ -54,7 +54,7 @@ export default function Projects() {
 				<h1>{translation.Projects}</h1>
 				<p style={{ maxWidth: '40rem' }}>{translation.ProjectsPreamle}</p>
 
-				<div className='row'>
+				<div className='row' style={{marginTop: '20vh'}}>
 					<SliderSelector
 						items={viewOptions}
 						selectedValue={sliderViewSetting}

@@ -82,7 +82,7 @@ export function Menu() {
 		}
 	}, [isMobileState, setMenuDimensions])
 
-	useHiddenMenuUntilScroll(1300, setMenuVisible)
+	useHiddenMenuUntilScroll(window.innerHeight * 2.3, setMenuVisible)
 
 	useEffect(() => {
 

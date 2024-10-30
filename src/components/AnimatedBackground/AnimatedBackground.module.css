@@ -9,7 +9,7 @@
 	overflow: hidden;
 	filter: url(#goo) blur(6px);
 	-webkit-filter: url(#goo) blur(6px);
-	will-change: filter;
+	will-change: filter, -webkit-filter;
 }
 
 .circle {

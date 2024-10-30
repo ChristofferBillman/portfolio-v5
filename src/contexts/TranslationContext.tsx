@@ -6,6 +6,7 @@ interface TranslationContextProps {
 }
 
 export type Translation = {
+	HeroGuide: ReactNode
 	Name: string
 	Home: string
 	Projects: string
@@ -35,6 +36,7 @@ export type Translation = {
 	HeroDesc: string
 	HighlightedProjects: string
 	Resume: string
+	ScrollToSeeMore: string
 }
 
 type TranslationContext = [Translation, (_: 'EN' | 'SE') => void]
@@ -80,7 +82,7 @@ const translations: Translation[] = [
 		Contact: 'Kontakt',
 		HeyThere: 'Hej där!',
 		UnderConstructionText: 'Den här sidan är under konstruktion 🛠️!\nNär den är klar kommer den att flyttas till christofferbillman.se och bli mitt nya portfolio.',
-		ProjectsPreamle: 'Jag har deltagit och skapat projekt som del av studier, på min fritid och professionellt. Här kan du kika genom ett urval av dessa.',
+		ProjectsPreamle: 'Jag har deltagit och skapat projekt som del av studier och på min fritid. Här kan du kika genom ett urval av dessa.',
 		List: 'Lista',
 		Grid: 'Rutnät',
 		Close: 'Stäng',
@@ -99,9 +101,11 @@ const translations: Translation[] = [
 		BundleSize: 'Buntstorlek, detta bygge:',
 		ContactCTAText: 'Hör av dig så tar vi en kaffe!',
 		NiceToMeet: 'Kul att råkas! Jag är...',
-		HeroDesc: '[Kärnfull beskrivning av mig]',
+		HeroDesc: 'Jag brinner för att skapa användbara, tillgängliga och snygga appar och webbplatser.',
 		HighlightedProjects: 'Utvalda projekt',
-		Resume: 'CV'
+		Resume: 'CV',
+		ScrollToSeeMore: 'Skrolla för att se mer',
+		HeroGuide: 'Forsätter du skrolla kan du se några utvalda projekt. Om [n]'
 	},{
 		Name: 'EN',
 		Home: 'Home',
@@ -109,8 +113,8 @@ const translations: Translation[] = [
 		About: 'About',
 		Contact: 'Contact',
 		HeyThere: 'Hey there!',
-		UnderConstructionText: 'This site is under construction 🛠️! Eventually, it will be moved to christofferbillman.se and become my new portfolio.',
-		ProjectsPreamle: 'I have participated and created projects as part of studies, in my spare time and professionally. A selection of these projects are previewed here.',
+		UnderConstructionText: 'This site is under construction 🛠️!\nEventually, it will be moved to christofferbillman.se and become my new portfolio.',
+		ProjectsPreamle: 'I have participated and created projects as part of studies and in my spare time. A selection of these projects are previewed here.',
 		List: 'List',
 		Grid: 'Grid',
 		Close: 'Close',
@@ -131,6 +135,8 @@ const translations: Translation[] = [
 		NiceToMeet: 'Hi, nice to meet you! I am...',
 		HeroDesc: '[placeholder]',
 		HighlightedProjects: 'Highlighted Projects',
-		Resume: 'Resume'
+		Resume: 'Resume',
+		ScrollToSeeMore: 'Scroll to see more',
+		HeroGuide: undefined
 	},
 ]

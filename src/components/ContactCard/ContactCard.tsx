@@ -48,6 +48,7 @@ export function ContactCard({ title, info, img, href, copy, className = '' }: Pr
 				{href && href.length != 0 &&
 					href.map(link => (
 						<Button
+							key={link}
 							type='white'
 							leftSlot={
 								<Icon
