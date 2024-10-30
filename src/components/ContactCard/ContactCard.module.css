@@ -5,6 +5,7 @@
 	align-items: center;
 	padding: 1rem;
 	width: fit-content;
+	height: fit-content;
 	gap: 1rem;
 	transition-duration: 500ms;
 	transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
@@ -44,6 +45,5 @@
 @media (width <= 800px) {
 	.container {
 		box-sizing: border-box;
-		width: 100%;
 	}
 }

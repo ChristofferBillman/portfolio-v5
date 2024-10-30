@@ -50,3 +50,37 @@
 		transform: translateY(0) var(--rotate) var(--translateX);
 	}
 }
+
+@media (width <= 800px) {
+	.contactContainer {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+	}
+
+	.r1 {
+		--rotate: rotate(-5deg);
+		animation: float 10s ease-in-out infinite;
+		--translateX: translateX(0);
+	}
+	
+	.r2 {
+		--rotate: rotate(2deg);
+		--translateX: translateX(0);
+		animation: float 10s ease-in-out infinite;
+		animation-delay: 2s;
+	}
+	
+	.r3 {
+		--rotate: rotate(2deg);
+		--translateX: translateX(0);
+		animation: float 10s ease-in-out infinite;
+		animation-delay: 4s;
+	}
+	
+	.r4 {
+		--rotate: rotate(-3deg);
+		--translateX: translateX(0);
+		animation: float 10s ease-in-out infinite;
+		animation-delay: 6s;
+	}
+}
