@@ -102,7 +102,7 @@
 		height: 2rem;
 	}
 	.open {
-		height: 51vh;
+		height: 380px;
 		width: calc(100vw - 2rem) !important;
 	}
 	.slider {
@@ -121,5 +121,8 @@
 		padding: 1rem;
 		width: calc(100vw - 2rem) !important;
 		margin-top: 8.5rem;
+	}
+	.optionsContainer {
+		flex-direction: column;
 	}
 }

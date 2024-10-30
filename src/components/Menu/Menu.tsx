@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, ForwardedRef, useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
+import { forwardRef, ReactNode, ForwardedRef, useEffect, useLayoutEffect, useRef, useState, useCallback, SetStateAction, Dispatch } from "react";
 import SliderSelector from "../common/SliderSelector";
 
 import style from './Menu.module.css'
@@ -82,20 +82,7 @@ export function Menu() {
 		}
 	},[isMobileState, setMenuDimensions])
 
-	useEffect(() => {
-		if(location.pathname != '/') {
-			setMenuVisible(true)
-		}
-
-		const onScrollEnough = () => {
-			if(window.scrollY > 1300 && location.pathname === '/') {
-				setMenuVisible(true)
-			}
-		}
-
-		window.addEventListener('scroll', onScrollEnough)
-		return () => window.removeEventListener('scroll', onScrollEnough)
-	}, [location.pathname])
+	useHiddenMenuUntilScroll(1300, setMenuVisible)
 
 	useOutsideClick(() => setOpen(false), [menuRef, menuItemsRef, menuContentRef, menuButtonRef])
 
@@ -235,3 +222,20 @@ const ContentTransition = forwardRef(({ willRender, children, className = '' }: 
 		</TransitionLifecycle>
 	)
 })
+
+function useHiddenMenuUntilScroll(showMenuWhenScrolledTo: number, setVisible: Dispatch<SetStateAction<boolean>>) {
+	useEffect(() => {
+		if(location.pathname != '/') {
+			setVisible(true)
+		}
+
+		const onScrollEnough = () => {
+			if(window.scrollY > showMenuWhenScrolledTo && location.pathname === '/') {
+				setVisible(true)
+			}
+		}
+
+		window.addEventListener('scroll', onScrollEnough)
+		return () => window.removeEventListener('scroll', onScrollEnough)
+	}, [location.pathname])
+}
