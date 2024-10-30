@@ -12,6 +12,7 @@ import Projects from './pages/Projects'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import TranslationProvider from './contexts/TranslationContext'
+import UnderConstruction from './pages/UnderConstruction'
 
 const errorElement = <Error/>
 const router = createBrowserRouter([
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
 		children: [
 			{
 				path: '/',
+				element: <UnderConstruction/>,
+				errorElement
+			},
+			{
+				path: '/landing',
 				element: <Home/>,
 				errorElement
 			},

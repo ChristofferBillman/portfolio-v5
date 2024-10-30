@@ -2,6 +2,7 @@ import Project from "../types/Project"
 
 export const projectsEN: Project[] = [{
 	name: 'Chare',
+	id: 'chare',
 	title: 'No content yet',
 	thumbnail: '../img/chare/Hero.png',
 	colors: ['#8884FF', '#EB8258', '#D8D6FF'],

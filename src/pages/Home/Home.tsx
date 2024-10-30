@@ -1,6 +1,6 @@
 import { useTranslation } from "../../contexts/TranslationContext"
-import ProjectListItem from '../../components/ProjectListItem'
-import getProjects from '../../util/getProjects'
+//import ProjectListItem from '../../components/ProjectListItem'
+//import getProjects from '../../util/getProjects'
 import style from './Home.module.css'
 import Img from "../../components/common/Img"
 import FloatingContactLinks from "../../components/FloatingContactLinks"
@@ -43,6 +43,7 @@ export function Home() {
 	)
 }
 
+/*
 function FullwidthProjects() {
 	return (
 		<section className={style.projectsContainer}>
@@ -51,4 +52,4 @@ function FullwidthProjects() {
 			<ProjectListItem project={getProjects()[3]} variant='large'/>
 		</section>
 	)
-}
+}*/
