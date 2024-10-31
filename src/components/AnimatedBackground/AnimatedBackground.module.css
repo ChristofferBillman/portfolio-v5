@@ -7,29 +7,12 @@
 	left: 0;
 	z-index: -2;
 	overflow: hidden;
-	filter: url(#goo) blur(6px);
-	-webkit-filter: url(#goo) blur(6px);
-	will-change: filter, -webkit-filter;
-}
-
-.circle {
-	width: 100vw;
-	height: 100vw;
-	top: 0;
-	left: 0;
-	border-radius: 1000px;
-	background: #FF00FF;
-	position: absolute;
-	transition-duration: 10s;
-	overflow: hidden;
-	transform-origin: center;
-	mix-blend-mode: hard-light;
-	will-change: transform;
-}
-
-.circle:nth-child(odd) {
-	width: 50vw;
-	height: 50vw;
+	--gradient-color-1: #185eb5;
+  	--gradient-color-2: #4D9BF9;
+  	--gradient-color-3: #AD3EC2;
+  	--gradient-color-4: #b7006e;
+	-webkit-filter: blur(3px);
+	filter: blur(3px);
 }
 
 .grain:before {

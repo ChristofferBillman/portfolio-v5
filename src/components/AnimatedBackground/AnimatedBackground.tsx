@@ -1,22 +1,15 @@
-import { useEffect } from 'react'
-import useAnimatedBackground from '../../contexts/AnimatedBackgroundContext'
+import { useEffect } from "react"
+import useAnimatedBackground from "../../contexts/AnimatedBackgroundContext"
+import style from './AnimatedBackground.module.css'
 
 export function AnimatedBackground() {
 
 	const animationController = useAnimatedBackground()
 
 	useEffect(() => {
-		animationController.setRoot(document.getElementById('animatedbgroot'))
-	
-		animationController.attachToDom()
-		animationController.movePseudoRandomly()
-		const interval = setInterval(() => animationController.movePseudoRandomly(), 10000)
-
-		return () => {
-			clearInterval(interval)
-			animationController.detatchRoot()
-		}
+		animationController.initGradient('#animatedbgroot')
+		return () => animationController.disconnect()
 	}, [animationController])
 
-	return <div id='animatedbgroot'/>
+	return <canvas id='animatedbgroot' className={style.animatedBackground}/>
 }

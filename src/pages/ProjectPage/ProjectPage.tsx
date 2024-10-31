@@ -63,7 +63,7 @@ function BackButton() {
 		<Button
 			text={translation.AllProjects}
 			onClick={() => {
-				animationController.restoreDefaultColors()
+				animationController.restoreColors()
 				navigate(-1)
 			}}
 			leftSlot={<Icon name='arrow_back' />}

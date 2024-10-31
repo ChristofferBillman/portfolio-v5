@@ -1,9 +1,8 @@
 import { useContext, createContext, ReactNode } from 'react'
-import AnimatedBackgroundController from '../util/AnimatedBackgroundController'
-import Circle from '../util/Circle'
+import StripeGradient from '../util/StripeGradient'
 
 // Create context
-const animatedBackgroundContext = createContext<AnimatedBackgroundController | undefined>(undefined)
+const animatedBackgroundContext = createContext<StripeGradient | undefined>(undefined)
 
 interface Props {
 	children: ReactNode
@@ -12,17 +11,7 @@ interface Props {
 // Setup and export provider
 export function AnimatedBackgroundProvider({ children }: Props): ReactNode {
 
-	const initialPos = {x: 0, y: 0}
-
-	const animatedBackgroundHandler = new AnimatedBackgroundController([
-		new Circle(6, '#4D9BF9', initialPos),
-		new Circle(3, '#AD3EC2', initialPos),
-		new Circle(2, '#FE0886', initialPos),
-		new Circle(2, '#AD3EC2', initialPos),
-		new Circle(2, '#6233EE', initialPos),
-	],
-	'#185eb5')
-
+	const animatedBackgroundHandler = new StripeGradient()
 	return (
 		<animatedBackgroundContext.Provider value={animatedBackgroundHandler}>
 			{children}
