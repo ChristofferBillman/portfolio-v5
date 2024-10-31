@@ -17,8 +17,6 @@ export default class StripeGradient {
 		this.gradient.sectionColors = colors.map(hexToNumber).map(normalizeColor)
 		this.gradient.initMesh()
 		this.gradient.resize()
-		this.gradient.toggleColor()
-		this.gradient.showGradientLegend()
 	}
 	restoreColors() {
 		const colors = ['#185eb5', '#4D9BF9', '#AD3EC2', '#b7006e']

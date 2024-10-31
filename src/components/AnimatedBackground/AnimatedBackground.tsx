@@ -11,5 +11,7 @@ export function AnimatedBackground() {
 		return () => animationController.disconnect()
 	}, [animationController])
 
-	return <canvas id='animatedbgroot' className={style.animatedBackground}/>
+	return <div className={style.grain}>
+		<canvas id='animatedbgroot' className={style.animatedBackground}/>
+		</div>
 }
