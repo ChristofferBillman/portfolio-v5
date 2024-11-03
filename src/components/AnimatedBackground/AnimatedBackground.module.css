@@ -11,8 +11,6 @@
   	--gradient-color-2: #4D9BF9;
   	--gradient-color-3: #AD3EC2;
   	--gradient-color-4: #b7006e;
-	-webkit-filter: blur(3px);
-	filter: blur(3px);
 }
 
 .grain:after {
