@@ -55,17 +55,13 @@ export function ProjectPage() {
 }
 
 function BackButton() {
-	const [translation] = useTranslation()
+	const [ translation ] = useTranslation()
 	const navigate = useNavigate()
-	const animationController = useAnimatedBackground()
 
 	return (
 		<Button
 			text={translation.AllProjects}
-			onClick={() => {
-				animationController.restoreColors()
-				navigate(-1)
-			}}
+			onClick={() => navigate(-1)}
 			leftSlot={<Icon name='arrow_back' />}
 		/>
 	)
