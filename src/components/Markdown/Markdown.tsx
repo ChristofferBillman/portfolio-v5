@@ -49,7 +49,7 @@ function parse(content: string): ReactNode {
 		const altEnd = line.indexOf(']', 1)
 		const alt = line.substring(2, altEnd)
 		const srcEnd = line.indexOf('"', altEnd) - 1
-		const src = line.substring(altEnd + 2, srcEnd) + APP_CONFIG.IMG_FILEEXTENSION
+		const src = line.substring(altEnd + 2, srcEnd) + (line.includes('.svg') ? '' : APP_CONFIG.IMG_FILEEXTENSION)
 		const caption = line.substring(srcEnd + 2, line.indexOf('"',srcEnd + 2))
 
 		elements.push(
@@ -59,8 +59,11 @@ function parse(content: string): ReactNode {
 				style={{maxHeight: '130vh', objectFit: 'cover'}}
 				className='observe'
 			/>)
-
-		elements.push(<span className='caption'>{caption}</span>)
+		if(line.includes('[centercaption]')) {
+			elements.push(<span className='caption' style={{textAlign: 'center' }}>{caption}</span>)
+		} else {
+			elements.push(<span className='caption'>{caption}</span>)
+		}
 	}
 
 	function expectEqual(char: string, char2: string) {
