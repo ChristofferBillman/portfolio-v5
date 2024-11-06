@@ -27,7 +27,7 @@ export default function Projects() {
 
 	const mobileViewOptions = [
 		{ text: translation.List, value: 'list', icon: 'list' },
-		{ text: translation.Grid, value: 'grid', icon: 'grid_view' },
+		{ text: translation.CardView, value: 'grid', icon: 'view_agenda' },
 	]
 
 	const viewOptions = isMobile() ? mobileViewOptions : destopViewOptions

@@ -18,6 +18,7 @@ export type Translation = {
 	ContactPreamble: string
 	List: string
 	Grid: string
+	CardView: string
 	Close: string
 	Menu: string
 	BuiltWithReact: string
@@ -105,7 +106,8 @@ const translations: Translation[] = [
 		HighlightedProjects: 'Utvalda projekt',
 		Resume: 'CV',
 		ScrollToSeeMore: 'Skrolla för att se mer',
-		HeroGuide: 'Forsätter du skrolla kan du se några utvalda projekt. Om [n]'
+		HeroGuide: 'Forsätter du skrolla kan du se några utvalda projekt. Om [n]',
+		CardView: 'Kort'
 	},{
 		Name: 'EN',
 		Home: 'Home',
@@ -137,6 +139,7 @@ const translations: Translation[] = [
 		HighlightedProjects: 'Highlighted Projects',
 		Resume: 'Resume',
 		ScrollToSeeMore: 'Scroll to see more',
-		HeroGuide: undefined
+		HeroGuide: undefined,
+		CardView: 'Cards'
 	},
 ]
