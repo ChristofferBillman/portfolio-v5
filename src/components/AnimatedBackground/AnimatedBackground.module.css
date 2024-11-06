@@ -1,9 +1,9 @@
 .animatedBackground {
-	position: absolute;
+	position: fixed;
 	min-height: 100vh;
-	height: 100%;
+	height: calc(100vh + 20rem);
 	width: 100vw;
-	top: 0;
+	top: -10rem;
 	left: 0;
 	z-index: -2;
 	overflow: hidden;
