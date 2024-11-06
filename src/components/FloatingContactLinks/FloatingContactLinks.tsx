@@ -12,7 +12,7 @@ export function FloatingContactLinks() {
 				title='LinkedIn'
 				info='Christoffer Billman'
 				img='../img/linkedin.png'
-				href={['www.linkedin.com/in/christoffer-billman-840029212']}
+				href={['https://www.linkedin.com/in/christoffer-billman-840029212']}
 				className={style.r1}
 			/>
 			<ContactCard
