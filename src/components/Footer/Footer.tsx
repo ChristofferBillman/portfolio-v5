@@ -3,7 +3,7 @@ import A from "../common/A";
 import GlassMaterial from "../common/GlassMaterial";
 import style from './Footer.module.css'
 
-import bundleSizes from '../../../public/bundlesize.json'
+import bundleSizes from '../../bundlesize.json'
 
 export function Footer() {
 
