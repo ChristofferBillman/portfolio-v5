@@ -41,11 +41,9 @@ export default function Projects() {
 		const timeout = setTimeout(() => {
 			setView(newState)
 			setProjectsRendered(true)
-		}, VIEW_TRANSITION_DURATION)
+		}, VIEW_TRANSITION_DURATION + 100)
 
-		return () => {
-			clearTimeout(timeout)
-		}
+		return () => clearTimeout(timeout)
 	}
 
 	return (
