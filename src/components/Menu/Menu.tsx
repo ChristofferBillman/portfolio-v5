@@ -180,10 +180,9 @@ export function Menu() {
 							toggled={reduceMotion}
 							setToggled={toggled => {
 								if (toggled) {
-									animationController.detatchFromDom()
+									animationController.pause()
 								} else {
-									console.log('attatched!')
-									animationController.attachToDom()
+									animationController.play()
 								}
 								setReduceMotion(toggled)
 							}}

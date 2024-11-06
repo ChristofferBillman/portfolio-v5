@@ -8,7 +8,7 @@ export const projectsSE: Project[] = [{
 	name: 'Chare',
 	title: 'Hur kan man göra samåkning lika smidigt som att boka en tåg eller bussbiljett?',
 	thumbnail: '../img/chare/Hero',
-	colors: ['#8884FF', '#EB8258', '#D8D6FF'],
+	colors: ['#1C1893', '#AC6649', '#332FA4'],
 	content: `
 	![Alttext](../img/chare/Hero "Det blev många olika Hi-Fi-prototyper som dessa.")
 	## Uppgiften
@@ -124,7 +124,7 @@ export const projectsSE: Project[] = [{
 	name: 'Wikisajt',
 	title: 'Dokumentation av roleplaying och händelser på en Minecraftserver',
 	thumbnail: '../img/wiki/promo',
-	colors: ['#313131', '#3B97D9', '#B8D9F0', '#F0E4B8'],
+	colors: ['#313131', '#3B97D9', '#313131', '#313131'],
 	content: `
 	![Bild på olika UI-komponenter runt texten "stocken.wiki"](../img/wiki/promo "Wikisajten har lite oklart namn. Namnet blev stocken.wiki för att servern hette stocken.")
 	## Wikisajt?.. varför?
@@ -306,7 +306,7 @@ export const projectsSE: Project[] = [{
 		name: 'Yotei',
 		title: 'Planeringsverktyg för en Budoklubb i Umeå',
 		thumbnail: '../img/yotei/promo',
-		colors: ['#A73439','#E16369', '#FDA5AC', '#F8EBEC'],
+		colors: ['#A73439','#761818', '#A73439', '#282828'],
 		content: `
 	![alt](../img/yotei/promo_big "")
 	## Vad?

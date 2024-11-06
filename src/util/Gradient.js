@@ -282,16 +282,19 @@ function e(object, propertyName, val) {
 //Gradient object
 class Gradient {
 	constructor(...t) {
-		e(this, "el", void 0), e(this, "cssVarRetries", 0), e(this, "maxCssVarRetries", 200), e(this, "angle", 0), e(this, "lastColorChange", Date.now()), e(this, "colorTransitionDuration", 150000), e(this, "isLoadedClass", !1), e(this, "isScrolling", !1), /*e(this, "isStatic", o.disableAmbientAnimations()),*/ e(this, "scrollingTimeout", void 0), e(this, "scrollingRefreshDelay", 200), e(this, "isIntersecting", !1), e(this, "shaderFiles", void 0), e(this, "vertexShader", void 0), e(this, "sectionColors", void 0), e(this, "computedCanvasStyle", void 0), e(this, "conf", void 0), e(this, "uniforms", void 0), e(this, "t", 1253106), e(this, "last", 0), e(this, "width", void 0), e(this, "minWidth", 1111), e(this, "height", 600), e(this, "xSegCount", void 0), e(this, "ySegCount", void 0), e(this, "mesh", void 0), e(this, "material", void 0), e(this, "geometry", void 0), e(this, "minigl", void 0), e(this, "scrollObserver", void 0), e(this, "amp", 320), e(this, "seed", 5), e(this, "freqX", 14e-5), e(this, "freqY", 29e-5), e(this, "freqDelta", 1e-5), e(this, "activeColors", [1, 1, 1, 1]), e(this, "isMetaKey", !1), e(this, "isGradientLegendVisible", !1), e(this, "isMouseDown", !1), e(this, "handleScroll", () => {
+		e(this, "el", void 0), e(this, "cssVarRetries", 0), e(this, "maxCssVarRetries", 200), e(this, "angle", 0), e(this, "lastColorChange", Date.now()), e(this, "colorTransitionDuration", 150000), e(this, "isLoadedClass", !1), e(this, "isScrolling", !1), /*e(this, "isStatic", o.disableAmbientAnimations()),*/ e(this, "scrollingTimeout", void 0), e(this, "scrollingRefreshDelay", 200), e(this, "isIntersecting", !1), e(this, "shaderFiles", void 0), e(this, "vertexShader", void 0), e(this, "sectionColors", void 0), e(this, "computedCanvasStyle", void 0), e(this, "conf", void 0), e(this, "uniforms", void 0), e(this, "t", 1253106), e(this, "last", 0), e(this, "width", void 0), e(this, "minWidth", 1111), e(this, "height", 300), e(this, "xSegCount", void 0), e(this, "ySegCount", void 0), e(this, "mesh", void 0), e(this, "material", void 0), e(this, "geometry", void 0), e(this, "minigl", void 0), e(this, "scrollObserver", void 0), e(this, "amp", 320), e(this, "seed", 5), e(this, "freqX", 14e-5), e(this, "freqY", 29e-5), e(this, "freqDelta", 1e-5), e(this, "activeColors", [1, 1, 1, 1]), e(this, "isMetaKey", !1), e(this, "isGradientLegendVisible", !1), e(this, "isMouseDown", !1), e(this, "handleScroll", () => {
 			clearTimeout(this.scrollingTimeout), this.scrollingTimeout = setTimeout(this.handleScrollEnd, this.scrollingRefreshDelay), this.isGradientLegendVisible && this.hideGradientLegend(), this.conf.playing && (this.isScrolling = !0, this.pause())
 		}), e(this, "handleScrollEnd", () => {
 			this.isScrolling = !1, this.isIntersecting && this.play()
 		}), e(this, "resize", () => {
-			this.width = window.innerWidth, this.minigl.setSize(this.width, this.height), this.minigl.setOrthographicCamera(), this.xSegCount = Math.ceil(this.width * this.conf.density[0]), this.ySegCount = Math.ceil(this.height * this.conf.density[1]), this.mesh.geometry.setTopology(this.xSegCount, this.ySegCount), this.mesh.geometry.setSize(this.width, this.height), this.mesh.material.uniforms.u_shadow_power.value = this.width < 600 ? 5 : 6
-		}), e(this, "handleMouseDown", e => {
-			this.isGradientLegendVisible && (this.isMetaKey = e.metaKey, this.isMouseDown = !0, !1 === this.conf.playing && requestAnimationFrame(this.animate))
-		}), e(this, "handleMouseUp", () => {
-			this.isMouseDown = !1
+			this.width = window.innerWidth
+			this.minigl.setSize(this.width, this.height)
+			this.minigl.setOrthographicCamera()
+			this.xSegCount = Math.ceil(this.width * this.conf.density[0])
+			this.ySegCount = Math.ceil(this.height * this.conf.density[1])
+			this.mesh.geometry.setTopology(this.xSegCount, this.ySegCount)
+			this.mesh.geometry.setSize(this.width, this.height)
+			this.mesh.material.uniforms.u_shadow_power.value = this.width < 600 ? 5 : 6
 		}), e(this, "animate", e => {
 			if (!this.shouldSkipFrame(e)) {
 				if (this.t += Math.min(e - this.last, 1e3 / 15), this.last = e, this.isMouseDown) {
@@ -342,9 +345,9 @@ class Gradient {
 				this.mesh.material.uniforms.u_time.value = this.t, this.minigl.render()
 			}
 			if (0 !== this.last && this.isStatic) return this.minigl.render(), void this.disconnect();
-			(/*this.isIntersecting && */this.conf.playing || this.isMouseDown) && requestAnimationFrame(this.animate)
+			(this.conf.playing || this.isMouseDown) && requestAnimationFrame(this.animate)
 		}), e(this, "addIsLoadedClass", () => {
-			/*this.isIntersecting && */!this.isLoadedClass && (this.isLoadedClass = !0, this.el.classList.add("isLoaded"), setTimeout(() => {
+			!this.isLoadedClass && (this.isLoadedClass = !0, this.el.classList.add("isLoaded"), setTimeout(() => {
 			this.el.parentElement.classList.add("isLoaded")
 		}, 3e3))
 		}), e(this, "pause", () => {
@@ -494,12 +497,6 @@ class Gradient {
 	toggleColor(index) {
 		this.activeColors[index] = 0 === this.activeColors[index] ? 1 : 0
 	}
-	showGradientLegend() {
-		this.width > this.minWidth && (this.isGradientLegendVisible = !0, document.body.classList.add("isGradientLegendVisible"))
-	}
-	hideGradientLegend() {
-		this.isGradientLegendVisible = !1, document.body.classList.remove("isGradientLegendVisible")
-	}
 	init() {
 		this.initGradientColors(), this.initMesh(), this.resize(), requestAnimationFrame(this.animate), window.addEventListener("resize", this.resize)
 	}
@@ -533,7 +530,6 @@ class Gradient {
 		console.log('In Gradient.js: ', this.sectionColors)
 	}
 }
-
 
 
 

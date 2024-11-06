@@ -54,7 +54,7 @@ export default function Playground() {
 
 					<Button
 						onClick={() => {
-							animationController.restoreDefaultColors()
+							animationController.restoreColors()
 						}}
 						text='Restore defaults'
 						rightSlot={<Icon name='settings_backup_restore' size='0.75rem' />}
