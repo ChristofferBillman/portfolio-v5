@@ -106,5 +106,6 @@ label, .label {
 	}
 	.caption {
 		margin-left: 0;
+		margin-right: 0;
 	}
 }
