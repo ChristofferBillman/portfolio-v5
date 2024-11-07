@@ -19,12 +19,15 @@ export function ContactCard({ title, info, img, href, copy, className = '' }: Pr
 
 	const bgStyle = icon == 'close' ? style.err : (icon == 'check' ? style.greenbg : '')
 
+	let emailStyle = ''
+	if(href && href.length > 0 && href[0].includes('mailto:')) emailStyle = style.emailText
+
 	return (
 		<GlassMaterial className={clsx(style.container, className)}>
 			{img && <img src={img} />}
 			<div className={style.textContainer}>
 				<p>{title}</p>
-				<p>{info}</p>
+				<p className={emailStyle}>{info}</p>
 			</div>
 			<div className={style.linksContainer}>
 				{copy &&
