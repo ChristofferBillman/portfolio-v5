@@ -1,20 +1,20 @@
-import { forwardRef, ReactNode, ForwardedRef, useEffect, useLayoutEffect, useRef, useState, useCallback, SetStateAction, Dispatch } from "react";
-import SliderSelector from "../common/SliderSelector";
+import { forwardRef, ReactNode, ForwardedRef, useEffect, useLayoutEffect, useRef, useState, useCallback, SetStateAction, Dispatch, RefObject } from "react"
+import SliderSelector from "../common/SliderSelector"
 
 import style from './Menu.module.css'
-import Icon from "../common/Icon";
-import GlassMaterial from "../common/GlassMaterial";
-import useOutsideClick from "../../hooks/useOutsideClick";
-import { useLocation, useNavigate } from "react-router-dom";
-import TransitionLifecycle from "../TransitionLifecycle";
-import isMobile from "../../util/IsMobile";
-import { useTranslation } from "../../contexts/TranslationContext";
-import useAnimatedBackground from "../../contexts/AnimatedBackgroundContext";
-import Toggle from "../common/Toggle";
-import useLocalStorage from "../../hooks/useLocalStorage";
-import getLocale from "../../util/getLocale";
-import A from "../common/A";
-import clsx from "clsx";
+import Icon from "../common/Icon"
+import GlassMaterial from "../common/GlassMaterial"
+import useOutsideClick from "../../hooks/useOutsideClick"
+import { useLocation, useNavigate } from "react-router-dom"
+import TransitionLifecycle from "../TransitionLifecycle"
+import isMobile from "../../util/IsMobile"
+import { useTranslation } from "../../contexts/TranslationContext"
+import useAnimatedBackground from "../../contexts/AnimatedBackgroundContext"
+import Toggle from "../common/Toggle"
+import useLocalStorage from "../../hooks/useLocalStorage"
+import getLocale from "../../util/getLocale"
+import A from "../common/A"
+import clsx from "clsx"
 
 export function Menu() {
 
@@ -32,6 +32,7 @@ export function Menu() {
 	const [lang, setLang] = useState(getLocale())
 
 	const [isMobileState, setIsMobileState] = useState(isMobile())
+	useDeviceResize(isMobileState, setIsMobileState)
 
 	const [menuVisible, setMenuVisible] = useState(false)
 
@@ -39,86 +40,27 @@ export function Menu() {
 		setSelection(`/${location.pathname.split('/').slice(1, 2).join('')}`)
 	}, [location])
 
-	const menuItemsRef = useRef<HTMLDivElement>(null)
-	const menuRef = useRef<HTMLDivElement>(null)
-	const menuContentRef = useRef<HTMLDivElement>(null)
-	const menuButtonRef = useRef<HTMLButtonElement>(null)
+	const menuRefs = {
+		items: useRef<HTMLDivElement>(null),
+		container: useRef<HTMLDivElement>(null),
+		content: useRef<HTMLDivElement>(null),
+		button: useRef<HTMLButtonElement>(null)
+	}
 
-	const setMenuDimensions = useCallback(() => {
-		const menuItems = menuItemsRef.current
-		const menu = menuRef.current
-		const menuContent = menuContentRef.current
-		const menuButton = menuButtonRef.current
-
-		if (!menuItems || !menu || !menuContent || !menuButton) return
-
-		const padd = 10
-		const newWidth = menuItems.offsetWidth + menuButton.offsetWidth
-		menu.style.width = newWidth + padd + 'px'
-		menuContent.style.width = newWidth + 'px'
-		menuItems.style.marginRight = isMobileState ? '0' : menuButton.offsetWidth + padd + 'px'
-	}, [isMobileState])
-
-	// This code is also crazy, but nessecary, since menu items are only mounted by TransitionContent AFTER the first render cycle.
-	useLayoutEffect(() => {
-		const handleResize = () => {
-			if (isMobile() != isMobileState) {
-				setIsMobileState(isMobile())
-			}
-		}
-		// When menuItemsRef width is updated, run the code to set the container to that width too.
-		const menuItems = menuItemsRef.current
-		if (!menuItems) return
-
-		const resizeObserver = new ResizeObserver(setMenuDimensions)
-		resizeObserver.observe(menuItems)
-
-		window.addEventListener('resize', handleResize)
-
-		// Cleanup
-		return () => {
-			resizeObserver.disconnect()
-			window.removeEventListener('resize', handleResize)
-		}
-	}, [isMobileState, setMenuDimensions])
-
-	useHiddenMenuUntilScroll(/*window.innerHeight * 2.3*/0, setMenuVisible)
-
-	useEffect(() => {
-
-		const intersectionCheck = () => {
-			if (!menuRef.current) return
-
-			// This DOM query runs every 500 ms, which is not perferable honestly.
-			const elements = document.querySelectorAll('.observe')
-
-			for (const element of elements) {
-				if (isOverlapping(menuRef.current, element)) {
-					menuRef.current.style.background = 'rgba(0,0,0,0.3)'
-					return
-				}
-			}
-			menuRef.current.style.background = 'rgba(255,255,255,0.2)';
-		}
-
-		const interval = setInterval(intersectionCheck, 500)
-
-		return () => {
-			clearInterval(interval)
-		}
-	}, [menuRef])
-
-	useOutsideClick(() => setOpen(false), [menuRef, menuItemsRef, menuContentRef, menuButtonRef])
+	useMenuDimensions(isMobileState, Object.values(menuRefs))
+	useHiddenMenuUntilScroll(window.innerHeight * 2.3, setMenuVisible)
+	useDynamicMenuColor(menuRefs.container)
+	useOutsideClick(() => setOpen(false), Object.values(menuRefs))
 
 	return (
 		<div style={{ opacity: menuVisible ? 1 : 0, transitionDuration: '500ms' }}>
 			<GlassMaterial
 				className={clsx(style.menuWrapper, open && style.open)}
-				ref={menuRef}
+				ref={menuRefs.container}
 			/>
 			{/* Having opacity be 0 at initial render apperently makes safari skip applying the backdrop-filter - which makes my life difficult. But only sometimes like what??  */}
 			<ContentTransition
-				ref={menuItemsRef}
+				ref={menuRefs.items}
 				className={style.menuItemsWrapper}
 				willRender={!isMobileState || open}
 			>
@@ -141,11 +83,11 @@ export function Menu() {
 				/>
 			</ContentTransition>
 
-			<MenuButton onClick={() => setOpen(!open)} open={open} ref={menuButtonRef} />
+			<MenuButton onClick={() => setOpen(!open)} open={open} ref={menuRefs.button} />
 
 			<ContentTransition
 				className={`${style.menuContents}`}
-				ref={menuContentRef}
+				ref={menuRefs.content}
 				willRender={open}
 			>
 				<div className={style.line} />
@@ -246,6 +188,43 @@ const ContentTransition = forwardRef(({ willRender, children, className = '' }: 
 	)
 })
 
+function useMenuDimensions(isMobileState: boolean, menuRefs: RefObject<HTMLElement>[]) {
+
+	const [items, container, content, button] = menuRefs.map(ref => ref.current)
+
+	const setMenuDimensions = useCallback(() => {
+		if (!items || !container || !content || !button) return
+		const padd = 10
+		const newWidth = items.offsetWidth + button.offsetWidth
+		container.style.width = newWidth + padd + 'px'
+		content.style.width = newWidth + 'px'
+		items.style.marginRight = isMobileState ? '0' : button.offsetWidth + padd + 'px'
+	}, [button, container, content, isMobileState, items])
+
+	useLayoutEffect(() => {
+		if (!items) return
+
+		// When menuRefs.items width is updated, run the code to set the container to that width too.
+		const resizeObserver = new ResizeObserver(setMenuDimensions)
+		resizeObserver.observe(items)
+
+		return () => resizeObserver.disconnect()
+	}, [isMobileState, items, setMenuDimensions])
+}
+
+function useDeviceResize(isMobileState: boolean, setIsMobileState: React.Dispatch<React.SetStateAction<boolean>>) {
+    useEffect(() => {
+        const handleResize = () => {
+            if (isMobile() != isMobileState) {
+                setIsMobileState(isMobile())
+            }
+        }
+
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [isMobileState, setIsMobileState])
+}
+
 function useHiddenMenuUntilScroll(showMenuWhenScrolledTo: number, setVisible: Dispatch<SetStateAction<boolean>>) {
 	useEffect(() => {
 		if (location.pathname != '/') {
@@ -260,17 +239,42 @@ function useHiddenMenuUntilScroll(showMenuWhenScrolledTo: number, setVisible: Di
 
 		window.addEventListener('scroll', onScrollEnough)
 		return () => window.removeEventListener('scroll', onScrollEnough)
-	}, [location.pathname])
+	}, [setVisible, showMenuWhenScrolledTo])
 }
 
-function isOverlapping(element1: HTMLDivElement, element2: Element) {
-	const rect1 = element1.getBoundingClientRect()
-	const rect2 = element2.getBoundingClientRect()
+function useDynamicMenuColor(menuRef: RefObject<HTMLDivElement>) {
+	const isOverlapping = (element1: HTMLDivElement, element2: Element) => {
+		const rect1 = element1.getBoundingClientRect()
+		const rect2 = element2.getBoundingClientRect()
+	
+		return !(
+			rect1.top > rect2.bottom ||
+			rect1.right < rect2.left ||
+			rect1.bottom < rect2.top ||
+			rect1.left > rect2.right
+		)
+	}
 
-	return !(
-		rect1.top > rect2.bottom ||
-		rect1.right < rect2.left ||
-		rect1.bottom < rect2.top ||
-		rect1.left > rect2.right
-	)
+	useEffect(() => {
+		const intersectionCheck = () => {
+			if (!menuRef.current) return
+
+			// This DOM query runs every 500 ms, which is not perferable honestly.
+			const elements = document.querySelectorAll('.observe')
+
+			for (const element of elements) {
+				if (isOverlapping(menuRef.current, element)) {
+					menuRef.current.style.background = 'rgba(0,0,0,0.3)'
+					return
+				}
+			}
+			menuRef.current.style.background = 'rgba(255,255,255,0.2)'
+		}
+
+		const interval = setInterval(intersectionCheck, 500)
+
+		return () => {
+			clearInterval(interval)
+		}
+	}, [menuRef])
 }
