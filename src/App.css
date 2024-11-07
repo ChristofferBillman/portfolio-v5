@@ -55,7 +55,7 @@ p {
 	font-style: italic;
 	font-size: 0.8rem;
 	display: block;
-	margin: 0 0 1rem 0;
+	margin: 0 8rem 1rem 8rem;
 }
 
 .increasedLinespace {
@@ -104,8 +104,10 @@ label, .label {
 	a {
 		font-size: 0.8rem;
 	}
+}
+
+@media (width <= 1200px) {
 	.caption {
-		margin-left: 0;
-		margin-right: 0;
+		margin: 0 0 1rem 0;
 	}
 }
