@@ -34,6 +34,9 @@ export default class StripeGradient {
 	initGradient(elementSelector: string) {
 		this.gradient.initGradient(elementSelector)
 		this.gradient.amp = 0
+
+		const isReduced = window.matchMedia('(prefers-reduced-motion)').matches
+		if(isReduced) this.gradient.pause()
 	}
 
 	setColors(colors: string[]) {
@@ -44,7 +47,6 @@ export default class StripeGradient {
 	}
 	restoreColors(force?: boolean) {
 		if(!force && this.reduceColors) return
-		console.log('Restoring colors...')
 		const colors = ['#185eb5', '#4D9BF9', '#AD3EC2', '#b7006e']
 		this.gradient.sectionColors = colors.map(hexToNumber).map(normalizeColor)
 		document.body.style.background = colors[0]

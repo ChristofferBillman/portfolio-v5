@@ -526,8 +526,6 @@ class Gradient {
 			}
 			return hex && `0x${hex.substr(1)}`
 		}).filter(Boolean).map(normalizeColor)
-
-		console.log('In Gradient.js: ', this.sectionColors)
 	}
 }
 

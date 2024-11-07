@@ -11,7 +11,6 @@ import isMobile from "../../util/IsMobile"
 import { useTranslation } from "../../contexts/TranslationContext"
 import useAnimatedBackground from "../../contexts/AnimatedBackgroundContext"
 import Toggle from "../common/Toggle"
-import useLocalStorage from "../../hooks/useLocalStorage"
 import getLocale from "../../util/getLocale"
 import A from "../common/A"
 import clsx from "clsx"
@@ -25,8 +24,8 @@ export function Menu() {
 	const [selectedItem, setSelection] = useState('/')
 	const [open, setOpen] = useState(false)
 
-	const [reduceColors, setReduceColors] = useLocalStorage('reduce_colors', false)
-	const [reduceMotion, setReduceMotion] = useLocalStorage('reduce_motion', false)
+	const [reduceColors, setReduceColors] = useState(false)
+	const [reduceMotion, setReduceMotion] = useState(false)
 	const animationController = useAnimatedBackground()
 
 	const [lang, setLang] = useState(getLocale())
