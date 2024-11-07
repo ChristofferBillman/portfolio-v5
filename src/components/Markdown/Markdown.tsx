@@ -16,9 +16,10 @@ function parse(content: string): ReactNode {
 
 	const lines = content.split(/\r?\n|\r|\n/g)
 
-	lines.forEach(line => {
+	lines.forEach((line, i) => {
 		const trimmed = line.trim()
-		if(line.length == 0) return whitespace()
+		if(line.length == 0) return whitespace(i)
+		if(trimmed.length == 0) return whitespace(i)
 		if(trimmed[0] == '#') return h(trimmed)
 		if(trimmed[0] == '!') return img(trimmed)
 		return p(trimmed)
@@ -32,15 +33,22 @@ function parse(content: string): ReactNode {
 
 		const content = line.substring(headerLevel)
 
-		elements.push(createElement(`h${headerLevel}`, undefined, content))
+		elements.push(createElement(`h${headerLevel}`, { key: getFirst16(line)}, content))
 	}
 
 	function p(line: string) {
-		elements.push(createElement('p', {className: 'increasedLinespace'}, line))
+		elements.push(
+			<p
+				className='increasedLinespace'
+				key={getFirst16(line)}
+			>
+				{line}
+			</p>
+		)
 	}
 
-	function whitespace() {
-		elements.push(<br/>)
+	function whitespace(key: number) {
+		elements.push(<br key={'whitespace' + key}/>)
 	}
 
 	function img(line: string) {
@@ -58,15 +66,35 @@ function parse(content: string): ReactNode {
 				alt={alt}
 				style={{maxHeight: '130vh', objectFit: 'cover'}}
 				className='observe'
+				key={getFirst16(line)}
 			/>)
 		if(line.includes('[centercaption]')) {
-			elements.push(<span className='caption' style={{textAlign: 'center' }}>{caption}</span>)
+			elements.push(
+				<span
+					className='caption'
+					style={{textAlign: 'center' }}
+					key={getFirst16(line) + '_cap'}
+				>
+					{caption}
+				</span>
+			)
 		} else {
-			elements.push(<span className='caption'>{caption}</span>)
+			elements.push(
+				<span
+					className='caption'
+					key={getFirst16(line) + '_cap'}
+				>
+					{caption}
+				</span>
+			)
 		}
 	}
 
 	function expectEqual(char: string, char2: string) {
 		if(char != char2) throw new Error('Markdown parse error.')
 	}
+}
+
+function getFirst16(str: string) {
+	return str//.substring(0,32)
 }
