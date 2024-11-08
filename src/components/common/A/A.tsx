@@ -2,18 +2,20 @@ import Icon from "../Icon"
 import style from './A.module.css'
 
 interface Props {
-	href: string
+	href?: string
 	iconName?: string
 	text: string
 	target?: string
+	onClick?: () => void
 }
 
-export function A({href, iconName, text, target = '_blank'}: Props) {
+export function A({href, iconName, text, target = '_blank', onClick}: Props) {
 	return (
 		<a
-			href={href}
-			target={target}
+			href={!onClick ? href : undefined}
+			target={!onClick ? target : '_self'}
 			className={style.link}
+			onClick={!href ? onClick : undefined}
 		>
 			<span>{text}</span>
 			{iconName && <Icon name={iconName}/>}
