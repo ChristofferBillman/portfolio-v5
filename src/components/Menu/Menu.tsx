@@ -94,15 +94,45 @@ export function Menu() {
 					<><div className={style.projectsContainer}>
 						<div className={`${style.col} label`}>
 							<h3>{translation.HighlightedProjects}</h3>
-							<A href='/projects/thesis' text='Thesis' target='_self' />
-							<A href='/projects/yotei' text='Yotei' target='_self' />
-							<A href='/projects/transit' text='Umeå transit redesign' target='_self' />
+							<A
+								text={translation.HighligtedProject1}
+								onClick={() => {
+									navigate('/projects/thesis')
+									setOpen(false)
+								}}
+							/>
+							<A
+								text={translation.HighligtedProject2}
+								onClick={() => {
+									navigate('/projects/yotei')
+									setOpen(false)
+								}}
+							/>
+							<A
+								text={translation.HighligtedProject3}
+								onClick={() => {
+									navigate('/projects/transit')
+									setOpen(false)
+								}}
+							/>
 						</div>
 						<div className={`${style.col} label`}>
 							<h3>{translation.LinksAndResources}</h3>
-							<A href='https://github.com/ChristofferBillman/' text='GitHub' iconName='code' />
-							<A href='https://www.linkedin.com/in/christoffer-billman-840029212' text='LinkedIn' iconName='arrow_outward' />
-							<A href={translation.CVLink} text={translation.Resume} iconName='description' />
+							<A
+								href='https://github.com/ChristofferBillman/'
+								text='GitHub'
+								iconName='code'
+							/>
+							<A
+								href='https://www.linkedin.com/in/christoffer-billman-840029212' 
+								text='LinkedIn'
+								iconName='arrow_outward'
+							/>
+							<A
+								href={translation.CVLink}
+								text={translation.Resume}
+								iconName='description'
+							/>
 						</div>
 					</div><div className={style.line} /></>
 				}
