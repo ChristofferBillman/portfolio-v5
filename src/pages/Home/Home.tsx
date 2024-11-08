@@ -1,6 +1,4 @@
 import { useTranslation } from "../../contexts/TranslationContext"
-//import ProjectListItem from '../../components/ProjectListItem'
-//import getProjects from '../../util/getProjects'
 import style from './Home.module.css'
 import Img from "../../components/common/Img"
 import FloatingContactLinks from "../../components/FloatingContactLinks"
@@ -28,9 +26,9 @@ export function Home() {
 
 			<p>{translation.HeroDesc}</p>
 
-			<p style={{maxWidth: '50vw'}}>Med andra ord är jag duktig på frontend & UI/UX</p>
+			<p style={{maxWidth: '50vw'}}>{translation.HeroDesc2}</p>
 
-			<p style={{maxWidth: '50vw'}}>Nu bör en meny dyka upp.<br/><br/> Där kan du läsa om mina projekt, lite om mig, och hitta kontaktuppgifter.<br/><br/>Det går också bra att fortsätta skrolla här.</p>
+			<p style={{maxWidth: '50vw'}}>{translation.HeroGuide}</p>
 
 		</div>
 

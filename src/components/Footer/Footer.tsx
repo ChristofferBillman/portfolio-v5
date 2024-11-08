@@ -49,6 +49,11 @@ export function Footer() {
 							href="https://github.com/ChristofferBillman"
 							iconName="arrow_outward"
 						/>
+						<A
+							text={translation.Resume}
+							href={translation.CVLink}
+							iconName="description"
+						/>
 					</div>
 				</div>
 			</div>

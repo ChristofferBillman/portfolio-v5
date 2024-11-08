@@ -8,6 +8,13 @@
 .firstContainer {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
+	margin-right: 8rem;
+}
+
+.firstContainer h1 {
+	margin-right: 0 !important;
+	width: 480px;
 }
 
 ul {
@@ -55,5 +62,9 @@ li {
 	.firstContainer {
 		flex-direction: column-reverse;
 		text-align: center;
+		margin-right: 0;
+	}
+	.firstContainer h1 {
+		margin-left: 0;
 	}
 }
