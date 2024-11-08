@@ -32,7 +32,7 @@ export const projectsSE: Project[] = [{
 
 	Vi valde att implementera själva appen i Android, av den enkla anledningen att vi ville lära oss mer om Androidutveckling. Backenden bestod av ett REST-API skrivet med .NET MVC. Databasen blev MySQL, tillsammans med Entity Framework för datamodellering och gränssnitt till databasen.
 
-	![Diagram på dataflödet inom appen](../img/chare/df "Tekniker som användes för projektet(vänster) och dataflödesmodellen för hela applikationen, MVVM (Model - View - Viewmodel) (höger).")
+	![Diagram på dataflödet inom appen](../img/chare/df "Tekniker som användes för projektet(vänster) och dataflödesmodellen för hela applikationen (höger).")
 
 	## Resultatet
 	Klar med MVP:n blev vi inte, men vi kom en god bit på vägen, något som ändå var otroligt i och med att vi hade nästan noll erfarenhet av Androidutveckling sedan tidigare. Det viktiga var trots allt att vi lärde oss om utveckling av mobila applikationer - vilket vi gjorde.
@@ -84,7 +84,7 @@ export const projectsSE: Project[] = [{
 	name: 'Examensarbete',
 	title: 'Finns det ett samband mellan användbarhet och upplevd säkerhet?',
 	thumbnail: '../img/thesis/promo',
-	colors: ['#001650', '#00C2FF', '#80E1FF', '#108CFF', '#108CFF'],
+	colors: ['#001650', '#00C2FF', '#108CFF', '#108CFF'],
 	content: `
 	![Olika grafiska element som svävar runt texten "DinBank"](../img/thesis/promo "Den påhittade internetbanken som användes som del av arbetet.")
 	## Vad?
@@ -137,7 +137,7 @@ export const projectsSE: Project[] = [{
 
 	Ett år senare återupptog jag projektet och vidareutvecklade det till att bli en öppen plattform där vem som helst kunde skapa ett konto och bygga en egen wiki, inte bara de av oss som spelade på servern. Jag bestämde mig även för att skriva om API:et i backenden från REST till GraphQL, för att det är något jag velat testa på.
 	
-	![Förstasidan på den vidareutvecklade varianten."](../img/wiki/firstpage "En del av förstasidan av den vidareutvecklade varianten. Säljer in (försöker i alla fall) de olika funktionerna som finns på plattformen.")
+	![Förstasidan på den vidareutvecklade varianten."](../img/wiki/firstpage "En del av förstasidan av den vidareutvecklade varianten.")
 
 	## Problem & Lösningar
 	Från början hostades frontenden på GitHub Pages och backenden på en personlig dator, vilket orsakade CORS-problem eftersom de låg på olika domäner. Hanteras de på fel sätt kan det leda till säkerhetsproblem, vilket det definitivt gjorde i mitt fall. För att slippa hantera dessa skrev jag senare om koden så att både front- och backend hostades på samma IP-adress, på en AWS EC2-instans.
@@ -282,10 +282,10 @@ export const projectsSE: Project[] = [{
 	## Uppgiften
 	Genomfördes som del av kursen Teknik för sociala medier, där vi samarbetade med marknadsföringsstudenter från Edith Cowan University i Australien. De stod för marknadsundersökning och affärsidé, medan vi i Sverige agerade utvecklarteam. Från kursens sida var det ett krav att vi skulle förverkliga en idé som minskade ensamheten hos äldre i Australien.
 
-	Alla medlemmar i mitt team gick samtidigt kursen “Applikationsutveckling för internet”. Det gjorde det möjligt för oss att göra slutprojekten i båda kurserna som ett och samma. Det gav oss 5 veckor heltid i utvecklingstid.
+	Alla medlemmar i mitt team gick samtidigt kursen “Applikationsutveckling för internet”. Det gjorde det möjligt för oss att göra slutprojekten i båda kurserna som ett och samma. Det gav oss totalt 5 veckor heltid att förverkliga en idé.
 
 	## Idé & Koncept
-	Vår idé var GreetUp - utforska ditt grannskap idag! Appen …
+	Vår idé var GreetUp - utforska ditt grannskap idag! Tanken var att användare skulle kunna skapa och delta i olika evenemang i appen. Eftersom målgruppen var så tydlig och avgränsad, kunde vi fokusera på att anpassa appen till fullo mot dem. Hög kontrast, stora knappar och tydlig navigationshierarki var sådant vi la extra krut på för att få till.
 
 	## Den tekniska biten då?
 	Frontenden byggde vi som en PWA (Progressive Web Application) i React. För användaren innebär det att de kan trycka “lägg till på hemskärm” när de är inne på hemsidan. Hemsidan fungerar då mycket mer likt en faktiskt app, utan de grafiska element som finns i en webbläsare, ex. sökruta och navigationsknappar.
@@ -300,6 +300,10 @@ export const projectsSE: Project[] = [{
 			type: 'code',
 			text: 'Källkod',
 			href: "https://github.com/emmylindgren/GreetUp"
+		},{
+			type: 'code',
+			text: 'Designfil',
+			href: "https://www.figma.com/design/7O1ugqdH0yDd0b9ZtMeNPQ/GreetUP?node-id=2-4&t=mbe8sO5F79Lbaz3H-1"
 		}]
 	}, {
 		id: 'yotei',
@@ -330,7 +334,7 @@ export const projectsSE: Project[] = [{
 	Den stora majoriteten av studenterna hade aldrig jobbat med React eller Frontendutveckling över huvud taget. Det var även där som det fanns störst behov för förbättringar. Det var med denna bakgrund som jag tog eget initiativ och anordnade en workshop inom React. Mer än hälften av kursens studenter deltog, och många uppskattade workshopen, och tyckte att det gjorde dem redo att sätta igång med utvecklingsarbetet.
 
 	## Min roll
-	Tidigt i arbetet spenderade jag en del tid med designteamet, för att ta fram en ny grafisk profil och identitet. Jag hade tagit fram ett förslag, som i slutändan inte blev del av projektet, p.g.a. tidsbrist.
+	Tidigt i arbetet spenderade jag en del tid med designteamet, för att ta fram en ny grafisk profil och identitet. Jag hade tagit fram ett förslag, som i slutändan inte blev del av projektet, därför att komma igång med utvecklingsarbetet tidigt var något som prioriterades högre.
 
 	I och med att jag var en av de få som kunde React, så blev jag tillsammans med en annan student de facto handledare inom frontend. Vi två sprang runt mycket och hjälpte olika team med frontend-relaterade problem, något jag tror bidrog mycket till att vi kom så långt vi gjorde.
 
