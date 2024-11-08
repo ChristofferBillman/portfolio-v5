@@ -7,7 +7,6 @@ import useAnimatedBackground from "../../contexts/AnimatedBackgroundContext"
 
 import style from './ProjectPage.module.css'
 import { useTranslation } from "../../contexts/TranslationContext"
-import getProjects from "../../util/getProjects"
 import { Resource } from "../../types/Project"
 import A from "../../components/common/A"
 
@@ -18,7 +17,7 @@ export function ProjectPage() {
 
 	const [ translation ] = useTranslation()
 
-	const project = getProjects().find(project => project.id == name)
+	const project = translation.ProjectPosts.find(project => project.id == name)
 	
 	useEffect(() => {
 		if (!project) return

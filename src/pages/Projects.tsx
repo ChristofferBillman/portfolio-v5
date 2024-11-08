@@ -1,7 +1,6 @@
 import { SetStateAction, useRef, useState } from 'react'
 import SliderSelector from '../components/common/SliderSelector'
 import { useTranslation } from '../contexts/TranslationContext'
-import getProjects from '../util/getProjects'
 import ProjectListItem from '../components/ProjectListItem'
 import isMobile from '../util/IsMobile'
 import ProjectBentoItem from '../components/ProjectBentoItem'
@@ -81,15 +80,16 @@ interface ProjectsViewProps {
 	view: string
 }
 function ProjectsView({ view }: ProjectsViewProps) {
-	const [bentoSizes] = useState(getProjects().map(() => randomBentoSizing()))
+	const [ translation ] = useTranslation()
+	const [bentoSizes] = useState(translation.ProjectPosts.map(() => randomBentoSizing()))
 
 	switch (view) {
 		case 'list': return (
-			getProjects().map(project => <ProjectListItem project={project} key={project.id} />)
+			translation.ProjectPosts.map(project => <ProjectListItem project={project} key={project.id} />)
 		)
 		case 'bento': return (
 			<BentoGrid>
-				{getProjects().map((project, i) => {
+				{translation.ProjectPosts.map((project, i) => {
 					return (
 						<ProjectBentoItem
 							key={project.id}
@@ -102,7 +102,7 @@ function ProjectsView({ view }: ProjectsViewProps) {
 		)
 		case 'grid': return (
 			<BentoGrid>
-				{getProjects().map(project => {
+				{translation.ProjectPosts.map(project => {
 					return (
 						<ProjectBentoItem
 							key={project.id}

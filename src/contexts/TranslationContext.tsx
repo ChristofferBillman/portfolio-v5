@@ -1,5 +1,10 @@
 import React, {createContext, ReactNode, useContext, useState} from 'react'
 import getLocale from '../util/getLocale'
+import Project from '../types/Project'
+import { projectsSE } from '../data/projectsSE'
+import { projectsEN } from '../data/projectsEN'
+import { aboutSE } from '../data/aboutSE'
+import { aboutEN } from '../data/aboutEN'
 
 interface TranslationContextProps {
 	children: React.ReactNode
@@ -35,10 +40,21 @@ export type Translation = {
 	ContactCTAText: string
 	NiceToMeet: string
 	HeroDesc: string
+	HeroDesc2: string
 	HighlightedProjects: string
 	Resume: string
 	ScrollToSeeMore: string
 	CVLink: string
+	HighligtedProject1: string
+	HighligtedProject2: string
+	HighligtedProject3: string
+	HiImMe: string
+	GoodAtWebdev: string
+	NewlyGraduated: string
+	LookingForChallenges: string
+	CodeForHireMe: string
+	ProjectPosts: Project[]
+	AboutPost: typeof aboutSE
 }
 
 type TranslationContext = [Translation, (_: 'EN' | 'SE') => void]
@@ -107,9 +123,20 @@ const translations: Translation[] = [
 		HighlightedProjects: 'Utvalda projekt',
 		Resume: 'CV',
 		ScrollToSeeMore: 'Skrolla för att se mer',
-		HeroGuide: 'Forsätter du skrolla kan du se några utvalda projekt. Om [n]',
+		HeroGuide: 'Nu bör en meny dyka upp.\n\nDär kan du läsa om mina projekt, lite om mig, och hitta kontaktuppgifter.\n\nDet går också bra att fortsätta skrolla här.',
 		CardView: 'Kort',
-		CVLink: '../CV Christoffer Billman.pdf'
+		CVLink: '../CV Christoffer Billman.pdf',
+		HeroDesc2: 'Med andra ord är jag duktig på frontend & UI/UX.',
+		HighligtedProject1: 'Examensarbete',
+		HighligtedProject2: 'Yotei',
+		HighligtedProject3: 'Lokaltrafik Umeå omdesign',
+		HiImMe: 'Hej, jag är\nChristoffer!',
+		GoodAtWebdev: 'Duktig på webbutveckling',
+		NewlyGraduated: 'Nyexaminerad civilingenjör inriktning Interaktion och Design',
+		LookingForChallenges: 'Söker nya möjligheter och utmaningar',
+		CodeForHireMe: 'kod för “anställ mig 🥺”',
+		ProjectPosts: projectsSE.sort((a,b) => a.position - b.position),
+		AboutPost: aboutSE
 	},{
 		Name: 'EN',
 		Home: 'Home',
@@ -137,12 +164,23 @@ const translations: Translation[] = [
 		BundleSize: 'Bundle size, this build:',
 		ContactCTAText: "Reach out, and we'll grab a coffee!",
 		NiceToMeet: 'Hi, nice to meet you! I am...',
-		HeroDesc: '[placeholder]',
+		HeroDesc: "I'm passionate about creating usable, accessible and stunning apps and websites.",
 		HighlightedProjects: 'Highlighted Projects',
 		Resume: 'Resume',
 		ScrollToSeeMore: 'Scroll to see more',
-		HeroGuide: undefined,
+		HeroGuide: 'A menu should appear now.\n\nThere, you can navigate to my projects, about me and contact information.\n\nYou can also keep scrolling here.',
 		CardView: 'Cards',
-		CVLink: '../Resume Christoffer Billman.pdf'
+		CVLink: '../Resume Christoffer Billman.pdf',
+		HeroDesc2: "In other words I'm good at frontend and UI/UX.",
+		HighligtedProject1: 'Thesis Project',
+		HighligtedProject2: 'Yotei',
+		HighligtedProject3: 'Local Transit Umeå Redesign',
+		HiImMe: "Hey there, I'm\nChristoffer",
+		GoodAtWebdev: 'Good at Web Development',
+		NewlyGraduated: 'Recently graduated from M.Sc. in Interaction Technology and Design',
+		LookingForChallenges: 'Looking for new challenges and opportunities',
+		CodeForHireMe: 'Code for “hire me 🥺”',
+		ProjectPosts: projectsEN.sort((a,b) => a.position - b.position),
+		AboutPost: aboutEN
 	},
 ]

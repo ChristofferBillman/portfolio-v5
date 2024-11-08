@@ -1,11 +1,17 @@
-import getProjects from '../../util/getProjects'
+import { useTranslation } from '../../contexts/TranslationContext'
 import BentoGrid from '../BentoGrid'
 import ProjectBentoItem from '../ProjectBentoItem'
 import style from './FloatingProjects.module.css'
 
 export function FloatingProjects() {
 
-	const highlights = [getProjects()[0], getProjects()[8], getProjects()[3]]
+	const [translation] = useTranslation()
+	
+	const highlights = [
+		translation.ProjectPosts[0],
+		translation.ProjectPosts[8],
+		translation.ProjectPosts[3]
+	]
 	
 	return (
 		<BentoGrid className={style.container}>
