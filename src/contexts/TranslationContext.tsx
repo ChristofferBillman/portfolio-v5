@@ -38,6 +38,7 @@ export type Translation = {
 	HighlightedProjects: string
 	Resume: string
 	ScrollToSeeMore: string
+	CVLink: string
 }
 
 type TranslationContext = [Translation, (_: 'EN' | 'SE') => void]
@@ -107,7 +108,8 @@ const translations: Translation[] = [
 		Resume: 'CV',
 		ScrollToSeeMore: 'Skrolla för att se mer',
 		HeroGuide: 'Forsätter du skrolla kan du se några utvalda projekt. Om [n]',
-		CardView: 'Kort'
+		CardView: 'Kort',
+		CVLink: '../CV Christoffer Billman.pdf'
 	},{
 		Name: 'EN',
 		Home: 'Home',
@@ -140,6 +142,7 @@ const translations: Translation[] = [
 		Resume: 'Resume',
 		ScrollToSeeMore: 'Scroll to see more',
 		HeroGuide: undefined,
-		CardView: 'Cards'
+		CardView: 'Cards',
+		CVLink: '../Resume Christoffer Billman.pdf'
 	},
 ]

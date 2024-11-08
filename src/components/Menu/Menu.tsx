@@ -100,9 +100,9 @@ export function Menu() {
 						</div>
 						<div className={`${style.col} label`}>
 							<h3>{translation.LinksAndResources}</h3>
-							<A href='GitHub' text='GitHub' iconName='code' />
-							<A href='' text='LinkedIn' iconName='arrow_outward' />
-							<A href='' text={translation.Resume} iconName='description' />
+							<A href='https://github.com/ChristofferBillman/' text='GitHub' iconName='code' />
+							<A href='https://www.linkedin.com/in/christoffer-billman-840029212' text='LinkedIn' iconName='arrow_outward' />
+							<A href={translation.CVLink} text={translation.Resume} iconName='description' />
 						</div>
 					</div><div className={style.line} /></>
 				}
