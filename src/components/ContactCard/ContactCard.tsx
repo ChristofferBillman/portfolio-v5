@@ -64,7 +64,7 @@ export function ContactCard({ title, info, img, href, copy, className = '' }: Pr
 									className={style.icon}
 								/>
 							}
-							onClick={() => window.open(link, '_blank')}
+							onClick={() => window.open(link, getHrefIcon(link) == 'arrow_outward' ? '_blank' :  '_self')}
 						/>
 					))
 				}
