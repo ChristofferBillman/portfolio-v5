@@ -301,7 +301,7 @@ export const projectsSE: Project[] = [{
 			text: 'Källkod',
 			href: "https://github.com/emmylindgren/GreetUp"
 		},{
-			type: 'code',
+			type: 'figma',
 			text: 'Designfil',
 			href: "https://www.figma.com/design/7O1ugqdH0yDd0b9ZtMeNPQ/GreetUP?node-id=2-4&t=mbe8sO5F79Lbaz3H-1"
 		}]
