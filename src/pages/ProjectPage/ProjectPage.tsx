@@ -21,7 +21,8 @@ export function ProjectPage() {
 	
 	useEffect(() => {
 		if (!project) return
-		animationController.setColors(project.colors)
+		// Forgive me for this
+		setTimeout(() => animationController.setColors(project.colors), 100)
 	}, [animationController, project])
 
 	if (!project) return <NoProject />

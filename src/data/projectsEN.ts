@@ -144,7 +144,7 @@ export const projectsEN: Project[] = [{
 
 	At first, I also tried to build the edit mode for wiki pages as a WYSIWYG editor (what you see is what you get), but this turned out to be too much to implement on my own. Achieving this would be a good opportunity for further development!
 
-	![Comparison between a WYSIWYG editor and a regular editor."](../img/wiki/wysiwyg "Notions WYSIWYG-editor (left), and the one on the wiki site - a normal editor (right).")
+	![Comparison between a WYSIWYG editor and a regular editor."](../img/wiki/wysiwyg "The Notion WYSIWYG-editor (left), and the one on the wiki site - a normal editor (right).")
 
 	## Present
 	At the time of writing, the project is inactive and offline. It wasn't considered worthwhile to host it, as no one was using the application anymore.
@@ -338,7 +338,7 @@ export const projectsEN: Project[] = [{
 
 	Since I was one of the few who knew React, I, along with another student, became de facto mentors in frontend development. We ran around a lot, helping different teams with frontend-related issues, something I believe contributed to how far we managed to get.
 
-	![Three views of my design proposal](../img/yotei/myversion "Three views in my desing proposal. A main thought of the desing was to consolidate all actions possible on a page in an 'action strip' at the top.")
+	![Three views of my design proposal](../img/yotei/myversion "Three views in my design proposal. A main thought of the design was to consolidate all actions on a page in an 'action strip' at the top.")
 
 	## Takeaways
 	This period during my studies might have been one of the most intense and challenging — but also one of the most fun and rewarding. I got to work with a wide variety of tasks, under significant personal responsibility, something I would gladly do again. It was also very fun and fulfilling to take on a mentoring role.
