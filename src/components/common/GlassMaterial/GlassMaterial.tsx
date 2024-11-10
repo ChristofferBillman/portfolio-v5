@@ -1,4 +1,4 @@
-import { createElement, forwardRef, ReactNode } from 'react'
+import { createElement, forwardRef, MouseEventHandler, ReactNode } from 'react'
 import style from './GlassMaterial.module.css'
 import getBrowser from '../../../util/GetBrowser'
 import clsx from 'clsx'
@@ -6,19 +6,21 @@ import clsx from 'clsx'
 interface Props {
 	className?: string
 	children?: ReactNode
-	onClick?: () => void
+	onClick?: MouseEventHandler<HTMLElement>
 	baseElement?: 'div' | 'button' | 'label'
+	dark?: boolean
 }
 
-export const GlassMaterial = forwardRef(function ({ className = '', children, onClick, baseElement = 'div' }: Props, ref: React.ForwardedRef<HTMLDivElement>) {
+export const GlassMaterial = forwardRef(function ({ className = '', children, onClick, baseElement = 'div', dark = false }: Props, ref: React.ForwardedRef<HTMLDivElement>) {
 
 	const clickableStyle = onClick ? style.clickable : ''
+	const colorStyle = dark ? style.darkGlass : style.glass
 
 	const getElement = () => {
 		return createElement(
 			baseElement,
 			{
-				className: clsx(style.glass, clickableStyle, className),
+				className: clsx(colorStyle, clickableStyle, className),
 				onClick,
 				ref,
 				tabIndex: onClick ? 0 : undefined,

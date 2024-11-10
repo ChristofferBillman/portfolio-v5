@@ -7,12 +7,32 @@
 	border-radius: 2rem;
 }
 
+.darkGlass {
+	background: linear-gradient(300deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.4) 100%);
+	-webkit-backdrop-filter: blur(20px);
+	backdrop-filter: blur(20px);
+	will-change: backdrop-filter;
+	border-radius: 2rem;
+}
+
 .clickable {
 	cursor: pointer;
 }
 
 /* The fact that this ACTUALLY works is INSANE! */
 .glass::before {
+	content: "";
+	z-index: -1;
+	position: absolute;
+	inset: 0;
+	border-radius: 2rem;
+	border: 0.08rem solid transparent;
+	background: linear-gradient(308deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.1) 80%, rgba(255, 255, 255, 0.458) 100%) border-box;
+	mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+	mask-composite: exclude;
+}
+
+.darkGlass::before {
 	content: "";
 	z-index: -1;
 	position: absolute;

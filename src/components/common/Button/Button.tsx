@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { MouseEventHandler, ReactNode } from 'react'
 import GlassMaterial from '../GlassMaterial'
 import style from './Button.module.css'
 import clsx from 'clsx'
@@ -8,18 +8,19 @@ interface Props {
 	onClick?: () => void
 	leftSlot?: ReactNode
 	rightSlot?: ReactNode
-	type?: 'white' | 'glass'
+	type?: 'white' | 'glass' | 'dark'
 	className?: string
 }
 export function Button({ text, onClick, leftSlot = '', rightSlot = '', type = 'glass', className='' }: Props) {
 
-	const Wrapper = type == 'glass' ? GlassMaterial : WhiteMaterial
+	const Wrapper = type == 'white' ? WhiteMaterial : GlassMaterial
 
 	return (
 		<Wrapper
 			className={`${style.button} ${className}`}
 			onClick={onClick}
 			baseElement='button'
+			dark={type == 'dark'}
 		>
 			{leftSlot}
 			{text &&
@@ -34,7 +35,7 @@ export function Button({ text, onClick, leftSlot = '', rightSlot = '', type = 'g
 
 interface WhiteMaterialProps {
 	children: ReactNode
-	onClick?: () => void
+	onClick?: MouseEventHandler<HTMLElement>
 	className: string
 }
 function WhiteMaterial({children, onClick, className}: WhiteMaterialProps) {
