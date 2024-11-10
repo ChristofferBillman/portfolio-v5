@@ -14,6 +14,8 @@ export const aboutSE = {
 	## Annars då?
 	På min fritid umgås jag mest med mina vänner. Det händer att jag spelar lite civ (Civilization IV) eller något annat datorspel ibland också. Jag brukar också spendera en del tid i fjällen med min familj som bor där. Då blir det en del skidåkning och vandring!
 
-	![](../img/about/sparetime "(1) Hösten 2022 var jag volontär på JavaScript-konferensen Nordic.js tillsammans med två vänner. (2) Utsikt över syter och viterskalet i Vindelfjällen. (3) Coola skidåkare 😎.")[centercaption]
+	![](../img/about/nordicjs "Hösten 2022 var jag volontär på JavaScript-konferensen Nordic.js tillsammans med två vänner.")
+	![](../img/about/viterskalet "Utsikt över syter och viterskalet i Vindelfjällen.")
+	![](../img/about/skiiers "Coola skidåkare 😎.")
 	`
 }

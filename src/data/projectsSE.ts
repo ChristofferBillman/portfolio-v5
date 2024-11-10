@@ -22,6 +22,12 @@ export const projectsSE: Project[] = [{
 	\n
 	En grundläggande struktur för appens navigation skapades tillsammans, och olika områden av appen tilldelades olika gruppmedlemmar. Därefter skapades wireframes (mid-fi:s) av respektive del av appen. Dessa diskuterades, och förbättrades iterativt. Därefter utvecklade vi Hi-Fi-prototyper i Figma, som skulle ligga till grund för implementationen.
 
+	![Alttext](../img/chare/Search "Det blev många olika Hi-Fi-prototyper som dessa.")
+	![Alttext](../img/chare/Profile "Det blev många olika Hi-Fi-prototyper som dessa.")
+	![Alttext](../img/chare/Trip Detail "Det blev många olika Hi-Fi-prototyper som dessa.")
+	![Alttext](../img/chare/1-3 "Lo-Fi prototyper.")
+	![Alttext](../img/chare/4-6 "Lo-Fi prototyper.")
+
 	## Problem & Lösningar
 	Ett problem som diskuterades var vare sig förare verkligen var villiga att ta in en främling i sin bil - och om passagerare skulle vara villiga att sätta sig i en främlings bil. Scenariot "ung tjej som reser sent på kvällen i en främlings bil" visade på att idén aldrig skulle fungera.
 

@@ -14,6 +14,8 @@ export const aboutEN = {
 	## What else?
 	In my spare time, I mostly hang out with my friends. I sometimes play a bit of Civ (Civilization IV) or other computer games. I also spend some time in the Swedish mountains with my family, who live there. While there, I go skiing and hiking lots!
 
-	![](../img/about/sparetime "(1) In the fall of 2022, I volunteered at the JavaScript conference Nordic.js with two friends. (2) View over the valleys Syterskalet and Viterskalet in the Vindelfjällen Nature Reserve. (3) Cool skiiers 😎.")[centercaption]
+	![](../img/about/nordicjs "In the fall of 2022, I volunteered at the JavaScript conference Nordic.js with two friends.")
+	![](../img/about/viterskalet "View over the valleys Syterskalet and Viterskalet in the Vindelfjällen Nature Reserve.")
+	![](../img/about/skiiers "Cool skiiers 😎.")
 	`
 }
