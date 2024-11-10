@@ -17,6 +17,13 @@ export function ImgStack({ srcs, captions }: Props) {
 	const [isHovering, setIsHovering] = useState(false)
 	const [selection, setSelection] = useState<number | null>(null)
 
+	const [open, setOpen] = useState(false)
+
+	const handleOpen = (open: boolean) => {
+		if(open == false) return setOpen(false) 
+		setTimeout(() => setOpen(true), 600)
+	}
+
 	if(isMobile()) {
 		return <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
 		{srcs.map((src, i) => (
@@ -33,7 +40,7 @@ export function ImgStack({ srcs, captions }: Props) {
 	return (
 		<div style={{ height: '400px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 			<div
-				className={clsx(style.container, isHovering && style.hovered)}
+				className={clsx(style.container, isHovering && style.hovered, open && style.open)}
 				onMouseEnter={() => setIsHovering(true)}
 				onMouseLeave={() => setIsHovering(false)}
 			>
@@ -46,6 +53,7 @@ export function ImgStack({ srcs, captions }: Props) {
 							setSelection={setSelection}
 							totalLen={srcs.length}
 							caption={captions && captions[i]}
+							setOpen={handleOpen}
 						/>
 					})}
 					<StackIndicatior
@@ -68,8 +76,9 @@ interface ImgElProps {
 	setSelection: Dispatch<SetStateAction<number | null>>
 	totalLen: number
 	caption: string | undefined
+	setOpen: (open: boolean) => void
 }
-function ImgEl({ src, indexOf, selection, setSelection, totalLen, caption }: ImgElProps) {
+function ImgEl({ src, indexOf, selection, setSelection, totalLen, caption, setOpen }: ImgElProps) {
 
 	return (
 		<div
@@ -80,6 +89,7 @@ function ImgEl({ src, indexOf, selection, setSelection, totalLen, caption }: Img
 				className={style.img}
 				onClick={() => {
 					setSelection(indexOf)
+					setOpen(true)
 				}}
 			/>
 			<div className={style.controls}>
@@ -106,6 +116,7 @@ function ImgEl({ src, indexOf, selection, setSelection, totalLen, caption }: Img
 					leftSlot={<Icon name='close' />}
 					onClick={() => {
 						setSelection(null)
+						setOpen(false)
 					}}
 				/>
 			</div>
