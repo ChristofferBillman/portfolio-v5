@@ -6,6 +6,7 @@ import SliderSelector from "../components/common/SliderSelector"
 import useAnimatedBackground from "../contexts/AnimatedBackgroundContext"
 import { Modal } from "../components/common/Modal/Modal"
 import { useNavigate } from "react-router-dom"
+import ImgStack from "../components/ImgStack"
 
 export default function Playground() {
 
@@ -84,6 +85,11 @@ export default function Playground() {
 				<GlassMaterial className='g-test'>
 					<p>Glass Material</p>
 				</GlassMaterial>
+
+				<ImgStack
+					srcs={['../img/nordicjs.webp', '../img/viterskalet.webp', '../img/cherry.webp']}
+					captions={['Mina vänner och jag var på Nordic.js hösten 2022.','Utsikt över Viterskalet.','Kungsträdgården!!']}
+				/>
 			</div>
 
 			<Modal
