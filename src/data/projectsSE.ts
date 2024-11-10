@@ -22,11 +22,11 @@ export const projectsSE: Project[] = [{
 	\n
 	En grundläggande struktur för appens navigation skapades tillsammans, och olika områden av appen tilldelades olika gruppmedlemmar. Därefter skapades wireframes (mid-fi:s) av respektive del av appen. Dessa diskuterades, och förbättrades iterativt. Därefter utvecklade vi Hi-Fi-prototyper i Figma, som skulle ligga till grund för implementationen.
 
-	![Alttext](../img/chare/Search "Det blev många olika Hi-Fi-prototyper som dessa.")
-	![Alttext](../img/chare/Profile "Det blev många olika Hi-Fi-prototyper som dessa.")
-	![Alttext](../img/chare/Trip Detail "Det blev många olika Hi-Fi-prototyper som dessa.")
-	![Alttext](../img/chare/1-3 "Lo-Fi prototyper.")
-	![Alttext](../img/chare/4-6 "Lo-Fi prototyper.")
+	![Alttext](../img/chare/Search "Hi-Fi-prototyper över sök, resultat och filtervy.")
+	![Alttext](../img/chare/Profile "Hi-Fi-prototyper över profil och inställningar.")
+	![Alttext](../img/chare/Trip Detail "Hi-Fi-prototyper över resedetaljvyn.")
+	![Alttext](../img/chare/4-6 "Lo-Fi-prototyper, resultat och detaljvy.")
+	![Alttext](../img/chare/1-3 "Lo-Fi-prototyper, sök och skapa resa.")
 
 	## Problem & Lösningar
 	Ett problem som diskuterades var vare sig förare verkligen var villiga att ta in en främling i sin bil - och om passagerare skulle vara villiga att sätta sig i en främlings bil. Scenariot "ung tjej som reser sent på kvällen i en främlings bil" visade på att idén aldrig skulle fungera.
@@ -143,7 +143,9 @@ export const projectsSE: Project[] = [{
 
 	Ett år senare återupptog jag projektet och vidareutvecklade det till att bli en öppen plattform där vem som helst kunde skapa ett konto och bygga en egen wiki, inte bara de av oss som spelade på servern. Jag bestämde mig även för att skriva om API:et i backenden från REST till GraphQL, för att det är något jag velat testa på.
 	
-	![Förstasidan på den vidareutvecklade varianten."](../img/wiki/firstpage "En del av förstasidan av den vidareutvecklade varianten.")
+	![](../img/wiki/hifi1 "Förstasidan för en Wiki.")
+	![](../img/wiki/hifi2 "Sökvy.")
+	![](../img/wiki/hifi3 "Ett exempel på en wikisida och vad den innehåller.")
 
 	## Problem & Lösningar
 	Från början hostades frontenden på GitHub Pages och backenden på en personlig dator, vilket orsakade CORS-problem eftersom de låg på olika domäner. Hanteras de på fel sätt kan det leda till säkerhetsproblem, vilket det definitivt gjorde i mitt fall. För att slippa hantera dessa skrev jag senare om koden så att både front- och backend hostades på samma IP-adress, på en AWS EC2-instans.
@@ -199,7 +201,9 @@ export const projectsSE: Project[] = [{
 
 	Att få pitcha i skarpt läge var även lärorikt. Att få göra det har bidragit till ett bättre självförtroende, att man kan tänka “jo, jag kan faktiskt”, även om det känns svårt och utmanande.
 
-	![Tre iPhones med bilder på Hi-Fi prototyper](../img/tip/result "")
+	![Tre Hi-Fi-prototyper](../img/tip/result "Diverse vyer i appen.")
+	![Tre Hi-Fi-prototyper](../img/tip/hifi1 "Diverse vyer i appen.")
+	![Tre Hi-Fi-prototyper](../img/tip/hifi2 "Diverse vyer i appen.")
 `,
 		position: 30,
 		resources: [{

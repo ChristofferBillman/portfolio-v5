@@ -22,6 +22,12 @@ export const projectsEN: Project[] = [{
 
 	A basic structure for the app's navigation was created together, and different areas of the app were assigned to different team members. Wireframes (Mid-Fi) of each part of the app were then created, discussed, and iteratively improved. Afterward, we developed Hi-Fi prototypes in Figma, which served as the basis for implementation.
 
+	![Alttext](../img/chare/Search "Hi-Fi-prototypes of search, results, and filter view.")
+	![Alttext](../img/chare/Profile "Hi-Fi-prototypes of profile and settings.")
+	![Alttext](../img/chare/Trip Detail "Hi-Fi-prototypes of the travel detail view.")
+	![Alttext](../img/chare/4-6 "Lo-Fi-prototypes, results och detail view.")
+	![Alttext](../img/chare/1-3 "Lo-Fi-prototypes, search and create trip.")
+
 	## Challenges & Solutions
 	One issue we discussed was whether drivers would actually be willing to take a stranger in their car — and if passengers would be willing to ride with a stranger. The scenario of a "young woman traveling late at night in a stranger's car" showed that the idea might not work in practice.
 
@@ -121,7 +127,7 @@ export const projectsEN: Project[] = [{
 	}]
 }, {
 	id: 'wiki',
-	name: 'Wikisajt',
+	name: 'Wiki Site',
 	title: 'Documentation of Roleplaying and Events on a Minecraft Server',
 	thumbnail: '../img/wiki/promo',
 	colors: ['#313131', '#3B97D9', '#313131', '#313131'],
@@ -137,7 +143,9 @@ export const projectsEN: Project[] = [{
 
 	A year later, I revisited the project, developing it into an open platform where anyone could create an account and build their own wiki — not just those of us playing on the server. I also decided to rewrite the backend API from REST to GraphQL, as it was something I'd wanted to try out.
 	
-	![Homepage of the new version."](../img/wiki/firstpage "A part of the home page of the new version.")
+	![](../img/wiki/hifi1 "Homepage of a Wiki.")
+	![](../img/wiki/hifi2 "Search view.")
+	![](../img/wiki/hifi3 "An example of a wiki page and its contents.")
 
 	## Challenges & Solutions
 	Initially, the frontend was hosted on GitHub Pages and the backend on a personal computer, which caused CORS issues since they were on different domains. Improper handling can lead to security problems, which it definitely did in my case. To avoid this, I later rewrote the code so both the frontend and backend were hosted on the same IP address, on an AWS EC2 instance.
@@ -193,7 +201,9 @@ export const projectsEN: Project[] = [{
 
 	Pitching in a real-world setting was also a valuable experience. Doing it has built confidence, helping me think, “Yes, I actually can,” even when things feel challenging.
 
-	![Three iPhones displaying images of Hi-Fi prototypes](../img/tip/result "")
+	![Tre Hi-Fi-prototyper](../img/tip/result "Some views in the design.")
+	![Tre Hi-Fi-prototyper](../img/tip/hifi1 "Some views in the design.")
+	![Tre Hi-Fi-prototyper](../img/tip/hifi2 "Some views in the design.")
 `,
 	position: 30,
 	resources: [{
