@@ -17,7 +17,7 @@ export function About() {
 				<Img src='../img/me.webp' className={clsx(style.heroImg, style.fadeIn)}/>
 			</div>
 			<h2>TL;DR</h2>
-			<ul>
+			<ul className={style.largeMargin}>
 				<li><p>💻 {translation.GoodAtWebdev}</p></li>
 				<li><p>🎓 {translation.NewlyGraduated}</p></li>
 				<li><p>🛠️ {translation.LookingForChallenges}</p><p className={style.tinyText}>({translation.CodeForHireMe})</p></li>

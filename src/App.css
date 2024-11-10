@@ -58,8 +58,9 @@ p {
 	margin: 0 8rem 1rem 8rem;
 }
 
-.increasedLinespace {
+.projectP {
 	line-height: 1.5;
+	margin: 0 8rem;
 }
 
 a {
@@ -109,5 +110,8 @@ label, .label {
 @media (width <= 1200px) {
 	.caption {
 		margin: 0 0 1rem 0;
+	}
+	.projectP {
+		margin: 0;
 	}
 }

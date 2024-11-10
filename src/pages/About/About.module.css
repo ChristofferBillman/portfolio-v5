@@ -29,14 +29,13 @@ li {
 
 .content img {
 	border-radius: 2rem;
-	margin: 1rem 0;
 	width: 100%;
 }
 
 .content h2, .content h1 {
 	margin: 1rem 8rem 1rem 8rem;
 }
-.content p {
+.largeMargin {
 	margin: 0 8rem;
 }
 
@@ -48,6 +47,9 @@ li {
 @media (width <= 1200px) {
 	.content {
 		padding: 0;
+	}
+	.largeMargin {
+		margin: 0;
 	}
 	.content img {
 		border-radius: 1rem;
