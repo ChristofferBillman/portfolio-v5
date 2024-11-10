@@ -1,13 +1,16 @@
 .container {
 	gap: 5rem;
-	width: 75vw;
+	width: 75%;
 	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
 }
 
 .r1, .r2, .r3 {
 	transform: var(--scale) var(--rotate) var(--translateX);
 	transition-duration: 500ms;
 	transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+	min-height: 40vh;
 }
 
 .r1:hover, .r2:hover, .r3:hover {
@@ -30,6 +33,7 @@
 	.container {
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr;
+		width: 90%;
 	}
 
 	.r1 {
