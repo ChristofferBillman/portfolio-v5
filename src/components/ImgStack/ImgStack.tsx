@@ -4,6 +4,8 @@ import { Dispatch, SetStateAction, useState } from "react"
 import GlassMaterial from "../common/GlassMaterial"
 import Button from "../common/Button"
 import Icon from "../common/Icon"
+import isMobile from "../../util/IsMobile"
+import Img from "../common/Img"
 
 interface Props {
 	srcs: string[]
@@ -15,8 +17,21 @@ export function ImgStack({ srcs, captions }: Props) {
 	const [isHovering, setIsHovering] = useState(false)
 	const [selection, setSelection] = useState<number | null>(null)
 
+	if(isMobile()) {
+		return <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+		{srcs.map((src, i) => (
+			<>
+				<Img src={src}/>
+				<span className='caption'>
+					{captions && captions[i]}
+				</span>
+			</>
+		))}
+		</div>
+	}
+
 	return (
-		<div style={{ height: '800px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+		<div style={{ height: '400px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 			<div
 				className={clsx(style.container, isHovering && style.hovered)}
 				onMouseEnter={() => setIsHovering(true)}
@@ -33,7 +48,13 @@ export function ImgStack({ srcs, captions }: Props) {
 							caption={captions && captions[i]}
 						/>
 					})}
-					<StackIndicatior numImg={srcs.length}/>
+					<StackIndicatior
+						numImg={srcs.length}
+						isHovering={isHovering}
+						selection={selection}
+						setSelection={setSelection}
+						len={srcs.length}
+					/>
 				</>
 			</div>
 		</div>
@@ -63,6 +84,7 @@ function ImgEl({ src, indexOf, selection, setSelection, totalLen, caption }: Img
 			/>
 			<div className={style.controls}>
 				<Button
+					type="dark"
 					className={style.closeBtn}
 					leftSlot={<Icon name='chevron_left' />}
 					onClick={() => {
@@ -71,6 +93,7 @@ function ImgEl({ src, indexOf, selection, setSelection, totalLen, caption }: Img
 				/>
 
 				<Button
+					type="dark"
 					className={style.closeBtn}
 					leftSlot={<Icon name='chevron_right' />}
 					onClick={() => {
@@ -87,12 +110,12 @@ function ImgEl({ src, indexOf, selection, setSelection, totalLen, caption }: Img
 				/>
 			</div>
 
-			<GlassMaterial className={style.progress}>
+			<GlassMaterial className={style.progress} dark>
 				<p>{indexOf + 1} / {totalLen}</p>
 			</GlassMaterial>
 
 			{caption && 
-				<GlassMaterial className={style.caption}>
+				<GlassMaterial className={style.caption} dark>
 					<p>{caption}</p>
 				</GlassMaterial>
 			}
@@ -100,10 +123,14 @@ function ImgEl({ src, indexOf, selection, setSelection, totalLen, caption }: Img
 	)
 }
 
-function StackIndicatior({ numImg }: { numImg: number }) {
+function StackIndicatior({ numImg, isHovering, selection, setSelection, len }: { numImg: number, isHovering: boolean, selection: number | null, setSelection: Dispatch<SetStateAction<number | null>>, len: number }) {
 	return (
-		<GlassMaterial className={style.indicator}>
-			<p>{numImg}</p>
+		<GlassMaterial
+			dark
+			className={clsx(style.indicator, ((len <= 3 && isHovering) || selection != null) && style.hideIndicator)}
+			onClick={() => setSelection(3)}
+		>
+			<p>{isHovering ? '+' + (numImg - 3) : numImg}</p>
 		</GlassMaterial>
 	)
 }

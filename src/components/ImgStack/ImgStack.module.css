@@ -5,9 +5,10 @@
 	justify-content: center;
 	height: 400px;
 	width: 500px;
-	--transform1: rotate(-4deg) translateY(100px) translateX(0px);
+	--transform1: rotate(0deg) translateY(100px) translateX(-100px);
 	--transform2: rotate(4deg) translateY(-200px) translateX(150px);
 	--transform3: rotate(-8deg) translateY(-200px) translateX(-200px);
+	--transformRest: rotate(-8deg) translateY(130px) translateX(160px) scale(0.3);
 }
 
 .img {
@@ -32,46 +33,58 @@
 }
 
 /* INITAL ROTATION "STACK" */
-
-.container :nth-child(1) {
-	transform: rotate(-16deg);
+.container .imgContainer:nth-child(n) {
+	transform: rotate(8deg) scale(0.5);
+	z-index: 0;
 }
-
-.container :nth-child(2) {
-	transform: rotate(-8deg);
-}
-
-.container :nth-child(3) {
+.container .imgContainer:nth-child(1) {
 	transform: rotate(0deg);
+	z-index: 3;
+}
+
+.container .imgContainer:nth-child(2) {
+	transform: rotate(-8deg);
+	z-index: 2;
+}
+
+.container .imgContainer:nth-child(3) {
+	transform: rotate(0deg);
+	z-index: 1;
 }
 
 
 
 /* WHEN STACK IS HOVERED */
 
-.hovered :nth-child(1) {
-	transform: var(--transform1) ;
+.hovered .imgContainer:nth-child(n) {
+	transform: var(--transformRest);
+}
+.hovered .imgContainer:nth-child(1) {
+	transform: var(--transform1);
 }
 
-.hovered :nth-child(2) {
+.hovered .imgContainer:nth-child(2) {
 	transform: var(--transform2);
 }
 
-.hovered :nth-child(3) {
+.hovered .imgContainer:nth-child(3) {
 	transform: var(--transform3);
 }
 
 
 /* INDIVIDUAL IMG HOVERED */
-.hovered :nth-child(1):hover {
+.hovered .imgContainer:nth-child(n + 4):hover {
+	transform: var(--transformRest) scale(1);
+}
+.hovered .imgContainer:nth-child(1):hover {
 	transform: var(--transform1) scale(1.1) rotate(4deg);
 }
 
-.hovered :nth-child(2):hover {
+.hovered .imgContainer:nth-child(2):hover {
 	transform:  var(--transform2) scale(1.1) rotate(-4deg);
 }
 
-.hovered :nth-child(3):hover {
+.hovered .imgContainer:nth-child(3):hover {
 	transform:  var(--transform3) scale(1.1) rotate(8deg);
 }
 
@@ -87,26 +100,33 @@
 	bottom: 1rem;
 	right: 1rem;
 	transition-duration: 300ms;
+	z-index: 10;
 }
 
 .indicator * {
 	transform: none !important;
 }
 
-.hovered .indicator {
-	opacity: 0;
+.hideIndicator {
+	display: none;
 }
 
 .selected {
-	position: fixed;
+	position: absolute;
 	width: 90vw;
 	transform: none !important;
-	z-index: 10;
+	z-index: 10 !important;
 	box-shadow: 0 0 0 1000000px rgba(0,0,0,0.25);
 }
 
 .closeBtn {
 	padding: 1rem;
+	font-size: 1rem;
+	box-shadow: 0 0 40px rgba(0,0,0,0.25);
+}
+.closeBtn:hover {
+	box-shadow: 0 0 40px rgba(0,0,0,0.25);
+	transform: scale(1.05) !important;
 }
 
 .controls {
@@ -117,11 +137,11 @@
 	top: 1rem;
 	right: 1rem;
 	position: absolute;
-	visibility: hidden;
+	display: none;
 }
 
 .selected .controls, .selected .progress, .selected .caption  {
-	visibility: visible;
+	display: flex;
 }
 
 .progress {
@@ -129,7 +149,7 @@
 	right: 1rem;
 	bottom: 1rem;
 	padding: 0.8rem;
-	visibility: hidden;
+	display: none;
 }
 
 .caption {
@@ -137,5 +157,6 @@
 	left: 1rem;
 	bottom: 1rem;
 	padding: 0.8rem;
-	visibility: hidden;
+	max-width: 80%;
+	display: none;
 }
