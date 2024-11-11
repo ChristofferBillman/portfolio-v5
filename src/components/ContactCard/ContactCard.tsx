@@ -12,8 +12,9 @@ interface Props {
 	href?: string[]
 	copy?: boolean
 	className?: string
+	imgAlt?: string
 }
-export function ContactCard({ title, info, img, href, copy, className = '' }: Props) {
+export function ContactCard({ title, info, img, href, copy, className = '', imgAlt }: Props) {
 
 	const [icon, setIcon] = useState('content_copy')
 
@@ -24,7 +25,7 @@ export function ContactCard({ title, info, img, href, copy, className = '' }: Pr
 
 	return (
 		<GlassMaterial className={clsx(style.container, className)}>
-			{img && <img src={img} />}
+			{img && <img src={img} alt={imgAlt}/>}
 			<div className={style.textContainer}>
 				<p>{title}</p>
 				<p className={emailStyle}>{info}</p>

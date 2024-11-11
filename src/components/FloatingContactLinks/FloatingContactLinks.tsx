@@ -12,6 +12,7 @@ export function FloatingContactLinks() {
 				title='LinkedIn'
 				info='Christoffer Billman'
 				img='../img/linkedin.png'
+				imgAlt='LinkedIn logo'
 				href={['https://www.linkedin.com/in/christoffer-billman-840029212']}
 				className={style.r1}
 			/>
@@ -19,6 +20,7 @@ export function FloatingContactLinks() {
 				title='GitHub'
 				info='ChristofferBillman'
 				img='../img/gh.png'
+				imgAlt='GitHub logo'
 				href={['https://github.com/ChristofferBillman']}
 				className={style.r2}
 			/>
