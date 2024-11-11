@@ -1,6 +1,5 @@
 import { useTranslation } from "../../contexts/TranslationContext"
 import style from './Home.module.css'
-import Img from "../../components/common/Img"
 import FloatingContactLinks from "../../components/FloatingContactLinks"
 
 import clsx from "clsx"
@@ -14,7 +13,7 @@ export function Home() {
 	<>
 		<div className={style.container}>
 			<div className={style.introContainer}>
-				<Img src='../img/me.webp' className={clsx(style.heroImg, style.fadeIn)}/>
+				<img src='../img/me.webp' className={clsx(style.heroImg, style.fadeIn)} alt={translation.Name == 'EN' ? 'Christoffer smiling, looking friendly and approachable.' : 'Christoffer ler och ser trevlig och snäll ut.'}/>
 				<div>
 					<p className={style.fadeIn}>{translation.NiceToMeet}</p>
 					<h1 className={clsx(style.fadeIn, style.stagger1)}>Christoffer <br/> Billman</h1>

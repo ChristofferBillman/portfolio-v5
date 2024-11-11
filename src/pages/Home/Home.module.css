@@ -54,18 +54,16 @@
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 	animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stagger1 {
 	animation-delay: 1s;
 	-webkit-animation-delay: 1s;
 }
 
-.stagger1 {
-	animation-delay: 3s;
-	-webkit-animation-delay: 3s;
-}
-
 .stagger2 {
-	animation-delay: 4s;
-	-webkit-animation-delay: 4s;
+	animation-delay: 2s;
+	-webkit-animation-delay: 2s;
 }
 
 .scrollCTA {
