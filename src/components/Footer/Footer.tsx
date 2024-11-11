@@ -22,7 +22,7 @@ export function Footer() {
 							{translation.BuiltWithReact + ' '}
 							<A
 								text={translation.SourceCode}
-								href='https://github.com/ChristofferBillman/portfolio/'
+								href='https://github.com/ChristofferBillman/portfolio-v5/'
 								iconName='arrow_outward'
 							/>
 							<br/>
