@@ -43,6 +43,16 @@ export function ImgStack({ srcs, captions }: Props) {
 				className={clsx(style.container, isHovering && style.hovered, open && style.open)}
 				onMouseEnter={() => setIsHovering(true)}
 				onMouseLeave={() => setIsHovering(false)}
+				onKeyDown={e => {
+					if(selection == null) return
+					if(e.key == 'ArrowLeft') setSelection((((selection-1) % srcs.length) + srcs.length) % srcs.length)
+					if(e.key == 'ArrowRight') setSelection((selection + 1) % srcs.length)
+					if(e.key == 'Escape') {
+						setOpen(false)
+						setSelection(null)
+					}
+				}}
+				tabIndex={0}
 			>
 				<>
 					{srcs.map((src, i) => {

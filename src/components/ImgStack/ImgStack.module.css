@@ -168,9 +168,3 @@
 	max-width: 80%;
 	display: none;
 }
-
-@media (width <= 1200px) {
-	.imgContainer {
-		transition-duration: 1200ms;
-	}
-}
