@@ -3,7 +3,7 @@ import style from './Home.module.css'
 import FloatingContactLinks from "../../components/FloatingContactLinks"
 
 import clsx from "clsx"
-import FloatingProjects from "../../components/FloatingProjects"
+import ProjectListItem from "../../components/ProjectListItem"
 
 export function Home() {
 
@@ -32,7 +32,8 @@ export function Home() {
 		</div>
 
 		<h1 style={{marginBottom: '2rem'}}>{translation.HighlightedProjects}</h1>
-		<FloatingProjects/>
+		<FullwidthProjects/>
+		{/*<FloatingProjects/>*/}
 
 		<h1 style={{textAlign: 'center', marginTop: '20vh'}}>{translation.ContactCTAText}</h1>
 		<FloatingContactLinks/>
@@ -40,13 +41,16 @@ export function Home() {
 	)
 }
 
-/*
+
 function FullwidthProjects() {
+
+	const [ translation ] = useTranslation()
+
 	return (
 		<section className={style.projectsContainer}>
-			<ProjectListItem project={getProjects()[0]} variant='large'/>
-			<ProjectListItem project={getProjects()[8]} variant='large'/>
-			<ProjectListItem project={getProjects()[3]} variant='large'/>
+			<ProjectListItem project={translation.ProjectPosts[0]} variant='large'/>
+			<ProjectListItem project={translation.ProjectPosts[8]} variant='large'/>
+			<ProjectListItem project={translation.ProjectPosts[3]} variant='large'/>
 		</section>
 	)
-}*/
+}

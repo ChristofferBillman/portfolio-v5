@@ -134,7 +134,7 @@ const translations: Translation[] = [
 		GoodAtWebdev: 'Duktig på webbutveckling',
 		NewlyGraduated: 'Nyexaminerad civilingenjör inriktning Interaktion och Design',
 		LookingForChallenges: 'Söker nya möjligheter och utmaningar',
-		CodeForHireMe: 'kod för “anställ mig 🥺”',
+		CodeForHireMe: 'kod för “anställ mig”😁',
 		ProjectPosts: projectsSE.sort((a,b) => a.position - b.position),
 		AboutPost: aboutSE
 	},{
@@ -179,7 +179,7 @@ const translations: Translation[] = [
 		GoodAtWebdev: 'Good at Web Development',
 		NewlyGraduated: 'Recently graduated from M.Sc. in Interaction Technology and Design',
 		LookingForChallenges: 'Looking for new challenges and opportunities',
-		CodeForHireMe: 'Code for “hire me 🥺”',
+		CodeForHireMe: 'Code for “hire me”😁',
 		ProjectPosts: projectsEN.sort((a,b) => a.position - b.position),
 		AboutPost: aboutEN
 	},
