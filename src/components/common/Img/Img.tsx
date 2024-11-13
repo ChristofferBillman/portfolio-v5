@@ -17,7 +17,7 @@ export function Img({src, ...props}: Props ) {
 				{...props}
 				src={src}
 				onLoad={() => setIsLoaded(true)}
-				style={{...props.style, opacity: isLoaded ? 1 : 0, width: '100%', height: '100%', display: 'block' }}
+				style={{...props.style, opacity: isLoaded ? 1 : 0, display: 'block' }}
 			/>
 		</div>
 	)
