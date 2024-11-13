@@ -12,7 +12,7 @@ export const aboutSE = {
 	![Rutnät med olika tekniker. Git, TailwindCSS, Entity Framework, MongoDB, GraphQL, React, TypeScript, JavaScript, HTML, CSS, MySQL, Java, Vite, Jest, C#, Haskell, Playwright, RTL, Selenium.](../img/about/technologies "Tekniker som jag hållit på med i någon utsträckning och testat på.")[centercaption]
 
 	## Annars då?
-	På min fritid umgås jag mest med mina vänner. Det händer att jag spelar lite civ (Civilization IV) eller något annat datorspel ibland också. Jag brukar också spendera en del tid i fjällen med min familj som bor där. Då blir det en del skidåkning och vandring!
+	På min fritid umgås jag mest med mina vänner. Det händer att jag spelar lite Civilization VI eller något annat datorspel ibland också. Jag brukar också spendera en del tid i fjällen med min familj som bor där. Då blir det en del skidåkning och vandring!
 
 	![](../img/about/nordicjs "Hösten 2022 var jag volontär på JavaScript-konferensen Nordic.js tillsammans med två vänner.")
 	![](../img/about/viterskalet "Utsikt över syter och viterskalet i Vindelfjällen.")
