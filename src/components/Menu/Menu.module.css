@@ -4,9 +4,11 @@
 	right: 1rem;
 	z-index: 2;
 	height: 42px;
+	width: 1px;
 	transition-duration: 500ms;
 	transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 	overflow: hidden;
+	background: rgba(255, 255, 255, 0.2);
 }
 
 .menuButton {
@@ -96,6 +98,10 @@
 .optionsContainer {
 	display: flex;
 	gap: 0.5rem;
+}
+
+.langSelector {
+	height: 1.75rem;
 }
 
 @media (width <= 800px) {

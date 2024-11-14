@@ -57,7 +57,7 @@ export function Menu() {
 				className={clsx(style.menuWrapper, open && style.open)}
 				ref={menuRefs.container}
 			/>
-			{/* Having opacity be 0 at initial render apperently makes safari skip applying the backdrop-filter - which makes my life difficult. But only sometimes like what??  */}
+			
 			<ContentTransition
 				ref={menuRefs.items}
 				className={style.menuItemsWrapper}
@@ -160,6 +160,7 @@ export function Menu() {
 						/>
 					</div>
 					<SliderSelector
+						className={style.langSelector}
 						items={[
 							{ text: '🇸🇪', value: 'SE' },
 							{ text: '🇬🇧', value: 'EN' },
