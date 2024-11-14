@@ -47,7 +47,7 @@ export function Menu() {
 	}
 
 	useMenuDimensions(isMobileState, Object.values(menuRefs))
-	useHiddenMenuUntilScroll(window.innerHeight * 2.3, setMenuVisible)
+	useHiddenMenuUntilScroll(window.innerHeight * 2, setMenuVisible)
 	useDynamicMenuColor(menuRefs.container)
 	useOutsideClick(() => setOpen(false), Object.values(menuRefs))
 

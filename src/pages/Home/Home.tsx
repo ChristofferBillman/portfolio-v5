@@ -23,11 +23,7 @@ export function Home() {
 				</div>
 			</div>
 
-			<p>{translation.HeroDesc}</p>
-
-			<p style={{maxWidth: '50vw'}}>{translation.HeroDesc2}</p>
-
-			<p style={{maxWidth: '50vw'}}>{translation.HeroGuide}</p>
+			<p style={{marginBottom: '75vh'}}>{translation.HeroDesc}</p>
 
 		</div>
 
