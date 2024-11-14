@@ -31,6 +31,11 @@
 
 .footer {
 	width: 100vw;
+	border-radius: 2rem 2rem 0 0 ;
+}
+
+.footer::before {
+	border-radius: 2rem 2rem 0 0 ;
 }
 
 .footer a {
@@ -49,9 +54,13 @@
 	.content {
 		flex-direction: column;
 		padding: 1rem;
+		gap: 2rem;
 	}
 	.rightContent .infoContainer {
 		align-items: flex-start;
+	}
+	.rightContent {
+		margin-top: 0;
 	}
 	.leftContent {
 		width: 100%;
