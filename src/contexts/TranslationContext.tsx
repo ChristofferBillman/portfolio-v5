@@ -1,4 +1,4 @@
-import React, {createContext, ReactNode, useContext, useState} from 'react'
+import React, { createContext, ReactNode, useContext, useState } from 'react'
 import getLocale from '../util/getLocale'
 import Project from '../types/Project'
 import { projectsSE } from '../data/projectsSE'
@@ -51,7 +51,7 @@ export type Translation = {
 	HiImMe: string
 	GoodAtWebdev: string
 	NewlyGraduated: string
-	LookingForChallenges: string
+	EmploymentStatus: string
 	CodeForHireMe: string
 	ProjectPosts: Project[]
 	AboutPost: typeof aboutSE
@@ -133,11 +133,11 @@ const translations: Translation[] = [
 		HiImMe: 'Hej, jag är\nChristoffer!',
 		GoodAtWebdev: 'Duktig på webbutveckling',
 		NewlyGraduated: 'Nyexaminerad civilingenjör inriktning Interaktion och Design',
-		LookingForChallenges: 'Söker nya möjligheter och utmaningar',
+		EmploymentStatus: 'Front-End Software Engineer på Clear Street',
 		CodeForHireMe: 'kod för “anställ mig”😁',
-		ProjectPosts: projectsSE.sort((a,b) => a.position - b.position),
+		ProjectPosts: projectsSE.sort((a, b) => a.position - b.position),
 		AboutPost: aboutSE
-	},{
+	}, {
 		Name: 'EN',
 		Home: 'Home',
 		Projects: 'Projects',
@@ -178,9 +178,9 @@ const translations: Translation[] = [
 		HiImMe: "Hey there, I'm\nChristoffer",
 		GoodAtWebdev: 'Good at Web Development',
 		NewlyGraduated: 'Recently graduated from M.Sc. in Interaction Technology and Design',
-		LookingForChallenges: 'Looking for new challenges and opportunities',
+		EmploymentStatus: 'Front-End Software Engineer @ Clear Street',
 		CodeForHireMe: 'Code for “hire me”😁',
-		ProjectPosts: projectsEN.sort((a,b) => a.position - b.position),
+		ProjectPosts: projectsEN.sort((a, b) => a.position - b.position),
 		AboutPost: aboutEN
 	},
 ]
